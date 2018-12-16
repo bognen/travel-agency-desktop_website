@@ -8,6 +8,9 @@ C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExper
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TravelExperts.pdb
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.exe
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.pdb
-C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesForm.resources
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductForm.resources
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.SupplierForm.resources
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TraveExpertClassLibrary.dll
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TraveExpertClassLibrary.pdb
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesList.resources

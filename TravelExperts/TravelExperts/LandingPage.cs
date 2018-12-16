@@ -19,9 +19,9 @@ namespace TravelExperts
 
         private void pACKEGESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PackagesForm packagesForm = new PackagesForm();
-            packagesForm.MdiParent = this ;
-            packagesForm.Show();
+            PackagesList packagesList = new PackagesList();
+            packagesList.MdiParent = this ;
+            packagesList.Show();
         }
 
         private void pRODUCTSToolStripMenuItem_Click(object sender, EventArgs e)
