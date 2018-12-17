@@ -28,7 +28,7 @@ namespace TravelExperts
 
         void button1_Click(object sender, EventArgs e)
         {
-            ;
+            // 
             foreach (DataGridViewCell cell in this.rowString.Cells)
             {
                 MessageBox.Show(string.Format("{0}", cell.Value));

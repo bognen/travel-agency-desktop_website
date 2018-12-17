@@ -47,7 +47,7 @@
             this.deleteStripButton});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(800, 35);
+            this.toolStrip2.Size = new System.Drawing.Size(984, 35);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -62,6 +62,7 @@
             this.addlStripButton.Size = new System.Drawing.Size(32, 32);
             this.addlStripButton.Text = "ADD";
             this.addlStripButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.addlStripButton.Click += new System.EventHandler(this.addlStripButton_Click);
             // 
             // editStripButton
             // 
@@ -94,22 +95,21 @@
             this.dgvPackageList.MultiSelect = false;
             this.dgvPackageList.Name = "dgvPackageList";
             this.dgvPackageList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPackageList.Size = new System.Drawing.Size(780, 407);
+            this.dgvPackageList.Size = new System.Drawing.Size(964, 418);
             this.dgvPackageList.TabIndex = 2;
-            
             // 
             // PackagesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.dgvPackageList);
             this.Controls.Add(this.toolStrip2);
-            this.Location = new System.Drawing.Point(200, 0);
+            this.Location = new System.Drawing.Point(200, 20);
             this.Name = "PackagesList";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "PackagesFom";
+            this.Text = "Packages List";
             this.Load += new System.EventHandler(this.PackagesForm_Load);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
