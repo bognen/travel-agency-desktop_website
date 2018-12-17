@@ -96,6 +96,7 @@
             this.dgvPackageList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPackageList.Size = new System.Drawing.Size(780, 407);
             this.dgvPackageList.TabIndex = 2;
+            
             // 
             // PackagesList
             // 
