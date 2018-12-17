@@ -15,3 +15,4 @@ C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExper
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesList.resources
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.TextAndButtonControl.resources
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesForm.resources

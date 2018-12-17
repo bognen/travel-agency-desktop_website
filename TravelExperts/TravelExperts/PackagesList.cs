@@ -119,5 +119,14 @@ namespace TravelExperts
             //Handle the cellEndEdit event to update the cell value
             this.dgvPackageList.CellEndEdit += new DataGridViewCellEventHandler(dgv_CellEndEdit);
         }
+
+        private void addlStripButton_Click(object sender, EventArgs e)
+        {
+            // prepare 
+            DataGridViewRow rowstring = null;
+
+            PackagesForm packForm = new PackagesForm(rowstring);
+            packForm.Show();
+        }
     }
 }
