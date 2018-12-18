@@ -31,68 +31,63 @@ namespace TravelExperts
 
         private void PackagesForm_Load(object sender, EventArgs e)
         {
-            int packageID = Convert.ToInt32(txtId.Text);
-            dgvPackProdSuppl.DataSource = DBHandler.getPackageProdSuppliers(packageID);
+            //int packageID = Convert.ToInt32(txtId.Text);
+            //dgvPackProdSuppl.DataSource = DBHandler.getPackageProdSuppliers(packageID);
 
-            //***  Table apperance
-            //HIDE ID COLUMN
-            dgvPackProdSuppl.Columns[0].Visible = false;
+            ////***  Table apperance
+            ////HIDE ID COLUMN
+            //dgvPackProdSuppl.Columns[0].Visible = false;
 
-            // EDIT APPEARANCE OF DATA GRID VIEW
-            dgvPackProdSuppl.Columns[0].HeaderText = "Package ID";
-            dgvPackProdSuppl.Columns[1].HeaderText = "Product";
-            dgvPackProdSuppl.Columns[2].HeaderText = "Supplier";
+            //// EDIT APPEARANCE OF DATA GRID VIEW
+            //dgvPackProdSuppl.Columns[0].HeaderText = "Package ID";
+            //dgvPackProdSuppl.Columns[1].HeaderText = "Product";
+            //dgvPackProdSuppl.Columns[2].HeaderText = "Supplier";
 
 
             // Variable to Retrive MS SQL Qeury
-            //int packageID = Convert.ToInt32(txtId.Text);
-            //DataTable packProdSup = DBHandler.getPackageProdSuppliers(packageID);
-            //List<DataRow> packProdSupList = packProdSup.AsEnumerable().ToList();
+            int packageID = Convert.ToInt32(txtId.Text);
+            DataTable packProdSup = DBHandler.getPackageProdSuppliers(packageID);
+            List<PackProdSupplier> packProdSupList = new List<PackProdSupplier>();
+            
+            // Move data to a custom class
+            foreach (DataRow row in packProdSup.Rows)
+            {
+                PackProdSupplier itemLine = new PackProdSupplier(row[0].ToString(), row[1].ToString(),
+                                                                row[2].ToString(), row[3].ToString());
+                packProdSupList.Add(itemLine);
+            }
 
+            // Create a DataGridView
+            DataGridViewTextBoxColumn product = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn productId = new DataGridViewTextBoxColumn();
+            DataGridViewComboBoxColumn supplier = new DataGridViewComboBoxColumn();
+            DataGridViewTextBoxColumn supplierId = new DataGridViewTextBoxColumn();
 
-            //// Move data to a custom class
-            //foreach (DataRow row in packProdSup.Rows)
-            //{
-            //    lbl lbl = new lbl();
-            //    lbl.Name = row["name"].ToString();
-            //    lbl.Gender = row["gender"].ToString();
-            //    lbl.Contact = row["contactno"].ToString();
+            // Set column properties
+            product.HeaderText = "Product";
+            dgvPackProdSuppl.Columns.Add(product);
+            productId.HeaderText = "Product ID";
+            dgvPackProdSuppl.Columns.Add(productId);
+            supplier.HeaderText = "Supplier";
+            dgvPackProdSuppl.Columns.Add(supplier);
+            supplierId.HeaderText = "SupplierID";
+            dgvPackProdSuppl.Columns.Add(supplierId);
 
-            //    stringList.add(lbl);
-            //}
+            // Store values from DataTable
 
+            //messagebox.show(products);
+            //messagebox.show(productids);
+            //messagebox.show(suppliers);
+            //messagebox.show(supplierids);
 
-            //// Store values from DataTable
-            //string products = string.Join(",", packProdSupList.Select(c => c[0].ToString()).ToArray());
-            //string productIds = string.Join(",", packProdSupList.Select(c => c[1].ToString()).ToArray());
-            //string suppliers = string.Join(",", packProdSupList.Select(c => c[2].ToString()).ToArray());
-            //string supplierIds = string.Join(",", packProdSupList.Select(c => c[3].ToString()).ToArray());
-            //MessageBox.Show(products);
-            //MessageBox.Show(productIds);
-            //MessageBox.Show(suppliers);
-            //MessageBox.Show(supplierIds);
+            // Loop through list generated from data table to populate DataGridView
+            string[] splitLine = new string[4];
 
-            //// Create a DataGridView
-            //DataGridViewTextBoxColumn product = new DataGridViewTextBoxColumn();
-            //DataGridViewTextBoxColumn productId = new DataGridViewTextBoxColumn();
-            //DataGridViewComboBoxColumn supplier = new DataGridViewComboBoxColumn();
-            //DataGridViewTextBoxColumn supplierId = new DataGridViewTextBoxColumn();
-            ////col.DataPropertyName = "3";
-
-            //// Set column properties
-            //product.HeaderText = "Product";
-            //dgvPackProdSuppl.Columns.Add(product);
-            //productId.HeaderText = "Product ID";
-            //dgvPackProdSuppl.Columns.Add(productId);
-            //supplier.HeaderText = "Supplier";
-            //dgvPackProdSuppl.Columns.Add(supplier);
-            //supplierId.HeaderText = "SupplierID";
-            //dgvPackProdSuppl.Columns.Add(supplierId);
-
-            //// Loop through list generated from data table to populate DataGridView
-            //dgvPackProdSuppl.Rows.Add("", "", "");
-
-
+            foreach (PackProdSupplier line in packProdSupList)
+            {
+                splitLine = line.ToString().Split(',');
+                dgvPackProdSuppl.Rows.Add(splitLine[0], splitLine[1], "", splitLine[3]);
+            }
         }
     }
 }
