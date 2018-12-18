@@ -34,6 +34,7 @@
             this.pACKEGESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUPPLIERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUCTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOOKINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,11 +55,12 @@
             this.hOMEToolStripMenuItem,
             this.pACKEGESToolStripMenuItem,
             this.sUPPLIERSToolStripMenuItem,
-            this.pRODUCTSToolStripMenuItem});
+            this.pRODUCTSToolStripMenuItem,
+            this.bOOKINGSToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(182, 166);
+            this.menuStrip1.Size = new System.Drawing.Size(182, 225);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,6 +95,14 @@
             this.pRODUCTSToolStripMenuItem.Text = "PRODUCTS";
             this.pRODUCTSToolStripMenuItem.Click += new System.EventHandler(this.pRODUCTSToolStripMenuItem_Click);
             // 
+            // bOOKINGSToolStripMenuItem
+            // 
+            this.bOOKINGSToolStripMenuItem.AutoSize = false;
+            this.bOOKINGSToolStripMenuItem.Name = "bOOKINGSToolStripMenuItem";
+            this.bOOKINGSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
+            this.bOOKINGSToolStripMenuItem.Text = "BOOKINGS";
+            this.bOOKINGSToolStripMenuItem.Click += new System.EventHandler(this.bOOKINGSToolStripMenuItem_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,6 +130,7 @@
         private System.Windows.Forms.ToolStripMenuItem pACKEGESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sUPPLIERSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRODUCTSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bOOKINGSToolStripMenuItem;
     }
 }
 
