@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackagesForm));
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblStartDate = new System.Windows.Forms.Label();
@@ -43,7 +44,18 @@
             this.lblBasePrice = new System.Windows.Forms.Label();
             this.txtAgComm = new System.Windows.Forms.TextBox();
             this.lblAgComm = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbAddProdSup = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditProdSup = new System.Windows.Forms.ToolStripButton();
+            this.tsbDeleteProdSup = new System.Windows.Forms.ToolStripButton();
+            this.dgvPackProdSuppl = new System.Windows.Forms.DataGridView();
             this.gbDates.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackProdSuppl)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -58,15 +70,17 @@
             // 
             // txtName
             // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Location = new System.Drawing.Point(120, 50);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(136, 26);
+            this.txtName.Size = new System.Drawing.Size(174, 26);
             this.txtName.TabIndex = 1;
             // 
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(16, 41);
+            this.lblStartDate.Location = new System.Drawing.Point(16, 40);
             this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(83, 20);
@@ -77,7 +91,7 @@
             // 
             this.tpStartDate.CustomFormat = "dd MMM yyyy";
             this.tpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tpStartDate.Location = new System.Drawing.Point(129, 43);
+            this.tpStartDate.Location = new System.Drawing.Point(129, 34);
             this.tpStartDate.Name = "tpStartDate";
             this.tpStartDate.Size = new System.Drawing.Size(144, 26);
             this.tpStartDate.TabIndex = 3;
@@ -105,9 +119,11 @@
             // 
             // txtDesc
             // 
+            this.txtDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDesc.Location = new System.Drawing.Point(120, 198);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(459, 26);
+            this.txtDesc.Size = new System.Drawing.Size(492, 26);
             this.txtDesc.TabIndex = 7;
             // 
             // lblDesc
@@ -126,6 +142,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(136, 26);
             this.txtId.TabIndex = 9;
+            this.txtId.Visible = false;
             // 
             // lblId
             // 
@@ -136,16 +153,18 @@
             this.lblId.Size = new System.Drawing.Size(26, 20);
             this.lblId.TabIndex = 8;
             this.lblId.Text = "ID";
+            this.lblId.Visible = false;
             // 
             // gbDates
             // 
+            this.gbDates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDates.Controls.Add(this.lblStartDate);
             this.gbDates.Controls.Add(this.tpStartDate);
             this.gbDates.Controls.Add(this.label1);
             this.gbDates.Controls.Add(this.tpEndDate);
-            this.gbDates.Location = new System.Drawing.Point(306, 8);
+            this.gbDates.Location = new System.Drawing.Point(339, 12);
             this.gbDates.Name = "gbDates";
-            this.gbDates.Size = new System.Drawing.Size(303, 131);
+            this.gbDates.Size = new System.Drawing.Size(281, 131);
             this.gbDates.TabIndex = 10;
             this.gbDates.TabStop = false;
             this.gbDates.Text = "Dates";
@@ -154,7 +173,7 @@
             // 
             this.txtBasePrice.Location = new System.Drawing.Point(120, 150);
             this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Size = new System.Drawing.Size(136, 26);
+            this.txtBasePrice.Size = new System.Drawing.Size(174, 26);
             this.txtBasePrice.TabIndex = 12;
             // 
             // lblBasePrice
@@ -169,26 +188,121 @@
             // 
             // txtAgComm
             // 
-            this.txtAgComm.Location = new System.Drawing.Point(435, 150);
+            this.txtAgComm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAgComm.Location = new System.Drawing.Point(468, 147);
             this.txtAgComm.Name = "txtAgComm";
             this.txtAgComm.Size = new System.Drawing.Size(144, 26);
             this.txtAgComm.TabIndex = 14;
             // 
             // lblAgComm
             // 
+            this.lblAgComm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAgComm.AutoSize = true;
-            this.lblAgComm.Location = new System.Drawing.Point(284, 156);
+            this.lblAgComm.Location = new System.Drawing.Point(317, 153);
             this.lblAgComm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAgComm.Name = "lblAgComm";
             this.lblAgComm.Size = new System.Drawing.Size(144, 20);
             this.lblAgComm.TabIndex = 13;
             this.lblAgComm.Text = "Agency Commision";
             // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(487, 433);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(125, 36);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(339, 433);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(125, 36);
+            this.btnCancel.TabIndex = 16;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dgvPackProdSuppl);
+            this.panel1.Controls.Add(this.toolStrip1);
+            this.panel1.Location = new System.Drawing.Point(17, 231);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(595, 189);
+            this.panel1.TabIndex = 17;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAddProdSup,
+            this.tsbEditProdSup,
+            this.tsbDeleteProdSup});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(595, 35);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbAddProdSup
+            // 
+            this.tsbAddProdSup.AutoSize = false;
+            this.tsbAddProdSup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAddProdSup.Image = ((System.Drawing.Image)(resources.GetObject("tsbAddProdSup.Image")));
+            this.tsbAddProdSup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAddProdSup.Name = "tsbAddProdSup";
+            this.tsbAddProdSup.Size = new System.Drawing.Size(32, 32);
+            this.tsbAddProdSup.Text = "New";
+            // 
+            // tsbEditProdSup
+            // 
+            this.tsbEditProdSup.AutoSize = false;
+            this.tsbEditProdSup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditProdSup.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditProdSup.Image")));
+            this.tsbEditProdSup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditProdSup.Name = "tsbEditProdSup";
+            this.tsbEditProdSup.Size = new System.Drawing.Size(32, 32);
+            this.tsbEditProdSup.Text = "Change";
+            // 
+            // tsbDeleteProdSup
+            // 
+            this.tsbDeleteProdSup.AutoSize = false;
+            this.tsbDeleteProdSup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDeleteProdSup.Image = ((System.Drawing.Image)(resources.GetObject("tsbDeleteProdSup.Image")));
+            this.tsbDeleteProdSup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeleteProdSup.Name = "tsbDeleteProdSup";
+            this.tsbDeleteProdSup.Size = new System.Drawing.Size(32, 32);
+            this.tsbDeleteProdSup.Text = "toolStripButton3";
+            // 
+            // dgvPackProdSuppl
+            // 
+            this.dgvPackProdSuppl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPackProdSuppl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPackProdSuppl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackProdSuppl.Location = new System.Drawing.Point(0, 32);
+            this.dgvPackProdSuppl.Name = "dgvPackProdSuppl";
+            this.dgvPackProdSuppl.Size = new System.Drawing.Size(595, 156);
+            this.dgvPackProdSuppl.TabIndex = 1;
+            // 
             // PackagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 481);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtAgComm);
             this.Controls.Add(this.lblAgComm);
             this.Controls.Add(this.txtBasePrice);
@@ -209,6 +323,10 @@
             this.Load += new System.EventHandler(this.PackagesForm_Load);
             this.gbDates.ResumeLayout(false);
             this.gbDates.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackProdSuppl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +349,13 @@
         private System.Windows.Forms.Label lblBasePrice;
         private System.Windows.Forms.TextBox txtAgComm;
         private System.Windows.Forms.Label lblAgComm;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgvPackProdSuppl;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbAddProdSup;
+        private System.Windows.Forms.ToolStripButton tsbEditProdSup;
+        private System.Windows.Forms.ToolStripButton tsbDeleteProdSup;
     }
 }

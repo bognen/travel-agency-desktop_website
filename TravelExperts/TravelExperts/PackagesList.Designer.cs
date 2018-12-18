@@ -72,7 +72,8 @@
             this.editStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.editStripButton.Name = "editStripButton";
             this.editStripButton.Size = new System.Drawing.Size(32, 32);
-            this.editStripButton.Text = "EDIT";
+            this.editStripButton.Text = "EDIT  F2";
+            this.editStripButton.Click += new System.EventHandler(this.editStripButton_Click);
             // 
             // deleteStripButton
             // 
@@ -86,6 +87,8 @@
             // 
             // dgvPackageList
             // 
+            this.dgvPackageList.AllowUserToAddRows = false;
+            this.dgvPackageList.AllowUserToDeleteRows = false;
             this.dgvPackageList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -97,6 +100,8 @@
             this.dgvPackageList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPackageList.Size = new System.Drawing.Size(964, 418);
             this.dgvPackageList.TabIndex = 2;
+            this.dgvPackageList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPackageList_KeyDown);
+            this.dgvPackageList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvPackageList_KeyPress);
             // 
             // PackagesList
             // 
