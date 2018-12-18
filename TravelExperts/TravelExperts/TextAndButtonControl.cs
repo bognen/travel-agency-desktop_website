@@ -26,9 +26,10 @@ namespace TravelExperts
             this.button1.Click += new EventHandler(button1_Click);
         }
 
-        void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            // 
+            // ******************************************************
+            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
             foreach (DataGridViewCell cell in this.rowString.Cells)
             {
                 MessageBox.Show(string.Format("{0}", cell.Value));

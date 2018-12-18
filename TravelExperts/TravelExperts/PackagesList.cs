@@ -84,6 +84,9 @@ namespace TravelExperts
             }
         }
 
+        //*****************************************************************************//
+        // *** LOAD FORM EVENT *** //
+        //*****************************************************************************//
         private void PackagesForm_Load(object sender, EventArgs e)
         {
             // Call just data source for dataGridView
@@ -107,6 +110,12 @@ namespace TravelExperts
             dgvPackageList.Columns[5].DefaultCellStyle.Format = "N2";
             dgvPackageList.Columns[6].DefaultCellStyle.Format = "N2";
 
+            // SET READ ONLY TO CERTAIN COLUMNS 
+            dgvPackageList.Columns[2].ReadOnly = true;
+            dgvPackageList.Columns[3].ReadOnly = true;
+            dgvPackageList.Columns[4].ReadOnly = true;
+            dgvPackageList.Columns[5].ReadOnly = true;
+            dgvPackageList.Columns[6].ReadOnly = true;
 
             //****** ADD THREE BUTTON CONTROL
             this.txtbtn = new TextAndButtonControl();
@@ -120,6 +129,11 @@ namespace TravelExperts
             this.dgvPackageList.CellEndEdit += new DataGridViewCellEventHandler(dgv_CellEndEdit);
         }
 
+        //*****************************************************************************//
+        // *** STRIP MENU BUTTONS *** //
+        //*****************************************************************************//
+
+        // Strip Menu ADD button
         private void addlStripButton_Click(object sender, EventArgs e)
         {
             // prepare 
@@ -127,6 +141,58 @@ namespace TravelExperts
 
             PackagesForm packForm = new PackagesForm(rowstring);
             packForm.Show();
+        }
+
+        // Strip Menu EDIT button
+        private void editStripButton_Click(object sender, EventArgs e)
+        {
+           // Store current row in variable
+            DataGridViewRow rowstring = dgvPackageList.CurrentRow;
+
+            // Send the row to a new form
+            PackagesForm packForm = new PackagesForm(rowstring);
+            packForm.MdiParent = this.MdiParent;
+            packForm.Show();
+        }
+
+        // Press Enter Handler
+        private void dgvPackageList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {               
+                // Store current row in variable
+                DataGridViewRow rowstring = dgvPackageList.CurrentRow;
+
+                // Send the row to a new form
+                PackagesForm packForm = new PackagesForm(rowstring);
+                packForm.Show();
+            }
+        }
+        
+        // MethodBelow prevents Row change on Enter button
+        private void dgvPackageList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                int col = dgvPackageList.CurrentCell.ColumnIndex;
+                int row = dgvPackageList.CurrentCell.RowIndex;
+
+                if (col < dgvPackageList.ColumnCount - 1)
+                {
+                    col++;
+                }
+                else
+                {
+                    col = 0;
+                    row++;
+                }
+
+                if (row == dgvPackageList.RowCount)
+                    dgvPackageList.Rows.Add();
+
+                dgvPackageList.CurrentCell = dgvPackageList[col, row];
+                e.Handled = true;
+            }
         }
     }
 }
