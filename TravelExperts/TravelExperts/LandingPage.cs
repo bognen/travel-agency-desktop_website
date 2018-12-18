@@ -19,6 +19,7 @@ namespace TravelExperts
 
         public void pACKEGESToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             PackagesList packagesList = new PackagesList();
             packagesList.MdiParent = this ;
             packagesList.Show();
