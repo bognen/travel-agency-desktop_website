@@ -57,8 +57,10 @@
             this.bookingDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.bookingDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.bookingDetails.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.bookingDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookingDetails.Location = new System.Drawing.Point(-1, 0);
+            this.bookingDetails.Location = new System.Drawing.Point(1, 12);
             this.bookingDetails.Name = "bookingDetails";
             this.bookingDetails.Size = new System.Drawing.Size(802, 451);
             this.bookingDetails.TabIndex = 0;
@@ -69,7 +71,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bookingDetails);
+            this.Location = new System.Drawing.Point(200, 20);
             this.Name = "BookingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BookingForm";
             this.Load += new System.EventHandler(this.BookingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).EndInit();
