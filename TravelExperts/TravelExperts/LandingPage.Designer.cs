@@ -34,6 +34,11 @@
             this.pACKEGESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUPPLIERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUCTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOOKINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewEditSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editSupplierProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,17 +59,20 @@
             this.hOMEToolStripMenuItem,
             this.pACKEGESToolStripMenuItem,
             this.sUPPLIERSToolStripMenuItem,
-            this.pRODUCTSToolStripMenuItem});
+            this.pRODUCTSToolStripMenuItem,
+            this.bOOKINGSToolStripMenuItem,
+            this.eXITToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(182, 166);
+            this.menuStrip1.Size = new System.Drawing.Size(182, 265);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // hOMEToolStripMenuItem
             // 
             this.hOMEToolStripMenuItem.AutoSize = false;
+            this.hOMEToolStripMenuItem.Image = global::TravelExperts.Properties.Resources.HomeIcon;
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
             this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.hOMEToolStripMenuItem.Text = "HOME";
@@ -72,6 +80,7 @@
             // pACKEGESToolStripMenuItem
             // 
             this.pACKEGESToolStripMenuItem.AutoSize = false;
+            this.pACKEGESToolStripMenuItem.Image = global::TravelExperts.Properties.Resources.IslandIcon;
             this.pACKEGESToolStripMenuItem.Name = "pACKEGESToolStripMenuItem";
             this.pACKEGESToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.pACKEGESToolStripMenuItem.Text = "PACKAGES";
@@ -80,18 +89,61 @@
             // sUPPLIERSToolStripMenuItem
             // 
             this.sUPPLIERSToolStripMenuItem.AutoSize = false;
+            this.sUPPLIERSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewEditSupplierToolStripMenuItem,
+            this.addNewSupplierToolStripMenuItem,
+            this.editSupplierProductsToolStripMenuItem});
+            this.sUPPLIERSToolStripMenuItem.Image = global::TravelExperts.Properties.Resources.SupplierIcon;
             this.sUPPLIERSToolStripMenuItem.Name = "sUPPLIERSToolStripMenuItem";
             this.sUPPLIERSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.sUPPLIERSToolStripMenuItem.Text = "SUPPLIERS";
-            this.sUPPLIERSToolStripMenuItem.Click += new System.EventHandler(this.sUPPLIERSToolStripMenuItem_Click);
             // 
             // pRODUCTSToolStripMenuItem
             // 
             this.pRODUCTSToolStripMenuItem.AutoSize = false;
+            this.pRODUCTSToolStripMenuItem.Image = global::TravelExperts.Properties.Resources.ProductIcon;
             this.pRODUCTSToolStripMenuItem.Name = "pRODUCTSToolStripMenuItem";
             this.pRODUCTSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.pRODUCTSToolStripMenuItem.Text = "PRODUCTS";
             this.pRODUCTSToolStripMenuItem.Click += new System.EventHandler(this.pRODUCTSToolStripMenuItem_Click);
+            // 
+            // bOOKINGSToolStripMenuItem
+            // 
+            this.bOOKINGSToolStripMenuItem.AutoSize = false;
+            this.bOOKINGSToolStripMenuItem.Image = global::TravelExperts.Properties.Resources.CustomerIcon;
+            this.bOOKINGSToolStripMenuItem.Name = "bOOKINGSToolStripMenuItem";
+            this.bOOKINGSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
+            this.bOOKINGSToolStripMenuItem.Text = "BOOKINGS";
+            // 
+            // eXITToolStripMenuItem
+            // 
+            this.eXITToolStripMenuItem.AutoSize = false;
+            this.eXITToolStripMenuItem.Image = global::TravelExperts.Properties.Resources.ExitIcon;
+            this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
+            this.eXITToolStripMenuItem.Text = "EXIT";
+            // 
+            // viewEditSupplierToolStripMenuItem
+            // 
+            this.viewEditSupplierToolStripMenuItem.AutoSize = false;
+            this.viewEditSupplierToolStripMenuItem.Name = "viewEditSupplierToolStripMenuItem";
+            this.viewEditSupplierToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.viewEditSupplierToolStripMenuItem.Text = "View/Edit Supplier";
+            this.viewEditSupplierToolStripMenuItem.Click += new System.EventHandler(this.viewEditSupplierToolStripMenuItem_Click);
+            // 
+            // addNewSupplierToolStripMenuItem
+            // 
+            this.addNewSupplierToolStripMenuItem.AutoSize = false;
+            this.addNewSupplierToolStripMenuItem.Name = "addNewSupplierToolStripMenuItem";
+            this.addNewSupplierToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.addNewSupplierToolStripMenuItem.Text = "Add New Supplier";
+            // 
+            // editSupplierProductsToolStripMenuItem
+            // 
+            this.editSupplierProductsToolStripMenuItem.AutoSize = false;
+            this.editSupplierProductsToolStripMenuItem.Name = "editSupplierProductsToolStripMenuItem";
+            this.editSupplierProductsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.editSupplierProductsToolStripMenuItem.Text = "Edit Supplier Products";
             // 
             // MainPage
             // 
@@ -120,6 +172,11 @@
         private System.Windows.Forms.ToolStripMenuItem pACKEGESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sUPPLIERSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRODUCTSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bOOKINGSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewEditSupplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewSupplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editSupplierProductsToolStripMenuItem;
     }
 }
 

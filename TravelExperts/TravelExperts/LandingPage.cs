@@ -31,9 +31,9 @@ namespace TravelExperts
             productForm.Show();
         }
 
-        private void sUPPLIERSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void viewEditSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SupplierForm supplierForm = new SupplierForm();
+            EditSupplier supplierForm = new EditSupplier();
             supplierForm.MdiParent = this;
             supplierForm.Show();
         }
