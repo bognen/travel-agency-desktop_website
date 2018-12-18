@@ -25,7 +25,27 @@ namespace TravelExperts
             return packageList;
         }
 
-        public static DataTable getPackageProdSuppliers(int packIdIndex) {
+        
+
+            public static DataTable getPackageListBookings()
+        {
+            DataTable packageList = new DataTable();
+            string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(configString))
+            {
+                using (SqlCommand command = new SqlCommand("select * from BookingDetails", conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    packageList.Load(reader);
+                }
+            }
+            return packageList;
+        }
+
+        public static DataTable getPackageProdSuppliers(int packIdIndex)
+            { 
             DataTable packageProdSupplList = new DataTable();
 
             string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
@@ -50,5 +70,7 @@ namespace TravelExperts
 
             return packageProdSupplList;
         }
+
     }
+
 }
