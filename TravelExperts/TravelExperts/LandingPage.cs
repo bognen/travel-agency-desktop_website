@@ -17,28 +17,29 @@ namespace TravelExperts
             InitializeComponent();
         }
 
-        private void pACKEGESToolStripMenuItem_Click(object sender, EventArgs e)
+        public void pACKEGESToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PackagesList packagesList = new PackagesList();
             packagesList.MdiParent = this ;
             packagesList.Show();
+          
         }
 
-        private void pRODUCTSToolStripMenuItem_Click(object sender, EventArgs e)
+        public void pRODUCTSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductForm productForm = new ProductForm();
             productForm.MdiParent = this;
             productForm.Show();
         }
 
-        private void sUPPLIERSToolStripMenuItem_Click(object sender, EventArgs e)
+        public void sUPPLIERSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SupplierForm supplierForm = new SupplierForm();
             supplierForm.MdiParent = this;
             supplierForm.Show();
         }
 
-        private void bOOKINGSToolStripMenuItem_Click(object sender, EventArgs e)
+        public void bOOKINGSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookingForm bookingForm = new BookingForm();
             bookingForm.MdiParent = this;
