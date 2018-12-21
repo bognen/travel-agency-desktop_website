@@ -10,26 +10,41 @@ namespace TravelExperts
     {
         //Private variables
         private string product;
-        private string productId;
+        private int productId;
         private string supplier;
-        private string sypplierId;
+        private int supplierId;
+        private int prod_SupplierID;
 
         // Public properties
         public string Product { get; set; }
-        public string ProductId { get; set; }
+        public int ProductId { get; set; }
         public string Supplier { get; set; }
-        public string SupplierId { get; set; }
+        public int SupplierId { get; set; }
+        public int Prod_SupplierID { get; set; }
 
-        public PackProdSupplier(string product, string productId, string supplier, string supplierId) {
+        //class constructor
+        public PackProdSupplier(string product, int productId, string supplier, 
+                                  int supplierId, int prod_SupplierID)
+        {
             this.Product = product;
             this.ProductId = productId;
             this.Supplier = supplier;
             this.SupplierId = supplierId;
+            this.Prod_SupplierID = prod_SupplierID;
         }
 
-        public override string ToString() {
-            return Product.ToString()+ ","+ProductId.ToString()+","+ Supplier.ToString()+
-                ","+SupplierId.ToString();
+        // METHOD WHICH BUILDS LIST OF SUPPLIER-ID PAIRS
+        public static List<SupplierIdPairs> createSupplierIdPairsList(int prodID) {
+            List<SupplierIdPairs> list = null;
+            list = DBHandler.supplierIdPairsList(prodID);
+            return list;
         }
-    }
-}
+
+        //METHOD WHICH RETURNS STRING
+        public string PackProdSupplierToString() {
+            return Product + "," + ProductId.ToString() + ","+ Supplier+","+ SupplierId.ToString()+"," 
+                   + Prod_SupplierID.ToString();
+        }
+
+    } // end of class
+} // end of namespase
