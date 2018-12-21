@@ -13,8 +13,7 @@ namespace TravelExperts
     {
         private TextBox textbox1;
         private Button button1;
-        private int id;
-        private DataGridViewRow rowstring;
+
 
         public TextAndButtonControl()
         {
@@ -26,15 +25,9 @@ namespace TravelExperts
             this.button1.Click += new EventHandler(button1_Click);
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        void button1_Click(object sender, EventArgs e)
         {
-            // ******************************************************
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            foreach (DataGridViewCell cell in this.rowString.Cells)
-            {
-                MessageBox.Show(string.Format("{0}", cell.Value));
-            }
-            MessageBox.Show("Sambuka");
+
         }
 
         public string Text
@@ -43,15 +36,6 @@ namespace TravelExperts
             set { this.textbox1.Text = value; }
         }
 
-        public int Id {
-            get { return id; }
-            set { id = value; }
-        }
-        public DataGridViewRow rowString
-        {
-            get { return rowstring; }
-            set { rowstring = value; }
-        }
         public string ButtonText
         {
             get { return this.button1.Text; }

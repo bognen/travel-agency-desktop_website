@@ -12,6 +12,8 @@ namespace TravelExperts
 {
     public partial class PackagesForm : Form
     {
+        // Global variable
+        bool itIsNewForm = true;
         public PackagesForm(DataGridViewRow rowstring)
         {
             InitializeComponent();
@@ -26,42 +28,20 @@ namespace TravelExperts
                 txtDesc.Text = string.Format("{0}", rowstring.Cells[4].Value);
                 txtBasePrice.Text = string.Format("{0:n}", rowstring.Cells[5].Value);
                 txtAgComm.Text = string.Format("{0:n}", rowstring.Cells[6].Value);
+                itIsNewForm = false;
             }
         }
 
         private void PackagesForm_Load(object sender, EventArgs e)
         {
-            //int packageID = Convert.ToInt32(txtId.Text);
-            //dgvPackProdSuppl.DataSource = DBHandler.getPackageProdSuppliers(packageID);
-
-            ////***  Table apperance
-            ////HIDE ID COLUMN
-            //dgvPackProdSuppl.Columns[0].Visible = false;
-
-            //// EDIT APPEARANCE OF DATA GRID VIEW
-            //dgvPackProdSuppl.Columns[0].HeaderText = "Package ID";
-            //dgvPackProdSuppl.Columns[1].HeaderText = "Product";
-            //dgvPackProdSuppl.Columns[2].HeaderText = "Supplier";
-
-
-            // Variable to Retrive MS SQL Qeury
-            int packageID = Convert.ToInt32(txtId.Text);
-            DataTable packProdSup = DBHandler.getPackageProdSuppliers(packageID);
-            List<PackProdSupplier> packProdSupList = new List<PackProdSupplier>();
-            
-            // Move data to a custom class
-            foreach (DataRow row in packProdSup.Rows)
+            if (itIsNewForm == false)
             {
-                PackProdSupplier itemLine = new PackProdSupplier(row[0].ToString(), row[1].ToString(),
-                                                                row[2].ToString(), row[3].ToString());
-                packProdSupList.Add(itemLine);
-            }
-
             // Create a DataGridView
             DataGridViewTextBoxColumn product = new DataGridViewTextBoxColumn();
             DataGridViewTextBoxColumn productId = new DataGridViewTextBoxColumn();
             DataGridViewComboBoxColumn supplier = new DataGridViewComboBoxColumn();
             DataGridViewTextBoxColumn supplierId = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn productSupplierId = new DataGridViewTextBoxColumn();
 
             // Set column properties
             product.HeaderText = "Product";
@@ -72,21 +52,69 @@ namespace TravelExperts
             dgvPackProdSuppl.Columns.Add(supplier);
             supplierId.HeaderText = "SupplierID";
             dgvPackProdSuppl.Columns.Add(supplierId);
+            productSupplierId.HeaderText = "ProdSupplID";
+            dgvPackProdSuppl.Columns.Add(productSupplierId);
 
-            // Store values from DataTable
+            // Create a list of PackProdSupplkiers
+            List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
 
-            //messagebox.show(products);
-            //messagebox.show(productids);
-            //messagebox.show(suppliers);
-            //messagebox.show(supplierids);
 
             // Loop through list generated from data table to populate DataGridView
-            string[] splitLine = new string[4];
+            string[] splitLine = new string[5];
 
-            foreach (PackProdSupplier line in packProdSupList)
+                foreach (PackProdSupplier line in packProdSupList)
+                {
+                    // variable to break list line into array
+                    splitLine = line.PackProdSupplierToString().Split(',');
+
+                    // Create a list of possiple values to populate a combox
+                    List<SupplierIdPairs> supplierIdPairs =
+                        PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(splitLine[1]));
+
+                    // Find index of right element
+                    int indOfRightElement = supplierIdPairs.IndexOf(supplierIdPairs.Where(p =>
+                                p.SupplierId == Convert.ToInt32(splitLine[3])).FirstOrDefault());
+
+                    // Store values from DataTable
+                    DataGridViewRow dgvRow = new DataGridViewRow();
+
+                    dgvRow.Cells.Add(new DataGridViewTextBoxCell());
+                    dgvRow.Cells.Add(new DataGridViewTextBoxCell());
+                    dgvRow.Cells.Add(new DataGridViewComboBoxCell());
+                    dgvRow.Cells.Add(new DataGridViewTextBoxCell());
+                    dgvRow.Cells.Add(new DataGridViewTextBoxCell());
+
+                    dgvRow.Cells[0].Value = splitLine[0];
+                    dgvRow.Cells[1].Value = splitLine[1];
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DataSource = supplierIdPairs;
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "Supplier";
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).ValueMember = "SupplierId";
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).Value =
+                                supplierIdPairs[indOfRightElement].SupplierId;
+
+                    dgvRow.Cells[3].Value = splitLine[3];
+                    dgvRow.Cells[4].Value = splitLine[4];
+
+                    dgvPackProdSuppl.Rows.Add(dgvRow);
+                }
+            }
+        }
+
+        private void dgvPackProdSuppl_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Change SupplierID on change of Supplier
+            if (e.ColumnIndex == 2) {
+                dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value =
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value;
+            }
+
+            // Change ProdSupplierID on change of SupplierID
+            if (e.ColumnIndex == 3)
             {
-                splitLine = line.ToString().Split(',');
-                dgvPackProdSuppl.Rows.Add(splitLine[0], splitLine[1], "", splitLine[3]);
+                string prodId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value);
+                string supplierId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value);
+                dgvPackProdSuppl.Rows[e.RowIndex].Cells[4].Value = 
+                    DBHandler.getNewProdSupplierId(prodId, supplierId);     
             }
         }
     }

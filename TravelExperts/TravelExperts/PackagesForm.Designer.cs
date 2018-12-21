@@ -47,15 +47,15 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvPackProdSuppl = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAddProdSup = new System.Windows.Forms.ToolStripButton();
             this.tsbEditProdSup = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteProdSup = new System.Windows.Forms.ToolStripButton();
-            this.dgvPackProdSuppl = new System.Windows.Forms.DataGridView();
             this.gbDates.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackProdSuppl)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblName
@@ -237,6 +237,21 @@
             this.panel1.Size = new System.Drawing.Size(595, 189);
             this.panel1.TabIndex = 17;
             // 
+            // dgvPackProdSuppl
+            // 
+            this.dgvPackProdSuppl.AllowUserToAddRows = false;
+            this.dgvPackProdSuppl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPackProdSuppl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPackProdSuppl.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvPackProdSuppl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackProdSuppl.Location = new System.Drawing.Point(0, 32);
+            this.dgvPackProdSuppl.Name = "dgvPackProdSuppl";
+            this.dgvPackProdSuppl.Size = new System.Drawing.Size(595, 156);
+            this.dgvPackProdSuppl.TabIndex = 1;
+            this.dgvPackProdSuppl.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackProdSuppl_CellValueChanged);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -283,19 +298,6 @@
             this.tsbDeleteProdSup.Size = new System.Drawing.Size(32, 32);
             this.tsbDeleteProdSup.Text = "toolStripButton3";
             // 
-            // dgvPackProdSuppl
-            // 
-            this.dgvPackProdSuppl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPackProdSuppl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPackProdSuppl.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvPackProdSuppl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackProdSuppl.Location = new System.Drawing.Point(0, 32);
-            this.dgvPackProdSuppl.Name = "dgvPackProdSuppl";
-            this.dgvPackProdSuppl.Size = new System.Drawing.Size(595, 156);
-            this.dgvPackProdSuppl.TabIndex = 1;
-            // 
             // PackagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -325,9 +327,9 @@
             this.gbDates.ResumeLayout(false);
             this.gbDates.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackProdSuppl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPackProdSuppl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
