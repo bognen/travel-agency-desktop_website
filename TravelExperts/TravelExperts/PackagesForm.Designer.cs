@@ -245,12 +245,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPackProdSuppl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPackProdSuppl.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvPackProdSuppl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackProdSuppl.ColumnHeadersHeight = 28;
             this.dgvPackProdSuppl.Location = new System.Drawing.Point(0, 32);
             this.dgvPackProdSuppl.Name = "dgvPackProdSuppl";
             this.dgvPackProdSuppl.Size = new System.Drawing.Size(595, 156);
             this.dgvPackProdSuppl.TabIndex = 1;
             this.dgvPackProdSuppl.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackProdSuppl_CellValueChanged);
+            this.dgvPackProdSuppl.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvPackProdSuppl_CurrentCellDirtyStateChanged);
             // 
             // toolStrip1
             // 

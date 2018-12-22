@@ -16,3 +16,6 @@ C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExper
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesList.resources
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.TextAndButtonControl.resources
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesForm.resources
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.TextAndButtonControlPackForm.resources
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.TextAndButtonControlPackList.resources
+C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.TemporaryProducts.resources

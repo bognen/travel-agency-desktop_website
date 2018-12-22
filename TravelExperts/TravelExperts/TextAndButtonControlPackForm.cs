@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace TravelExperts
 {
-    class TextAndButtonControlPackList : TextAndButtonControl
+    class TextAndButtonControlPackForm : UserControl
     {
         private TextBox textbox1;
         private Button button1;
-        private int id;
+        private DataGridView datagridview;
         private DataGridViewRow rowstring;
 
 
-       public TextAndButtonControlPackList()
+       public TextAndButtonControlPackForm()
         {
             this.textbox1 = new TextBox();
             this.Controls.Add(this.textbox1);
@@ -29,13 +29,20 @@ namespace TravelExperts
 
         public void button1_Click(object sender, EventArgs e)
         {
-            // ******************************************************
-            // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            foreach (DataGridViewCell cell in this.rowString.Cells)
-            {
-                MessageBox.Show(string.Format("{0}", cell.Value));
+            TemporaryProducts tp = new TemporaryProducts(true);
+
+            if (tp.ShowDialog() == DialogResult.Yes ) {                
+                               
+                // Get values from selected row in TemporaryTable 
+                DataGridViewRow prodRow = tp.TempDGV.CurrentRow;
+
+                // Set new values to two cells
+                this.rowstring.Cells[0].Value = prodRow.Cells[1].Value;
+                this.rowstring.Cells[1].Value = prodRow.Cells[0].Value;
+                // Change focus to the third cell "SUPPLIER"
+                this.datagridview.CurrentCell = this.rowstring.Cells[2];
             }
-            MessageBox.Show("Sambuka");
+
         }
 
         public string Text
@@ -43,10 +50,10 @@ namespace TravelExperts
             get { return this.textbox1.Text; }
             set { this.textbox1.Text = value; }
         }
-
-        public int Id {
-            get { return id; }
-            set { id = value; }
+        public DataGridView dataGridView
+        {
+            get { return datagridview; }
+            set { datagridview = value; }
         }
         public DataGridViewRow rowString
         {
@@ -56,7 +63,7 @@ namespace TravelExperts
         public string ButtonText
         {
             get { return this.button1.Text; }
-            set { this.button1.Text = value; }
+            set { this.button1.Text = "..."; }
         }
 
         public void renderControl()
@@ -64,13 +71,14 @@ namespace TravelExperts
             this.textbox1.Location = new Point(0, 0);
             this.textbox1.Width = 5 * this.Width / 6;
             this.textbox1.Height = this.Height;
-            this.textbox1.ReadOnly = false;
+            this.textbox1.ReadOnly = true;
 
             this.button1.Location = new Point(5 * this.Width / 6, 0);
             this.button1.FlatStyle = FlatStyle.Standard;
             this.button1.Width = this.Width / 6;
             this.button1.Height = this.Height;
             this.button1.Text = "...";
+            this.button1.Font = new Font(button1.Font.FontFamily, 8);
         }
     }
 }

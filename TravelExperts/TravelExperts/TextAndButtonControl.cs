@@ -33,7 +33,7 @@ namespace TravelExperts
         public string Text
         {
             get { return this.textbox1.Text; }
-            set { this.textbox1.Text = value; }
+            set { this.textbox1.Text = "..."; }
         }
 
         public string ButtonText

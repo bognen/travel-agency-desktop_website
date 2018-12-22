@@ -22,7 +22,7 @@ namespace TravelExperts
         //*******************************************************************************//
 
         // Create new control
-        TextAndButtonControl txtbtn = new TextAndButtonControl();
+        TextAndButtonControlPackList txtbtn = new TextAndButtonControlPackList();
         // Number of COLUMN to apply custom control
         int colIndex = 1;
 
@@ -118,7 +118,7 @@ namespace TravelExperts
             dgvPackageList.Columns[6].ReadOnly = true;
 
             //****** ADD THREE BUTTON CONTROL
-            this.txtbtn = new TextAndButtonControl();
+            this.txtbtn = new TextAndButtonControlPackList();
             this.txtbtn.Visible = false;
             this.dgvPackageList.Controls.Add(this.txtbtn);
 
