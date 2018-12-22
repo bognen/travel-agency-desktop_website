@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace TravelExperts
 {
-    class TextAndButtonControlPackList : TextAndButtonControl
+    class TextAndButtonControlPackList : UserControl
     {
         private TextBox textbox1;
         private Button button1;

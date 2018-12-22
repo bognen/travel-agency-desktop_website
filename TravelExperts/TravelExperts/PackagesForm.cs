@@ -12,8 +12,9 @@ namespace TravelExperts
 {
     public partial class PackagesForm : Form
     {
-        // Global variable
+        // GLOBALVARIABLE WHICH CHECKS IF IT IS A NEW FORM
         bool itIsNewForm = true;
+
         public PackagesForm(DataGridViewRow rowstring)
         {
             InitializeComponent();
@@ -31,6 +32,44 @@ namespace TravelExperts
                 itIsNewForm = false;
             }
         }
+        
+        //*******************************************************************************//
+        //  PART NEEDED TO CREATE A CUSTOM CONTROL
+        //*******************************************************************************//
+        // Create new control
+        TextAndButtonControlPackForm txtbtn = new TextAndButtonControlPackForm();
+        // Number of the COLUMN which to apply custom control
+        int colIndex = 0;
+
+        void dgv_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (e.ColumnIndex == colIndex && e.RowIndex > -1 && e.RowIndex != this.dgvPackProdSuppl.NewRowIndex)
+            {
+                Rectangle rect = this.dgvPackProdSuppl.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                this.txtbtn.Location = rect.Location;
+                this.txtbtn.Size = rect.Size;
+                this.txtbtn.Text = this.dgvPackProdSuppl.CurrentCell.Value.ToString();
+                // Retreive whole ROW where click happened
+                this.txtbtn.rowString = this.dgvPackProdSuppl.CurrentRow;
+                // Retreive whole data Grid View
+                this.txtbtn.dataGridView = this.dgvPackProdSuppl;
+
+                this.txtbtn.ButtonText = "...";
+                this.txtbtn.renderControl();
+                this.txtbtn.Visible = true;
+            }
+        }
+        void dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == colIndex && e.RowIndex > -1 && e.RowIndex != this.dgvPackProdSuppl.NewRowIndex)
+            {
+               // this.dgvPackProdSuppl.CurrentCell.Value = this.txtbtn.Text;
+                this.txtbtn.Visible = false;
+            }
+        }
+        //*******************************************************************************//
+        //  END OF CUSTOM CONTROL PART
+        //*******************************************************************************//
 
         private void PackagesForm_Load(object sender, EventArgs e)
         {
@@ -98,23 +137,79 @@ namespace TravelExperts
                     dgvPackProdSuppl.Rows.Add(dgvRow);
                 }
             }
+
+            //**************************************************************************
+            //****** ADD CUSTOM BUTTON CONTROL
+            //**************************************************************************
+
+            this.txtbtn = new TextAndButtonControlPackForm();
+            this.txtbtn.Visible = false;
+            this.dgvPackProdSuppl.Controls.Add(this.txtbtn);
+         
+            //Handle the cellbeginEdit event to show the usercontrol in the cell while editing
+            this.dgvPackProdSuppl.CellBeginEdit += new DataGridViewCellCancelEventHandler(dgv_CellBeginEdit);
+
+            //Handle the cellEndEdit event to update the cell value
+            this.dgvPackProdSuppl.CellEndEdit += new DataGridViewCellEventHandler(dgv_CellEndEdit);
+            //**************************************************************************
+            //****** END OF CUSTOM BUTTON CONTROL
+            //**************************************************************************
         }
 
+        // METHOD HANDLES CELL CHANGES IN DATAGRIDVIEW
         private void dgvPackProdSuppl_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            // Clrear Suppliers combobox on change of SupplierID
+            if (e.ColumnIndex == 1)
+            {
+                //Make a Supplier
+                dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value = null;
+                
+                // Create a list of possiple values to populate a combox
+                List<SupplierIdPairs> supplierIdPairs =
+                    PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value));
+                ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
+                    Cells[2]).DataSource = supplierIdPairs;
+                ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
+                    Cells[2]).DisplayMember = "Supplier";
+                ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
+                    Cells[2]).ValueMember = "SupplierId";
+            }
+
             // Change SupplierID on change of Supplier
             if (e.ColumnIndex == 2) {
-                dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value =
-                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value;
+                if (dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value != null)
+                {
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value =
+                        dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value;
+                }
+                else {
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value = null;
+                }
             }
 
             // Change ProdSupplierID on change of SupplierID
             if (e.ColumnIndex == 3)
             {
-                string prodId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value);
-                string supplierId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value);
-                dgvPackProdSuppl.Rows[e.RowIndex].Cells[4].Value = 
-                    DBHandler.getNewProdSupplierId(prodId, supplierId);     
+                if (dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value != null)
+                {
+                    string prodId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value);
+                    string supplierId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value);
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value =
+                        DBHandler.getNewProdSupplierId(prodId, supplierId);
+                }
+                else {
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value = null;
+                }
+            }
+        }
+
+        // METOD HELPS TO SAVE VALUE IN CELL WHICH HASN'T LOST FOCUS 
+        private void dgvPackProdSuppl_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvPackProdSuppl.IsCurrentCellDirty)
+            {
+                dgvPackProdSuppl.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
     }

@@ -27,28 +27,6 @@ namespace TravelExperts
             return packageList;
         }
 
-        public static DataTable getPackageProdSuppliers(int packIdIndex) {
-            DataTable packageProdSupplList = new DataTable();
-
-            using (SqlConnection conn = new SqlConnection(configString))
-            {
-                using (SqlCommand command = 
-                    new SqlCommand((@"select Products.ProdName, Products.ProductId, Suppliers.SupName, Suppliers.SupplierId 
-                            from Packages_Products_Suppliers
-                            Inner Join Packages on Packages.PackageId=Packages_Products_Suppliers.PackageId
-                            Inner Join Products_Suppliers on Products_Suppliers.ProductSupplierId = Packages_Products_Suppliers.ProductSupplierId
-                            Inner Join Products on Products.ProductId=Products_Suppliers.ProductId
-                            Inner Join Suppliers on Suppliers.SupplierId=Products_Suppliers.SupplierId
-                            where Packages.PackageId=" + packIdIndex), conn))
-                {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    packageProdSupplList.Load(reader);
-                }
-            }
-            return packageProdSupplList;
-        }
-
         // METHOD WHICH RETRIEVES DATA FROM DATABASE AND RETURNS LIST PACK-PROD-SUPPLIERS TO A FORM
         public static List<PackProdSupplier> getProdSuppliersForDGV(int packIdIndex)
         {
@@ -100,7 +78,7 @@ namespace TravelExperts
             return pairs;
         }
 
-        //*** METHOD TO RETRIVE A PRODUCT_SUPPLIER_ID BASE ON PROD_ID AND sUPPLIER_ID
+        //*** METHOD TO RETRIVE A PRODUCT_SUPPLIER_ID BASE ON PROD_ID AND SUPPLIER_ID
         public static string getNewProdSupplierId(string prodId, string supplierId)
         {
             SqlConnection conn = null;
@@ -115,7 +93,8 @@ namespace TravelExperts
                             "and Products_Suppliers.SupplierId =" + supplierId), conn))
                     {
                         conn.Open();
-                       int intSupplierId = (int)command.ExecuteScalar();
+                        int intSupplierId = 0;
+                       intSupplierId = (int)command.ExecuteScalar();
                        newProdSupplierId = Convert.ToString(intSupplierId);
                     }
                 }
@@ -166,5 +145,20 @@ namespace TravelExperts
                 }
             }
         }
-     } // end of class
+
+        //***********FOR TEMPORARY FORM*********
+        public static DataTable temporaryProducts() {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(configString))
+            {
+                using (SqlCommand command = new SqlCommand("select * from Products", conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    dt.Load(reader);
+                }
+            }
+            return dt;
+        }
+    } // end of class
 } // end of namespace
