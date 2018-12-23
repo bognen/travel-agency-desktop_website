@@ -88,15 +88,20 @@ namespace TravelExperts
             productId.HeaderText = "Product ID";
             dgvPackProdSuppl.Columns.Add(productId);
             supplier.HeaderText = "Supplier";
+                supplier.FlatStyle = FlatStyle.Flat;
             dgvPackProdSuppl.Columns.Add(supplier);
             supplierId.HeaderText = "SupplierID";
             dgvPackProdSuppl.Columns.Add(supplierId);
             productSupplierId.HeaderText = "ProdSupplID";
             dgvPackProdSuppl.Columns.Add(productSupplierId);
 
+            // Make three columns invisible for technical purposes
+            //productId.Visible = false;
+            //supplierId.Visible = false;
+            //productSupplierId.Visible = false;
+
             // Create a list of PackProdSupplkiers
             List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
-
 
             // Loop through list generated from data table to populate DataGridView
             string[] splitLine = new string[5];
@@ -125,12 +130,12 @@ namespace TravelExperts
 
                     dgvRow.Cells[0].Value = splitLine[0];
                     dgvRow.Cells[1].Value = splitLine[1];
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).FlatStyle = FlatStyle.Flat;
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DataSource = supplierIdPairs;
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "Supplier";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).ValueMember = "SupplierId";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).Value =
                                 supplierIdPairs[indOfRightElement].SupplierId;
-
                     dgvRow.Cells[3].Value = splitLine[3];
                     dgvRow.Cells[4].Value = splitLine[4];
 
@@ -191,26 +196,71 @@ namespace TravelExperts
             // Change ProdSupplierID on change of SupplierID
             if (e.ColumnIndex == 3)
             {
-                if (dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value != null)
+                if (dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value != null &&
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value != null)
                 {
                     string prodId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value);
                     string supplierId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value);
-                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value =
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[4].Value =
                         DBHandler.getNewProdSupplierId(prodId, supplierId);
                 }
                 else {
-                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value = null;
+                    dgvPackProdSuppl.Rows[e.RowIndex].Cells[4].Value = null;
                 }
             }
         }
 
-        // METOD HELPS TO SAVE VALUE IN CELL WHICH HASN'T LOST FOCUS 
-        private void dgvPackProdSuppl_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        // METHOD ALLOWS TO TYPE IN DGV COMBOBOX TO NARROW DOWN SEARCH
+        private void dgvPackProdSuppl_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dgvPackProdSuppl.IsCurrentCellDirty)
+            if (dgvPackProdSuppl.CurrentCell.ColumnIndex == 2)
             {
-                dgvPackProdSuppl.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                var comboBox = e.Control as DataGridViewComboBoxEditingControl;
+                    comboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                    comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
         }
-    }
-}
+
+        // METHOD PREVENT CELL CHANGING ON ENTER PRESS
+        private void dgvPackProdSuppl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                int col = dgvPackProdSuppl.CurrentCell.ColumnIndex;
+                int row = dgvPackProdSuppl.CurrentCell.RowIndex;
+
+                if (row == dgvPackProdSuppl.RowCount)
+                    dgvPackProdSuppl.Rows.Add();
+
+                dgvPackProdSuppl.CurrentCell = dgvPackProdSuppl[col, row];
+                e.Handled = true;
+            }
+        }
+
+        // METHOD CREATES A NEW DGV ROW ON PLUS BUTTON CLICK
+        private void tsbAddProdSup_Click(object sender, EventArgs e)
+        {
+            dgvPackProdSuppl.Rows.Add("","","","","");
+            int newRowIndex = dgvPackProdSuppl.Rows.Count;
+            dgvPackProdSuppl.CurrentCell = dgvPackProdSuppl.Rows[newRowIndex-1].Cells[0];
+            dgvPackProdSuppl.BeginEdit(true);
+        }
+
+        // METHOD EDITS SELECTED DGW ROW ON EDIT BUTTON CLICK
+        private void tsbEditProdSup_Click(object sender, EventArgs e)
+        {
+            dgvPackProdSuppl.CurrentCell = dgvPackProdSuppl.CurrentRow.Cells[0];
+            dgvPackProdSuppl.BeginEdit(true);
+            this.txtbtn.button1_Click(sender, e);
+        }
+
+        // METHOD DELETES SELECTED DGW ROW ON DELETE BUTTON CLICK
+        private void tsbDeleteProdSup_Click(object sender, EventArgs e)
+        {
+            dgvPackProdSuppl.Rows.RemoveAt(dgvPackProdSuppl.CurrentRow.Index);
+        }
+
+
+    } // end of class
+} // end of namespace

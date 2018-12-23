@@ -72,6 +72,7 @@ namespace TravelExperts
             this.textbox1.Width = 5 * this.Width / 6;
             this.textbox1.Height = this.Height;
             this.textbox1.ReadOnly = true;
+            this.textbox1.BackColor = Color.White;
 
             this.button1.Location = new Point(5 * this.Width / 6, 0);
             this.button1.FlatStyle = FlatStyle.Standard;

@@ -94,7 +94,7 @@ namespace TravelExperts
                     {
                         conn.Open();
                         int intSupplierId = 0;
-                       intSupplierId = (int)command.ExecuteScalar();
+                       intSupplierId = (int)command.ExecuteScalar();                       
                        newProdSupplierId = Convert.ToString(intSupplierId);
                     }
                 }
