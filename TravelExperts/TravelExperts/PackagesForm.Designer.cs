@@ -251,7 +251,8 @@
             this.dgvPackProdSuppl.Size = new System.Drawing.Size(595, 156);
             this.dgvPackProdSuppl.TabIndex = 1;
             this.dgvPackProdSuppl.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackProdSuppl_CellValueChanged);
-            this.dgvPackProdSuppl.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvPackProdSuppl_CurrentCellDirtyStateChanged);
+            this.dgvPackProdSuppl.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvPackProdSuppl_EditingControlShowing);
+            this.dgvPackProdSuppl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPackProdSuppl_KeyDown);
             // 
             // toolStrip1
             // 
@@ -278,6 +279,7 @@
             this.tsbAddProdSup.Name = "tsbAddProdSup";
             this.tsbAddProdSup.Size = new System.Drawing.Size(32, 32);
             this.tsbAddProdSup.Text = "New";
+            this.tsbAddProdSup.Click += new System.EventHandler(this.tsbAddProdSup_Click);
             // 
             // tsbEditProdSup
             // 
@@ -288,6 +290,7 @@
             this.tsbEditProdSup.Name = "tsbEditProdSup";
             this.tsbEditProdSup.Size = new System.Drawing.Size(32, 32);
             this.tsbEditProdSup.Text = "Change";
+            this.tsbEditProdSup.Click += new System.EventHandler(this.tsbEditProdSup_Click);
             // 
             // tsbDeleteProdSup
             // 
@@ -298,6 +301,7 @@
             this.tsbDeleteProdSup.Name = "tsbDeleteProdSup";
             this.tsbDeleteProdSup.Size = new System.Drawing.Size(32, 32);
             this.tsbDeleteProdSup.Text = "toolStripButton3";
+            this.tsbDeleteProdSup.Click += new System.EventHandler(this.tsbDeleteProdSup_Click);
             // 
             // PackagesForm
             // 

@@ -90,9 +90,6 @@
     <Compile Include="TextAndButtonControlPackList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TextAndButtonControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="TravelExpertsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TextAndButtonControlPackList.resx">
       <DependentUpon>TextAndButtonControlPackList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TextAndButtonControl.resx">
-      <DependentUpon>TextAndButtonControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

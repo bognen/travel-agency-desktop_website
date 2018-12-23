@@ -177,12 +177,9 @@ namespace TravelExperts
                 int col = dgvPackageList.CurrentCell.ColumnIndex;
                 int row = dgvPackageList.CurrentCell.RowIndex;
 
-                if (col < dgvPackageList.ColumnCount - 1)
-                {
+                if (col < dgvPackageList.ColumnCount - 1) {
                     col++;
-                }
-                else
-                {
+                } else {
                     col = 0;
                     row++;
                 }
