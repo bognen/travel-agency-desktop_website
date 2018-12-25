@@ -68,15 +68,16 @@ namespace TravelExperts
 
         public void renderControl()
         {
+            int btnWidth = 25;
             this.textbox1.Location = new Point(0, 0);
-            this.textbox1.Width = 5 * this.Width / 6;
+            this.textbox1.Width = this.Width- btnWidth;
             this.textbox1.Height = this.Height;
             this.textbox1.ReadOnly = true;
             this.textbox1.BackColor = Color.White;
 
-            this.button1.Location = new Point(5 * this.Width / 6, 0);
+            this.button1.Location = new Point(this.Width - btnWidth);
             this.button1.FlatStyle = FlatStyle.Standard;
-            this.button1.Width = this.Width / 6;
+            this.button1.MaximumSize = new Size(btnWidth, int.MaxValue);
             this.button1.Height = this.Height;
             this.button1.Text = "...";
             this.button1.Font = new Font(button1.Font.FontFamily, 8);

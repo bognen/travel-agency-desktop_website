@@ -22,6 +22,10 @@ namespace TravelExperts
             if (fromPackForm == true) {
                 openedFromPack = true;
             }
+
+            //*************/
+            // Can try to use this to determine a modal window
+            if (this.Modal == true) { }
         }
 
         private void TemporaryProducts_Load(object sender, EventArgs e)
