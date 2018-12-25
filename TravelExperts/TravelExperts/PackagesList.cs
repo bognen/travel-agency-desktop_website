@@ -140,7 +140,9 @@ namespace TravelExperts
             DataGridViewRow rowstring = null;
 
             PackagesForm packForm = new PackagesForm(rowstring);
-            packForm.Show();
+            if (packForm.ShowDialog() == DialogResult.Yes) {
+                this.PackagesForm_Load(sender, e);
+            }
         }
 
         // Strip Menu EDIT button
@@ -152,7 +154,7 @@ namespace TravelExperts
             // Send the row to a new form
             PackagesForm packForm = new PackagesForm(rowstring);
             packForm.MdiParent = this.MdiParent;
-            packForm.Show();
+            packForm.Show(); 
         }
 
         // Press Enter Handler

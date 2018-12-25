@@ -75,36 +75,16 @@ namespace TravelExperts
         {
             if (itIsNewForm == false)
             {
-            // Create a DataGridView
-            DataGridViewTextBoxColumn product = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn productId = new DataGridViewTextBoxColumn();
-            DataGridViewComboBoxColumn supplier = new DataGridViewComboBoxColumn();
-            DataGridViewTextBoxColumn supplierId = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn productSupplierId = new DataGridViewTextBoxColumn();
+                // if form is opened in EDIT mode fill all exusting informartion
+                
+                // Create a DGV table
+                FormHandler.createProdSupplTable(dgvPackProdSuppl);
 
-            // Set column properties
-            product.HeaderText = "Product";
-            dgvPackProdSuppl.Columns.Add(product);
-            productId.HeaderText = "Product ID";
-            dgvPackProdSuppl.Columns.Add(productId);
-            supplier.HeaderText = "Supplier";
-                supplier.FlatStyle = FlatStyle.Flat;
-            dgvPackProdSuppl.Columns.Add(supplier);
-            supplierId.HeaderText = "SupplierID";
-            dgvPackProdSuppl.Columns.Add(supplierId);
-            productSupplierId.HeaderText = "ProdSupplID";
-            dgvPackProdSuppl.Columns.Add(productSupplierId);
+                // Create a list of PackProdSupplkiers
+                List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
 
-            // Make three columns invisible for technical purposes
-            //productId.Visible = false;
-            //supplierId.Visible = false;
-            //productSupplierId.Visible = false;
-
-            // Create a list of PackProdSupplkiers
-            List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
-
-            // Loop through list generated from data table to populate DataGridView
-            string[] splitLine = new string[5];
+                // Loop through list generated from data table to populate DataGridView
+                string[] splitLine = new string[5];
 
                 foreach (PackProdSupplier line in packProdSupList)
                 {
@@ -141,6 +121,10 @@ namespace TravelExperts
 
                     dgvPackProdSuppl.Rows.Add(dgvRow);
                 }
+            }
+            else {
+                // if it is a new form it is needed to generate new Package ID
+                txtId.Text = Convert.ToString((DBHandler.getMaxPackIdValue() + 1));
             }
 
             //**************************************************************************
@@ -238,9 +222,17 @@ namespace TravelExperts
             }
         }
 
+        //**************************************************************************
+        //*** MENU STRING BUTTONS ABOVE DGV
+        //**************************************************************************
+
         // METHOD CREATES A NEW DGV ROW ON PLUS BUTTON CLICK
         private void tsbAddProdSup_Click(object sender, EventArgs e)
         {
+            if (dgvPackProdSuppl.Columns.Count == 0)
+            {
+                FormHandler.createProdSupplTable(dgvPackProdSuppl);
+            }
             dgvPackProdSuppl.Rows.Add("","","","","");
             int newRowIndex = dgvPackProdSuppl.Rows.Count;
             dgvPackProdSuppl.CurrentCell = dgvPackProdSuppl.Rows[newRowIndex-1].Cells[0];
@@ -258,9 +250,41 @@ namespace TravelExperts
         // METHOD DELETES SELECTED DGW ROW ON DELETE BUTTON CLICK
         private void tsbDeleteProdSup_Click(object sender, EventArgs e)
         {
-            dgvPackProdSuppl.Rows.RemoveAt(dgvPackProdSuppl.CurrentRow.Index);
+            if (dgvPackProdSuppl.Rows.Count != 0) {
+                dgvPackProdSuppl.Rows.RemoveAt(dgvPackProdSuppl.CurrentRow.Index);
+            }
         }
 
+        //**************************************************************************
+        //*** SAVE AND CANCEL BUTTONS
+        //**************************************************************************
 
+        // SAVE BUTTON CLICK
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // Create an instance of Package class from the form
+            Package pack = new Package(txtName.Text, Convert.ToDateTime(tpStartDate.Text), 
+                Convert.ToDateTime(tpEndDate.Text), txtDesc.Text, Convert.ToDecimal(txtBasePrice.Text),
+                Convert.ToDecimal(txtAgComm.Text));
+
+            // Create a list of innstances of PackIdProdSupId
+            List<PackIdProdSupId> pps = new List<PackIdProdSupId>();
+            for (int i = 0; i < dgvPackProdSuppl.Rows.Count; i++) {
+                PackIdProdSupId item = new PackIdProdSupId(Convert.ToInt32(txtId.Text),
+                    Convert.ToInt32(dgvPackProdSuppl.Rows[i].Cells[4].Value));
+                pps.Add(item);
+            }
+
+            // Insert data into Package Table
+            DBHandler.insertPackages(pack);
+
+            // Insert data into Packages_Products_Suppliers
+            DBHandler.insertPackages_Products_Suppliers(pps);
+
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+        }
+
+ 
     } // end of class
 } // end of namespace

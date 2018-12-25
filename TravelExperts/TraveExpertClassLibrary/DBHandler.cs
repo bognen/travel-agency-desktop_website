@@ -14,6 +14,11 @@ namespace TravelExperts
         // Variables needed for different methods within this class
         static string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
 
+        //*********************************************************************************//
+        //*** 1) METHODS FOR RETRIEVING DATA
+        //*********************************************************************************//
+
+        // METHOD RETRIEVES ALL DATA ABOUT PACKAGE LIST
         public static DataTable getPackageList() {
             DataTable packageList = new DataTable();
             
@@ -78,7 +83,7 @@ namespace TravelExperts
             return pairs;
         }
 
-        //*** METHOD TO RETRIVE A PRODUCT_SUPPLIER_ID BASE ON PROD_ID AND SUPPLIER_ID
+        //*** METHOD RETRIVES A PRODUCT_SUPPLIER_ID BASED ON PROD_ID AND SUPPLIER_ID
         public static string getNewProdSupplierId(string prodId, string supplierId)
         {
             SqlConnection conn = null;
@@ -100,6 +105,36 @@ namespace TravelExperts
                 }
                 
                 return newProdSupplierId;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        //*** METHOD RETRIEVES MAX VALUE OF PACKAGE_ID TO INSERT IT INTO NEWLY CREATE PACAKGE
+        public static int getMaxPackIdValue() {
+            SqlConnection conn = null;
+            int maxValue;
+            try
+            {
+                using (conn = new SqlConnection(configString))
+                {
+                    using (SqlCommand command =
+                        new SqlCommand(("Select MAX(Packages.PackageId) from Packages"), conn))
+                    {
+                        conn.Open();   
+                        maxValue = (int)command.ExecuteScalar();
+                    }
+                }
+                return maxValue;
             }
             catch (Exception ex)
             {
@@ -146,6 +181,92 @@ namespace TravelExperts
             }
         }
 
+        //*********************************************************************************//
+        //*** 2) METHODS FOR INSERTING DATA
+        //*********************************************************************************//
+
+        // METHOD INSERTS DATA INTO PACKAGES TABLE
+        public static void insertPackages(Package pack) {
+
+          SqlConnection conn = null;
+
+          // Create a query
+          string query = @"INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission)
+          VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
+
+            // Insert data into DataBase
+            try {
+                using (conn = new SqlConnection(configString))
+                {
+                    using (SqlCommand command =
+                        new SqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        // Add values to query
+                        command.Parameters.AddWithValue("@PkgName", pack.PackName);
+                        command.Parameters.AddWithValue("@PkgStartDate", pack.PackStartDate);
+                        command.Parameters.AddWithValue("@PkgEndDate", pack.PackEndDate);
+                        command.Parameters.AddWithValue("@PkgDesc", pack.PackDesc);
+                        command.Parameters.AddWithValue("@PkgBasePrice", pack.PackBasePrice);
+                        command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PackAgncyCommission);
+
+                        // Execute Sql Command
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, e);
+            }
+            finally {
+                if (conn != null) {
+                    conn.Close();
+                }
+            }
+        }
+
+        // METHOD INSERTS DATA INTO PACKAGES_PRODUCTS_SUPPLIERS TABLE
+        public static void insertPackages_Products_Suppliers(List <PackIdProdSupId> ppsi)
+        {
+            SqlConnection conn = null;
+            // Create a query
+            string query = @"INSERT INTO Packages_Products_Suppliers (PackageId, ProductSupplierId)
+             VALUES (@PackageId, @ProductSupplierId)";
+
+            // Insert data into DataBase
+            try
+            {            
+               using (conn = new SqlConnection(configString))
+                 {
+                    using (SqlCommand command =
+                       new SqlCommand(query, conn))
+                    {
+                      conn.Open();
+                      foreach (PackIdProdSupId item in ppsi)
+                        {
+                          // Add values to query
+                          command.Parameters.AddWithValue("@PackageId", item.PackId);
+                          command.Parameters.AddWithValue("@ProductSupplierId", item.ProdSupplierId);
+                          // Execute Sql Command
+                          command.ExecuteNonQuery();
+                          command.Parameters.Clear();
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, e);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
         //***********FOR TEMPORARY FORM*********
         public static DataTable temporaryProducts() {
             DataTable dt = new DataTable();
