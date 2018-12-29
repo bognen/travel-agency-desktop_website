@@ -174,6 +174,7 @@
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.Size = new System.Drawing.Size(174, 26);
             this.txtBasePrice.TabIndex = 12;
+            this.txtBasePrice.Text = "0";
             // 
             // lblBasePrice
             // 
@@ -192,6 +193,7 @@
             this.txtAgComm.Name = "txtAgComm";
             this.txtAgComm.Size = new System.Drawing.Size(144, 26);
             this.txtAgComm.TabIndex = 14;
+            this.txtAgComm.Text = "0";
             // 
             // lblAgComm
             // 
