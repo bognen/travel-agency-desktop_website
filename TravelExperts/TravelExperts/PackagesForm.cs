@@ -14,6 +14,8 @@ namespace TravelExperts
     {
         // GLOBALVARIABLE WHICH CHECKS IF IT IS A NEW FORM
         bool itIsNewForm = true;
+        // List of ProdSuppliers Ids needed for updating form
+        List<int> prodSuppliersIdForUpDate = new List<int>();
 
         public PackagesForm(DataGridViewRow rowstring)
         {
@@ -80,7 +82,8 @@ namespace TravelExperts
                 // Create a DGV table
                 FormHandler.createProdSupplTable(dgvPackProdSuppl);
 
-                // Create a list of PackProdSupplkiers
+                // Create a list of PackProdSuppl objects to popuplate Data Grid View with
+                // existing data
                 List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
 
                 // Loop through list generated from data table to populate DataGridView
@@ -120,6 +123,9 @@ namespace TravelExperts
                     dgvRow.Cells[4].Value = splitLine[4];
 
                     dgvPackProdSuppl.Rows.Add(dgvRow);
+
+                    // add item to prodSuppliersIdForUpDate list
+                    prodSuppliersIdForUpDate.Add(Convert.ToInt32(dgvRow.Cells[4].Value));
                 }
             }
             else {
@@ -262,29 +268,45 @@ namespace TravelExperts
         // SAVE BUTTON CLICK
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Create an instance of Package class from the form
-            Package pack = new Package(txtName.Text, Convert.ToDateTime(tpStartDate.Text), 
-                Convert.ToDateTime(tpEndDate.Text), txtDesc.Text, Convert.ToDecimal(txtBasePrice.Text),
-                Convert.ToDecimal(txtAgComm.Text));
+            // First check if all text boxes and grid view are filled properly
+            if (PackFormValidator.checkTextFields(txtName, txtDesc) && 
+                PackFormValidator.checkCommission(txtBasePrice, txtAgComm) && 
+                PackFormValidator.checkDates(tpStartDate, tpEndDate) && 
+                PackFormValidator.dgvIsNotEmpty(dgvPackProdSuppl) && 
+                PackFormValidator.dgvIsFilled(dgvPackProdSuppl)) {
 
-            // Create a list of innstances of PackIdProdSupId
-            List<PackIdProdSupId> pps = new List<PackIdProdSupId>();
-            for (int i = 0; i < dgvPackProdSuppl.Rows.Count; i++) {
-                PackIdProdSupId item = new PackIdProdSupId(Convert.ToInt32(txtId.Text),
-                    Convert.ToInt32(dgvPackProdSuppl.Rows[i].Cells[4].Value));
-                pps.Add(item);
+                // Create an instance of Package class from the form
+                Package pack = new Package(txtName.Text, Convert.ToDateTime(tpStartDate.Text),
+                    Convert.ToDateTime(tpEndDate.Text), txtDesc.Text, Convert.ToDecimal(txtBasePrice.Text),
+                    Convert.ToDecimal(txtAgComm.Text));
+
+                // Create a list of innstances of PackIdProdSupId
+                List<PackIdProdSupId> pps = new List<PackIdProdSupId>();
+                for (int i = 0; i < dgvPackProdSuppl.Rows.Count; i++)
+                {
+                    PackIdProdSupId item = new PackIdProdSupId(Convert.ToInt32(txtId.Text),
+                        Convert.ToInt32(dgvPackProdSuppl.Rows[i].Cells[4].Value));
+                    pps.Add(item);
+                }
+
+                // If it is a new form just insert gatherd values into DB
+                if (itIsNewForm == true)
+                {
+                    // Insert data into Package Table
+                    DBHandler.insertPackages(pack);
+
+                    // Insert data into Packages_Products_Suppliers
+                    DBHandler.insertPackages_Products_Suppliers(pps);
+
+                    this.DialogResult = DialogResult.Yes;
+                    this.Close();
+                }
+                else {
+                    // add item to prodSuppliersIdForUpDate list
+                    
+                }
             }
-
-            // Insert data into Package Table
-            DBHandler.insertPackages(pack);
-
-            // Insert data into Packages_Products_Suppliers
-            DBHandler.insertPackages_Products_Suppliers(pps);
-
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
         }
-
  
     } // end of class
 } // end of namespace
