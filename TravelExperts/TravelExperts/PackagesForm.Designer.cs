@@ -95,7 +95,7 @@
             this.tpStartDate.Name = "tpStartDate";
             this.tpStartDate.Size = new System.Drawing.Size(144, 26);
             this.tpStartDate.TabIndex = 3;
-            this.tpStartDate.Value = new System.DateTime(2000, 1, 1, 20, 11, 0, 0);
+            this.tpStartDate.Value = new System.DateTime(2019, 1, 1, 20, 11, 0, 0);
             // 
             // tpEndDate
             // 
@@ -105,7 +105,7 @@
             this.tpEndDate.Name = "tpEndDate";
             this.tpEndDate.Size = new System.Drawing.Size(144, 26);
             this.tpEndDate.TabIndex = 5;
-            this.tpEndDate.Value = new System.DateTime(2000, 1, 1, 20, 13, 0, 0);
+            this.tpEndDate.Value = new System.DateTime(2019, 1, 1, 20, 13, 0, 0);
             // 
             // label1
             // 
@@ -142,6 +142,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(136, 26);
             this.txtId.TabIndex = 9;
+            this.txtId.Visible = false;
             // 
             // lblId
             // 
@@ -226,6 +227,7 @@
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel1
             // 
@@ -275,12 +277,11 @@
             // tsbAddProdSup
             // 
             this.tsbAddProdSup.AutoSize = false;
-            this.tsbAddProdSup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbAddProdSup.Image = ((System.Drawing.Image)(resources.GetObject("tsbAddProdSup.Image")));
             this.tsbAddProdSup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddProdSup.Name = "tsbAddProdSup";
-            this.tsbAddProdSup.Size = new System.Drawing.Size(32, 32);
-            this.tsbAddProdSup.Text = "New";
+            this.tsbAddProdSup.Size = new System.Drawing.Size(55, 32);
+            this.tsbAddProdSup.Text = " Add";
             this.tsbAddProdSup.Click += new System.EventHandler(this.tsbAddProdSup_Click);
             // 
             // tsbEditProdSup
@@ -329,7 +330,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PackagesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "PackagesForm";
+            this.Text = "Packages Form";
             this.Load += new System.EventHandler(this.PackagesForm_Load);
             this.gbDates.ResumeLayout(false);
             this.gbDates.PerformLayout();
@@ -345,27 +346,27 @@
         #endregion
 
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblStartDate;
-        private System.Windows.Forms.DateTimePicker tpStartDate;
-        private System.Windows.Forms.DateTimePicker tpEndDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.GroupBox gbDates;
-        private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.Label lblBasePrice;
-        private System.Windows.Forms.TextBox txtAgComm;
         private System.Windows.Forms.Label lblAgComm;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvPackProdSuppl;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbAddProdSup;
         private System.Windows.Forms.ToolStripButton tsbEditProdSup;
         private System.Windows.Forms.ToolStripButton tsbDeleteProdSup;
+        public System.Windows.Forms.TextBox txtDesc;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.DateTimePicker tpStartDate;
+        public System.Windows.Forms.DateTimePicker tpEndDate;
+        public System.Windows.Forms.TextBox txtBasePrice;
+        public System.Windows.Forms.TextBox txtAgComm;
+        public System.Windows.Forms.DataGridView dgvPackProdSuppl;
     }
 }

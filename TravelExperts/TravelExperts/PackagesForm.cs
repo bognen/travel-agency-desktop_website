@@ -36,7 +36,7 @@ namespace TravelExperts
         }
         
         //*******************************************************************************//
-        //  PART NEEDED TO CREATE A CUSTOM CONTROL
+        //  PART NEEDED TO CREATE A USER CUSTOM CONTROL
         //*******************************************************************************//
         // Create new control
         TextAndButtonControlPackForm txtbtn = new TextAndButtonControlPackForm();
@@ -70,7 +70,7 @@ namespace TravelExperts
             }
         }
         //*******************************************************************************//
-        //  END OF CUSTOM CONTROL PART
+        //  END OF CUSTOM USER CONTROL PART
         //*******************************************************************************//
 
         private void PackagesForm_Load(object sender, EventArgs e)
@@ -149,6 +149,8 @@ namespace TravelExperts
             //**************************************************************************
             //****** END OF CUSTOM BUTTON CONTROL
             //**************************************************************************
+
+            FormHandler.captureChanges(this);
         }
 
         // METHOD HANDLES CELL CHANGES IN DATAGRIDVIEW
@@ -189,8 +191,8 @@ namespace TravelExperts
                 if (dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value != null &&
                     dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value != null)
                 {
-                    string prodId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value);
-                    string supplierId = Convert.ToString(dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value);
+                    int prodId = Convert.ToInt32(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value);
+                    int supplierId = Convert.ToInt32(dgvPackProdSuppl.Rows[e.RowIndex].Cells[3].Value);
                     dgvPackProdSuppl.Rows[e.RowIndex].Cells[4].Value =
                         DBHandler.getNewProdSupplierId(prodId, supplierId);
                 }
@@ -298,15 +300,25 @@ namespace TravelExperts
                     // Insert data into Packages_Products_Suppliers
                     DBHandler.insertPackages_Products_Suppliers(pps);
 
-                    this.DialogResult = DialogResult.Yes;
+                    FormHandler.upDatePackList(Convert.ToInt32(txtId.Text));
                     this.Close();
                 }
                 else {
-                    // add item to prodSuppliersIdForUpDate list
-                    
+                    // Update data in Package Table
+                    DBHandler.updatePackages(pack, Convert.ToInt32(txtId.Text));
+
+                    // Update data in Packages_Products_Suppliers Table
+                    DBHandler.updatePackages_Products_Suppliers(pps, prodSuppliersIdForUpDate);
+
+                    FormHandler.upDatePackList(Convert.ToInt32(txtId.Text));
+                    this.Close();
                 }
             }
         }
- 
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     } // end of class
 } // end of namespace
