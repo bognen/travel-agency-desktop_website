@@ -34,7 +34,7 @@ namespace TravelExperts
                 itIsNewForm = false;
             }
         }
-        
+
         //*******************************************************************************//
         //  PART NEEDED TO CREATE A USER CUSTOM CONTROL
         //*******************************************************************************//
@@ -78,7 +78,7 @@ namespace TravelExperts
             if (itIsNewForm == false)
             {
                 // if form is opened in EDIT mode fill all exusting informartion
-                
+
                 // Create a DGV table
                 FormHandler.createProdSupplTable(dgvPackProdSuppl);
 
@@ -140,7 +140,7 @@ namespace TravelExperts
             this.txtbtn = new TextAndButtonControlPackForm();
             this.txtbtn.Visible = false;
             this.dgvPackProdSuppl.Controls.Add(this.txtbtn);
-         
+
             //Handle the cellbeginEdit event to show the usercontrol in the cell while editing
             this.dgvPackProdSuppl.CellBeginEdit += new DataGridViewCellCancelEventHandler(dgv_CellBeginEdit);
 
@@ -161,7 +161,7 @@ namespace TravelExperts
             {
                 //Make a Supplier
                 dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value = null;
-                
+
                 // Create a list of possiple values to populate a combox
                 List<SupplierIdPairs> supplierIdPairs =
                     PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value));
@@ -271,10 +271,10 @@ namespace TravelExperts
         private void btnSave_Click(object sender, EventArgs e)
         {
             // First check if all text boxes and grid view are filled properly
-            if (PackFormValidator.checkTextFields(txtName, txtDesc) && 
-                PackFormValidator.checkCommission(txtBasePrice, txtAgComm) && 
-                PackFormValidator.checkDates(tpStartDate, tpEndDate) && 
-                PackFormValidator.dgvIsNotEmpty(dgvPackProdSuppl) && 
+            if (PackFormValidator.checkTextFields(txtName, txtDesc) &&
+                PackFormValidator.checkCommission(txtBasePrice, txtAgComm) &&
+                PackFormValidator.checkDates(tpStartDate, tpEndDate) &&
+                PackFormValidator.dgvIsNotEmpty(dgvPackProdSuppl) &&
                 PackFormValidator.dgvIsFilled(dgvPackProdSuppl)) {
 
                 // Create an instance of Package class from the form
