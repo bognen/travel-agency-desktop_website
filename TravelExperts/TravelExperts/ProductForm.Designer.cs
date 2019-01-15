@@ -28,21 +28,148 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
+            this.addlStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.travelExpertsDataSet = new TravelExperts.TravelExpertsDataSet();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsTableAdapter = new TravelExperts.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
+            this.tableAdapterManager = new TravelExperts.TravelExpertsDataSetTableAdapters.TableAdapterManager();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // addlStripButton
+            // 
+            this.addlStripButton.AutoSize = false;
+            this.addlStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addlStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addlStripButton.Image")));
+            this.addlStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addlStripButton.Name = "addlStripButton";
+            this.addlStripButton.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.addlStripButton.Size = new System.Drawing.Size(32, 32);
+            this.addlStripButton.Text = "ADD";
+            this.addlStripButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.addlStripButton.Click += new System.EventHandler(this.addlStripButton_Click);
+            // 
+            // editStripButton
+            // 
+            this.editStripButton.AutoSize = false;
+            this.editStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editStripButton.Image")));
+            this.editStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editStripButton.Name = "editStripButton";
+            this.editStripButton.Size = new System.Drawing.Size(32, 32);
+            this.editStripButton.Text = "EDIT  F2";
+            // 
+            // deleteStripButton
+            // 
+            this.deleteStripButton.AutoSize = false;
+            this.deleteStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteStripButton.Image")));
+            this.deleteStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteStripButton.Name = "deleteStripButton";
+            this.deleteStripButton.Size = new System.Drawing.Size(32, 32);
+            this.deleteStripButton.Text = "DELETE";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addlStripButton,
+            this.editStripButton,
+            this.deleteStripButton});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(343, 35);
+            this.toolStrip2.TabIndex = 3;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // travelExpertsDataSet
+            // 
+            this.travelExpertsDataSet.DataSetName = "TravelExpertsDataSet";
+            this.travelExpertsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.travelExpertsDataSet;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AffiliationsTableAdapter = null;
+            this.tableAdapterManager.AgenciesTableAdapter = null;
+            this.tableAdapterManager.AgentsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BookingDetailsTableAdapter = null;
+            this.tableAdapterManager.BookingsTableAdapter = null;
+            this.tableAdapterManager.ClassesTableAdapter = null;
+            this.tableAdapterManager.CreditCardsTableAdapter = null;
+            this.tableAdapterManager.Customers_RewardsTableAdapter = null;
+            this.tableAdapterManager.CustomersTableAdapter = null;
+            this.tableAdapterManager.EmployeesTableAdapter = null;
+            this.tableAdapterManager.FeesTableAdapter = null;
+            this.tableAdapterManager.Packages_Products_SuppliersTableAdapter = null;
+            this.tableAdapterManager.PackagesTableAdapter = null;
+            this.tableAdapterManager.Products_SuppliersTableAdapter = null;
+            this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
+            this.tableAdapterManager.RegionsTableAdapter = null;
+            this.tableAdapterManager.RewardsTableAdapter = null;
+            this.tableAdapterManager.SupplierContactsTableAdapter = null;
+            this.tableAdapterManager.SuppliersTableAdapter = null;
+            this.tableAdapterManager.TripTypesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TravelExperts.TravelExpertsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 38);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(246, 365);
+            this.dataGridView1.TabIndex = 5;
             // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(343, 411);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.toolStrip2);
             this.Location = new System.Drawing.Point(200, 0);
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ProductForm";
+            this.Load += new System.EventHandler(this.ProductForm_Load);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ToolStripButton addlStripButton;
+        private System.Windows.Forms.ToolStripButton editStripButton;
+        private System.Windows.Forms.ToolStripButton deleteStripButton;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private TravelExpertsDataSet travelExpertsDataSet;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private TravelExpertsDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private TravelExpertsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
