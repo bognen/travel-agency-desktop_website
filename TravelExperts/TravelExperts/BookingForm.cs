@@ -21,7 +21,7 @@ namespace TravelExperts
         private void BookingForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'travelExpertsDataSet.Bookings' table. You can move, or remove it, as needed.
-            //bookingDetails.DataSource = DBHandler.getPackageListBookings();
+            bookingDetails.DataSource = DBHandler.getPackageListBookings();
 
             //HIDE ID COLUMN
             bookingDetails.Columns[0].Visible = false;

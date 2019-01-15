@@ -400,7 +400,27 @@ namespace TravelExperts
                 }
             }
         }
-        
+
+        //************************************************************
+
+        //***************************
+        public static DataTable getPackageListBookings()
+        {
+            DataTable packageList = new DataTable();
+            string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(configString))
+            {
+                using (SqlCommand command = new SqlCommand("select * from BookingDetails", conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    packageList.Load(reader);
+                }
+            }
+            return packageList;
+        }
+
         //***********FOR TEMPORARY FORM*********
         public static DataTable temporaryProducts() {
             DataTable dt = new DataTable();
