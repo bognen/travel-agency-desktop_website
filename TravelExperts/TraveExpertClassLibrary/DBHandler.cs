@@ -84,7 +84,7 @@ namespace TravelExperts
         }
 
         //*** METHOD RETRIVES A PRODUCT_SUPPLIER_ID BASED ON PROD_ID AND SUPPLIER_ID
-        public static string getNewProdSupplierId(string prodId, string supplierId)
+        public static string getNewProdSupplierId(int prodId, int supplierId)
         {
             SqlConnection conn = null;
             string newProdSupplierId;
@@ -267,6 +267,140 @@ namespace TravelExperts
                 }
             }
         }
+
+        //*********************************************************************************//
+        //*** 3) METHODS FOR UPDATING DATA
+        //*********************************************************************************//
+
+        // METHOD UPDATES DATA IN PACKAGES TABLE
+        public static void updatePackages(Package pack, int packId)
+        {
+            SqlConnection conn = null;
+
+            // Create a query
+            string query = @"UPDATE Packages
+                             SET PkgName=@PkgName, PkgStartDate=@PkgStartDate, PkgEndDate=@PkgEndDate, 
+                                 PkgDesc=@PkgDesc, PkgBasePrice=@PkgBasePrice, 
+                                 PkgAgencyCommission=@PkgAgencyCommission
+                             WHERE PackageId=" + Convert.ToString(packId);
+
+            // Insert data into DataBase
+            try
+            {
+                using (conn = new SqlConnection(configString))
+                {
+                    using (SqlCommand command =
+                        new SqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        // Add values to query
+                        command.Parameters.AddWithValue("@PkgName", pack.PackName);
+                        command.Parameters.AddWithValue("@PkgStartDate", pack.PackStartDate);
+                        command.Parameters.AddWithValue("@PkgEndDate", pack.PackEndDate);
+                        command.Parameters.AddWithValue("@PkgDesc", pack.PackDesc);
+                        command.Parameters.AddWithValue("@PkgBasePrice", pack.PackBasePrice);
+                        command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PackAgncyCommission);
+
+                        // Execute Sql Command
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        // METHOD UPDATES DATA IN PACKAGES_PRODUCTS_SUPPLIERS TABLE
+        public static void updatePackages_Products_Suppliers(List<PackIdProdSupId> ppsi, List<int> exstIndex)
+        {
+            int dif = ppsi.Count() - exstIndex.Count();
+
+            string updateQuery = @"UPDATE Packages_Products_Suppliers 
+                                   SET PackageId=@PackageId, ProductSupplierId=@ProductSupplierId
+                                   WHERE PackageId =@PackageId
+                                   AND ProductSupplierId=@OldProductSupplierId";
+            string deleteQuery = @"DELETE FROM Packages_Products_Suppliers
+                                   WHERE PackageId =@PackageId
+                                   AND ProductSupplierId=@OldProductSupplierId";
+            string addQuery =    @"INSERT INTO Packages_Products_Suppliers (PackageId, ProductSupplierId)
+                                   VALUES (@PackageId, @ProductSupplierId)";
+
+            SqlConnection conn = null;
+            try
+            {
+                using (conn = new SqlConnection(configString))
+                {
+                    // Add values to query
+                    // If number of lines in updated Data Grid View is Equal to Old one
+                    if (dif == 0)
+                    {
+                        using (SqlCommand command = new SqlCommand(updateQuery, conn))
+                        {
+                            conn.Open();
+                            for (int i = 0; i < dif; i++)
+                            {
+                                command.Parameters.AddWithValue("@PackageId", ppsi[i].PackId);
+                                command.Parameters.AddWithValue("@ProductSupplierId", ppsi[i].ProdSupplierId);
+                                command.Parameters.AddWithValue("@OldProductSupplierId", exstIndex[i]);
+                                // Execute Sql Command
+                                command.ExecuteNonQuery();
+                                command.Parameters.Clear();
+                            }
+                        }
+                    }
+                    // If number of lines in updated Data Grid View is LESS THAN in Old one
+                    else 
+                    {
+                        conn.Open();
+                        // Delete all existing rows 
+                        using (SqlCommand command = new SqlCommand(deleteQuery, conn))
+                        {
+                            for (int i = 0; i<exstIndex.Count(); i++)
+                            {
+                                command.Parameters.AddWithValue("@PackageId", ppsi[0].PackId);
+                                command.Parameters.AddWithValue("@OldProductSupplierId", exstIndex[i]);
+                                // Execute Sql Command
+                                command.ExecuteNonQuery();
+                                command.Parameters.Clear();
+                            }
+                        }
+                        // Add new rows
+                        using (SqlCommand command = new SqlCommand(addQuery, conn))
+                        {
+                            for (int i = 0; i < ppsi.Count(); i++)
+                            {
+                                command.Parameters.AddWithValue("@PackageId", ppsi[i].PackId);
+                                command.Parameters.AddWithValue("@ProductSupplierId", ppsi[i].ProdSupplierId);
+                                // Execute Sql Command
+                                command.ExecuteNonQuery();
+                                command.Parameters.Clear();
+                            }
+                        }
+                    }
+                }        
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+        
         //***********FOR TEMPORARY FORM*********
         public static DataTable temporaryProducts() {
             DataTable dt = new DataTable();
