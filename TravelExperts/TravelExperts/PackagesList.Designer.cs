@@ -53,15 +53,14 @@
             // 
             // addlStripButton
             // 
+            this.addlStripButton.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.addlStripButton.AutoSize = false;
-            this.addlStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.addlStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addlStripButton.Image")));
             this.addlStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addlStripButton.Name = "addlStripButton";
-            this.addlStripButton.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
-            this.addlStripButton.Size = new System.Drawing.Size(32, 32);
-            this.addlStripButton.Text = "ADD";
-            this.addlStripButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.addlStripButton.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.addlStripButton.Size = new System.Drawing.Size(55, 32);
+            this.addlStripButton.Text = " Add";
             this.addlStripButton.Click += new System.EventHandler(this.addlStripButton_Click);
             // 
             // editStripButton
@@ -93,6 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPackageList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPackageList.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvPackageList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackageList.Location = new System.Drawing.Point(8, 31);
             this.dgvPackageList.MultiSelect = false;
@@ -100,6 +100,7 @@
             this.dgvPackageList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPackageList.Size = new System.Drawing.Size(964, 418);
             this.dgvPackageList.TabIndex = 2;
+            this.dgvPackageList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackageList_CellDoubleClick);
             this.dgvPackageList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPackageList_KeyDown);
             this.dgvPackageList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvPackageList_KeyPress);
             // 
@@ -113,6 +114,7 @@
             this.Location = new System.Drawing.Point(200, 20);
             this.Name = "PackagesList";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Packages List";
             this.Load += new System.EventHandler(this.PackagesForm_Load);
@@ -129,6 +131,6 @@
         private System.Windows.Forms.ToolStripButton addlStripButton;
         private System.Windows.Forms.ToolStripButton editStripButton;
         private System.Windows.Forms.ToolStripButton deleteStripButton;
-        private System.Windows.Forms.DataGridView dgvPackageList;
+        public System.Windows.Forms.DataGridView dgvPackageList;
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="BookingForm.Designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHandler.cs" />
     <Compile Include="LandingPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,7 @@
     <Compile Include="PackagesList.Designer.cs">
       <DependentUpon>PackagesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="PackFormValidator.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,7 +86,16 @@
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextAndButtonControl.cs">
+    <Compile Include="TemporaryProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemporaryProducts.Designer.cs">
+      <DependentUpon>TemporaryProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextAndButtonControlPackForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TextAndButtonControlPackList.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="TravelExpertsDataSet.Designer.cs">
@@ -119,8 +130,14 @@
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TextAndButtonControl.resx">
-      <DependentUpon>TextAndButtonControl.cs</DependentUpon>
+    <EmbeddedResource Include="TemporaryProducts.resx">
+      <DependentUpon>TemporaryProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextAndButtonControlPackForm.resx">
+      <DependentUpon>TextAndButtonControlPackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextAndButtonControlPackList.resx">
+      <DependentUpon>TextAndButtonControlPackList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

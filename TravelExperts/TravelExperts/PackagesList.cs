@@ -13,8 +13,11 @@ namespace TravelExperts
 {
     public partial class PackagesList : Form
     {
+        public int activeRow { get; set; }
+
         public PackagesList()
         {
+
             InitializeComponent();
         }
         //*******************************************************************************//
@@ -22,7 +25,7 @@ namespace TravelExperts
         //*******************************************************************************//
 
         // Create new control
-        TextAndButtonControl txtbtn = new TextAndButtonControl();
+        TextAndButtonControlPackList txtbtn = new TextAndButtonControlPackList();
         // Number of COLUMN to apply custom control
         int colIndex = 1;
 
@@ -87,7 +90,7 @@ namespace TravelExperts
         //*****************************************************************************//
         // *** LOAD FORM EVENT *** //
         //*****************************************************************************//
-        private void PackagesForm_Load(object sender, EventArgs e)
+        public void PackagesForm_Load(object sender, EventArgs e)
         {
             // Call just data source for dataGridView
             // Source has to be DATA TABLE
@@ -118,7 +121,7 @@ namespace TravelExperts
             dgvPackageList.Columns[6].ReadOnly = true;
 
             //****** ADD THREE BUTTON CONTROL
-            this.txtbtn = new TextAndButtonControl();
+            this.txtbtn = new TextAndButtonControlPackList();
             this.txtbtn.Visible = false;
             this.dgvPackageList.Controls.Add(this.txtbtn);
 
@@ -127,6 +130,8 @@ namespace TravelExperts
 
             //Handle the cellEndEdit event to update the cell value
             this.dgvPackageList.CellEndEdit += new DataGridViewCellEventHandler(dgv_CellEndEdit);
+
+            dgvPackageList.CurrentCell = dgvPackageList.Rows[this.activeRow].Cells[1];
         }
 
         //*****************************************************************************//
@@ -140,6 +145,7 @@ namespace TravelExperts
             DataGridViewRow rowstring = null;
 
             PackagesForm packForm = new PackagesForm(rowstring);
+            packForm.MdiParent = this.MdiParent;
             packForm.Show();
         }
 
@@ -165,6 +171,7 @@ namespace TravelExperts
 
                 // Send the row to a new form
                 PackagesForm packForm = new PackagesForm(rowstring);
+                packForm.MdiParent = this.MdiParent;
                 packForm.Show();
             }
         }
@@ -177,12 +184,9 @@ namespace TravelExperts
                 int col = dgvPackageList.CurrentCell.ColumnIndex;
                 int row = dgvPackageList.CurrentCell.RowIndex;
 
-                if (col < dgvPackageList.ColumnCount - 1)
-                {
+                if (col < dgvPackageList.ColumnCount - 1) {
                     col++;
-                }
-                else
-                {
+                } else {
                     col = 0;
                     row++;
                 }
@@ -193,6 +197,17 @@ namespace TravelExperts
                 dgvPackageList.CurrentCell = dgvPackageList[col, row];
                 e.Handled = true;
             }
+        }
+
+        private void dgvPackageList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Store current row in variable
+            DataGridViewRow rowstring = dgvPackageList.CurrentRow;
+
+            // Send the row to a new form
+            PackagesForm packForm = new PackagesForm(rowstring);
+            packForm.MdiParent = this.MdiParent;
+            packForm.Show();
         }
     }
 }
