@@ -56,6 +56,7 @@
             this.addlStripButton.Size = new System.Drawing.Size(32, 32);
             this.addlStripButton.Text = "ADD";
             this.addlStripButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.addlStripButton.Click += new System.EventHandler(this.addlStripButton_Click);
             // 
             // editStripButton
             // 

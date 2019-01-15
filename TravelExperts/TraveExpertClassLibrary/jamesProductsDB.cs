@@ -21,7 +21,7 @@ namespace TravelExperts
             List<Products> Products = new List<Products>();
             Products pro;
             SqlConnection con = jamesDBConnect.getConnection();
-            string selectQuery = "SELECT ProductId, ProdName FROM Products ORDER BY ProductId ASC ";
+            string selectQuery = "SELECT ProductId , ProdName FROM Products ORDER BY ProductId asc";
 
             SqlCommand cmd = new SqlCommand(selectQuery, con);
             try

@@ -33,8 +33,15 @@ namespace TravelExperts
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
-           // add data from ProductList into the datagrid view
+           // add data from ProductList into the datagrid view on form load
             dataGridView1.DataSource = ProductList;
+
+        }
+
+        private void addlStripButton_Click(object sender, EventArgs e)
+        {
+            ProductsAdd productAddForm = new ProductsAdd();
+            productAddForm.Show();
 
         }
     }
