@@ -10,7 +10,7 @@ namespace TravelExperts
     public static class jamesProductsDB
     {
         /// <summary>
-        /// This is a class utilizing the properties to get products values from the database, and place them in a new list object
+        /// This class is used for updating and adding records in the database
         /// Author: James Cockriell
         /// Date: January 10/2019
         /// </summary>
@@ -46,5 +46,31 @@ namespace TravelExperts
             }
             return Products;
         }
+
+        //add a new product to the products, products_supplier table
+        public static void AddCustomer()
+        {
+            bool success = false;
+            SqlConnection con = jamesDBConnect.getConnection();
+            string insertProducts = "INSERT INTO Products (ProdName) " +
+                "VALUES(@ProdName)";
+
+            SqlCommand cmd = new SqlCommand(insertProducts, con);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            
+        }
+        // method to put the customer data from text boxes into variables
     }
 }

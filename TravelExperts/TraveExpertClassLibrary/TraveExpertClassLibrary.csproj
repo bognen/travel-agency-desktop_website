@@ -46,6 +46,7 @@
     <Compile Include="jamesDBConnect.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="jamesProductsDB.cs" />
+    <Compile Include="Products_suppliers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

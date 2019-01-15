@@ -38,11 +38,11 @@ namespace TravelExperts
 
         }
 
+        // load the ProductsAdd form when the add button is clicked
         private void addlStripButton_Click(object sender, EventArgs e)
         {
             ProductsAdd productAddForm = new ProductsAdd();
             productAddForm.Show();
-
         }
     }
 }
