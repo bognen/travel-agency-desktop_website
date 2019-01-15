@@ -84,7 +84,7 @@ namespace TravelExperts
 
                 // Create a list of PackProdSuppl objects to popuplate Data Grid View with
                 // existing data
-                List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
+                List<PackProdSupplier> packProdSupList = PackProdSupplierDB.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
 
                 // Loop through list generated from data table to populate DataGridView
                 string[] splitLine = new string[5];
@@ -130,7 +130,7 @@ namespace TravelExperts
             }
             else {
                 // if it is a new form it is needed to generate new Package ID
-                txtId.Text = Convert.ToString((DBHandler.getMaxPackIdValue() + 1));
+                txtId.Text = Convert.ToString((PackageDB.getMaxPackIdValue() + 1));
             }
 
             //**************************************************************************
@@ -295,20 +295,20 @@ namespace TravelExperts
                 if (itIsNewForm == true)
                 {
                     // Insert data into Package Table
-                    DBHandler.insertPackages(pack);
+                    PackageDB.insertPackages(pack);
 
                     // Insert data into Packages_Products_Suppliers
-                    DBHandler.insertPackages_Products_Suppliers(pps);
+                    PackProdSupplierDB.insertPackages_Products_Suppliers(pps);
 
                     FormHandler.upDatePackList(Convert.ToInt32(txtId.Text));
                     this.Close();
                 }
                 else {
                     // Update data in Package Table
-                    DBHandler.updatePackages(pack, Convert.ToInt32(txtId.Text));
+                    PackageDB.updatePackages(pack, Convert.ToInt32(txtId.Text));
 
                     // Update data in Packages_Products_Suppliers Table
-                    DBHandler.updatePackages_Products_Suppliers(pps, prodSuppliersIdForUpDate);
+                    PackProdSupplierDB.updatePackages_Products_Suppliers(pps, prodSuppliersIdForUpDate);
 
                     FormHandler.upDatePackList(Convert.ToInt32(txtId.Text));
                     this.Close();
