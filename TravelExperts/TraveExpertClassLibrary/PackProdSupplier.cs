@@ -34,8 +34,8 @@ namespace TravelExperts
         }
 
         // METHOD WHICH BUILDS LIST OF SUPPLIER-ID PAIRS
-        public static List<SupplierIdPairs> createSupplierIdPairsList(int prodID) {
-            List<SupplierIdPairs> list = null;
+        public static List<Supplier> createSupplierIdPairsList(int prodID) {
+            List<Supplier> list = null;
             list = DBHandler.supplierIdPairsList(prodID);
             return list;
         }

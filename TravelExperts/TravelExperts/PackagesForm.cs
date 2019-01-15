@@ -95,7 +95,7 @@ namespace TravelExperts
                     splitLine = line.PackProdSupplierToString().Split(',');
 
                     // Create a list of possiple values to populate a combox
-                    List<SupplierIdPairs> supplierIdPairs =
+                    List<Supplier> supplierIdPairs =
                         PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(splitLine[1]));
 
                     // Find index of right element
@@ -163,7 +163,7 @@ namespace TravelExperts
                 dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value = null;
 
                 // Create a list of possiple values to populate a combox
-                List<SupplierIdPairs> supplierIdPairs =
+                List<Supplier> supplierIdPairs =
                     PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value));
                 ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
                     Cells[2]).DataSource = supplierIdPairs;

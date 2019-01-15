@@ -60,8 +60,8 @@ namespace TravelExperts
             return prodSuppliersList;
         }
        
-        // METHOD RETURNS LIST OF SUPPLIER-ID PAIRS TO POPULATE COMBOBOX
-        public static List<SupplierIdPairs> supplierIdPairsList(int prodID)
+        // METHOD RETURNS LIST OF SUPPLIERS PAIRS TO POPULATE COMBOBOX
+        public static List<Supplier> supplierIdPairsList(int prodID)
         {
             DataTable suppliersDT = new DataTable();
             string supplierIdPairsQuery = @"select Suppliers.SupName, Suppliers.SupplierId
@@ -72,12 +72,12 @@ namespace TravelExperts
             suppliersDT = retreiveData(supplierIdPairsQuery,prodID);
 
             // Create a list to store supplier-Id pairs
-            List<SupplierIdPairs> pairs = new List<SupplierIdPairs>();
+            List<Supplier> pairs = new List<Supplier>();
 
             // Store data from data table in the list
             foreach (DataRow row in suppliersDT.Rows)
             {
-                SupplierIdPairs pair = new SupplierIdPairs(row[0].ToString(), Convert.ToInt32(row[1]));
+                Supplier pair = new Supplier(row[0].ToString(), Convert.ToInt32(row[1]));
                 pairs.Add(pair);
             }
             return pairs;
