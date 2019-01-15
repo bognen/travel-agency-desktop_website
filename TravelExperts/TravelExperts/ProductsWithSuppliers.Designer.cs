@@ -35,22 +35,26 @@
             this.packages_Products_SuppliersTableAdapter = new TravelExperts.TravelExpertsDataSetTableAdapters.Packages_Products_SuppliersTableAdapter();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new TravelExperts.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagesProductsSuppliersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productSupplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.SupplierProduct = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SupplierProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // packagesProductsSuppliersBindingSource
@@ -81,74 +85,126 @@
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // packagesProductsSuppliersBindingSource1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.packageIdDataGridViewTextBoxColumn,
-            this.productSupplierIdDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.packagesProductsSuppliersBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(-2, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(243, 398);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIdDataGridViewTextBoxColumn,
-            this.prodNameDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.productsBindingSource1;
-            this.dataGridView2.Location = new System.Drawing.Point(247, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(243, 398);
-            this.dataGridView2.TabIndex = 1;
+            this.packagesProductsSuppliersBindingSource1.DataMember = "Packages_Products_Suppliers";
+            this.packagesProductsSuppliersBindingSource1.DataSource = this.travelExpertsDataSetBindingSource;
             // 
             // productsBindingSource1
             // 
             this.productsBindingSource1.DataMember = "Products";
             this.productsBindingSource1.DataSource = this.travelExpertsDataSetBindingSource;
             // 
-            // productIdDataGridViewTextBoxColumn
+            // SupplierProduct
             // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.SupplierProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SupplierProduct.Location = new System.Drawing.Point(43, 99);
+            this.SupplierProduct.Name = "SupplierProduct";
+            this.SupplierProduct.Size = new System.Drawing.Size(676, 350);
+            this.SupplierProduct.TabIndex = 0;
             // 
-            // prodNameDataGridViewTextBoxColumn
+            // textBox1
             // 
-            this.prodNameDataGridViewTextBoxColumn.DataPropertyName = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn.HeaderText = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn.Name = "prodNameDataGridViewTextBoxColumn";
+            this.textBox1.Location = new System.Drawing.Point(183, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // packagesProductsSuppliersBindingSource1
+            // textBox2
             // 
-            this.packagesProductsSuppliersBindingSource1.DataMember = "Packages_Products_Suppliers";
-            this.packagesProductsSuppliersBindingSource1.DataSource = this.travelExpertsDataSetBindingSource;
+            this.textBox2.Location = new System.Drawing.Point(77, 36);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 2;
+            this.textBox2.Text = "Product";
             // 
-            // packageIdDataGridViewTextBoxColumn
+            // textBox3
             // 
-            this.packageIdDataGridViewTextBoxColumn.DataPropertyName = "PackageId";
-            this.packageIdDataGridViewTextBoxColumn.HeaderText = "PackageId";
-            this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
+            this.textBox3.Location = new System.Drawing.Point(387, 36);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 3;
+            this.textBox3.Text = "Supplier";
             // 
-            // productSupplierIdDataGridViewTextBoxColumn
+            // textBox4
             // 
-            this.productSupplierIdDataGridViewTextBoxColumn.DataPropertyName = "ProductSupplierId";
-            this.productSupplierIdDataGridViewTextBoxColumn.HeaderText = "ProductSupplierId";
-            this.productSupplierIdDataGridViewTextBoxColumn.Name = "productSupplierIdDataGridViewTextBoxColumn";
+            this.textBox4.Location = new System.Drawing.Point(493, 36);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 4;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(183, 62);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 6;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(77, 62);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 5;
+            this.textBox6.Text = "Supplier";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(387, 62);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 8;
+            this.textBox7.Text = "Product";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(493, 62);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 7;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(129, 10);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 9;
+            this.textBox9.Text = "Search";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(438, 10);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 10;
+            this.textBox10.Text = "Results";
             // 
             // ProductsWithSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.SupplierProduct);
+            this.Location = new System.Drawing.Point(200, 20);
+            this.MinimizeBox = false;
             this.Name = "ProductsWithSuppliers";
             this.Text = "ProductsWithSuppliers";
             this.Load += new System.EventHandler(this.ProductsWithSuppliers_Load);
@@ -156,11 +212,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SupplierProduct)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -171,13 +227,18 @@
         private TravelExpertsDataSetTableAdapters.Packages_Products_SuppliersTableAdapter packages_Products_SuppliersTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private TravelExpertsDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn packageIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productSupplierIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource packagesProductsSuppliersBindingSource1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prodNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource productsBindingSource1;
+        private System.Windows.Forms.DataGridView SupplierProduct;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
     }
 }
