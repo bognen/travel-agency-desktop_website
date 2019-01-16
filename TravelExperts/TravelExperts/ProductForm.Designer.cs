@@ -39,6 +39,8 @@
             this.productsTableAdapter = new TravelExperts.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
             this.tableAdapterManager = new TravelExperts.TravelExpertsDataSetTableAdapters.TableAdapterManager();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -67,6 +69,7 @@
             this.editStripButton.Name = "editStripButton";
             this.editStripButton.Size = new System.Drawing.Size(32, 32);
             this.editStripButton.Text = "EDIT  F2";
+            this.editStripButton.Click += new System.EventHandler(this.editStripButton_Click);
             // 
             // deleteStripButton
             // 
@@ -84,7 +87,8 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addlStripButton,
             this.editStripButton,
-            this.deleteStripButton});
+            this.deleteStripButton,
+            this.toolStripButton1});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(343, 35);
@@ -139,6 +143,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(246, 365);
             this.dataGridView1.TabIndex = 5;
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 32);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,5 +185,7 @@
         private TravelExpertsDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private TravelExpertsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

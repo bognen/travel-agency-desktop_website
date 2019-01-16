@@ -44,5 +44,19 @@ namespace TravelExperts
             ProductsAdd productAddForm = new ProductsAdd();
             productAddForm.Show();
         }
+
+        // load the updateCustomer form
+        private void editStripButton_Click(object sender, EventArgs e)
+        {
+            updateCustomer updateCustomerForm = new updateCustomer();
+            updateCustomerForm.Show();
+        }
+
+        // update datagrid view
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = ProductList;
+            dataGridView1.Update();
+        }
     }
 }

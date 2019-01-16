@@ -37,21 +37,10 @@ namespace TravelExperts
             if (success == 1)
             {
                 MessageBox.Show("Data inserted Correctly");
+                this.Close();
             }
             else MessageBox.Show("Data was not inserted");
+            this.Close();
         }
-
-
-        //private void putProductsData(Products products)
-        //{
-        //    if (txtProductName.Text == " ")
-        //    {
-        //        MessageBox.Show("A Name must be provided into the Product Name field");
-        //    }
-        //    else
-        //    {
-        //        name = txtProductName.Text;
-        //    }
-        //}
     }
 }

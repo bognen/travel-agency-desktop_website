@@ -17,6 +17,8 @@ namespace TravelExperts
         /// </summary>
 
         static string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
+
+        // gets a list of Products from the database to display in a datagrid view
         public static List<Products> GetProducts()
         {
             List<Products> Products = new List<Products>();
@@ -48,10 +50,11 @@ namespace TravelExperts
                 return Products;            
         }
 
+
         //add a new product to the products, products_supplier table
         public static int AddProducts(string prod)
         {
-            int sucess = 0;
+            int success = 0;
             SqlConnection con = new SqlConnection(configString);
             string insertProducts = "INSERT INTO Products (ProdName) " +
                 "VALUES(@ProdName)";
@@ -61,7 +64,7 @@ namespace TravelExperts
             try
             {
                 con.Open();
-                sucess = cmd.ExecuteNonQuery();
+                success = cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -71,7 +74,7 @@ namespace TravelExperts
             {
                 con.Close();
             }
-            return sucess;
+            return success;
         }
     }
 }    
