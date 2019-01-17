@@ -109,12 +109,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="updateCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="updateCustomer.Designer.cs">
-      <DependentUpon>updateCustomer.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>

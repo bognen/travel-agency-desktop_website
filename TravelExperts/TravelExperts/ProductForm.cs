@@ -48,15 +48,16 @@ namespace TravelExperts
         // load the updateCustomer form
         private void editStripButton_Click(object sender, EventArgs e)
         {
-            updateCustomer updateCustomerForm = new updateCustomer();
-            updateCustomerForm.Show();
+            //updateCustomer updateCustomerForm = new updateCustomer();
+            //updateCustomerForm.Show();
         }
 
         // update datagrid view
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = ProductList;
-            dataGridView1.Update();
+            //dataGridView1.DataSource = ProductList;
+
+            dataGridView1.DataSource = jamesProductsDB.GetProducts();
         }
     }
 }
