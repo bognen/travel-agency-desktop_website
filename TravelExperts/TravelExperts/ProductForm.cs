@@ -48,8 +48,8 @@ namespace TravelExperts
         // load the updateCustomer form
         private void editStripButton_Click(object sender, EventArgs e)
         {
-            //updateCustomer updateCustomerForm = new updateCustomer();
-            //updateCustomerForm.Show();
+            ProductsUpdate productUpdateForm = new ProductsUpdate();
+            productUpdateForm.Show();
         }
 
         // update datagrid view

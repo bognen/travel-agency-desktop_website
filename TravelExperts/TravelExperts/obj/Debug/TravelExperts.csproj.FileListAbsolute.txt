@@ -41,3 +41,4 @@ C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\Tra
 C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TraveExpertClassLibrary.dll
 C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TraveExpertClassLibrary.pdb
 C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
+C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsUpdate.resources

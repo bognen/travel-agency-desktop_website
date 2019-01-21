@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace TravelExperts
 
         static string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
 
-        // gets a list of Products from the database to display in a datagrid view
+        // gets a list of Products from the database to display in the datagrid view on the ProductForm.cs page
         public static List<Products> GetProducts()
         {
             List<Products> Products = new List<Products>();
@@ -50,6 +51,38 @@ namespace TravelExperts
                 return Products;            
         }
 
+        // get the initial info from the Products table to display into the products update form
+        public static Products GetProductsForUpdate(int ProductId)
+        {
+            Products prod = null;
+            SqlConnection con = new SqlConnection(configString);
+            string selectStatement = "SELECT ProductID, ProdName " +
+                                     "FROM Products " +
+                                     "WHERE ProductId = @ProductId";
+            SqlCommand cmd = new SqlCommand(selectStatement, con);
+            cmd.Parameters.AddWithValue("@ProductId", ProductId); // value comes from the method's argument
+            try
+            {
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read()) // found a customer
+                {
+                    prod = new Products();
+                    prod.ProductId = (int)reader["ProductId"];
+                    prod.ProdName = reader["ProdName"].ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return prod;
+        }
+
 
         //add a new product to the products, products_supplier table
         public static int AddProducts(string prod)
@@ -75,6 +108,35 @@ namespace TravelExperts
                 con.Close();
             }
             return success;
+        }
+
+        // update products
+        public static bool UpdateProducts(Products oldProd, Products newProd)
+        {
+            SqlConnection con = new SqlConnection(configString);
+            string updateStatement = "UPDATE Products " +
+                "SET ProdName = @NewProdName " +
+                "WHERE ProductId = @OldProductId " +
+                "AND ProdName = @OldProdName";
+            SqlCommand cmd = new SqlCommand(updateStatement, con);
+            cmd.Parameters.AddWithValue("@NewProdName", newProd.ProdName);
+            cmd.Parameters.AddWithValue("@OldProductId", oldProd.ProductId);
+            cmd.Parameters.AddWithValue("@OldProdName", oldProd.ProdName);
+            try
+            {
+                con.Open();
+                int count = cmd.ExecuteNonQuery();
+                if (count > 0) return true;
+                else return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }    
