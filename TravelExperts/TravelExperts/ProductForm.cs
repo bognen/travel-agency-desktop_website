@@ -36,6 +36,12 @@ namespace TravelExperts
            // add data from ProductList into the datagrid view on form load
             dataGridView1.DataSource = ProductList;
 
+            DataGridViewColumn id = dataGridView1.Columns[0];
+            DataGridViewColumn name = dataGridView1.Columns[1];
+
+            id.HeaderText = "ID";
+            name.HeaderText = "Product";
+
         }
 
         // load the ProductsAdd form when the add button is clicked

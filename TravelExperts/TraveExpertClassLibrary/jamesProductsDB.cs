@@ -110,7 +110,7 @@ namespace TravelExperts
             return success;
         }
 
-        // update products
+        // update products table
         public static bool UpdateProducts(Products oldProd, Products newProd)
         {
             SqlConnection con = new SqlConnection(configString);
