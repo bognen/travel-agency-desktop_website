@@ -43,7 +43,7 @@ namespace TravelExperts
                 this.GetACustomer(productID);
                 if(products == null)
                 {
-                    MessageBox.Show("No product found with this Id." +
+                    MessageBox.Show("No product found with this Id. " +
                         "Please try again.", "Product not found");
                     this.ClearControls();
                 }
