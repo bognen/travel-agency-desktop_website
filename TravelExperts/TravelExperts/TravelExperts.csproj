@@ -75,20 +75,14 @@
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductForm.designer.cs">
+    <Compile Include="ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAdd.cs">
+    <Compile Include="ProductsWithSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductsAdd.designer.cs">
-      <DependentUpon>ProductsAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductsUpdate.Designer.cs">
-      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    <Compile Include="ProductsWithSuppliers.Designer.cs">
+      <DependentUpon>ProductsWithSuppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,11 +124,8 @@
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductsAdd.resx">
-      <DependentUpon>ProductsAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductsUpdate.resx">
-      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="ProductsWithSuppliers.resx">
+      <DependentUpon>ProductsWithSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

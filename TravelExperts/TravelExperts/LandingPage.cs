@@ -47,5 +47,11 @@ namespace TravelExperts
             bookingForm.Show();
         }
 
+        private void productsWithSuppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductsWithSuppliers supplierform  = new ProductsWithSuppliers();
+            supplierform.MdiParent = this;
+            supplierform.Show();
+        }
     }
 }
