@@ -115,7 +115,7 @@ namespace TravelExperts
                     dgvRow.Cells[1].Value = splitLine[1];
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).FlatStyle = FlatStyle.Flat;
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DataSource = supplierIdPairs;
-                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "Supplier";
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "SupplierName";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).ValueMember = "SupplierId";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).Value =
                                 supplierIdPairs[indOfRightElement].SupplierId;
