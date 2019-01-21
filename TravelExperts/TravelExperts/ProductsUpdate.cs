@@ -96,7 +96,7 @@ namespace TravelExperts
             // passing the id value from the old product list to the new product list. (prod id does not change)
             newProducts.ProductId = products.ProductId;
 
-            // this might not be the way to do this
+
             newProducts.ProdName = txtProdName.Text;
             try
             {
@@ -104,13 +104,16 @@ namespace TravelExperts
                 if(!jamesProductsDB.UpdateProducts(products, newProducts))
                 {
                     MessageBox.Show("Database Error, Another user may have " +
-                        "tried updating that customer.");
-                    this.DialogResult = DialogResult.Retry;
+                        "tried updating that customer, try again.");
+                    //this.DialogResult = DialogResult.Retry;
                 }
                 else
                 {
                     products = newProducts;
-                    this.DialogResult = DialogResult.OK;
+                    //this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("Update Successful");
+                    this.Close();
+                    
                 }
             }
             catch (Exception ex)
