@@ -49,7 +49,7 @@ namespace TravelExperts
 
         private void productsWithSuppliersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProductsWithSuppliers supplierform  = new ProductsWithSuppliers();
+            Products_With_Suppliers supplierform  = new Products_With_Suppliers();
             supplierform.MdiParent = this;
             supplierform.Show();
         }

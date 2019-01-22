@@ -36,7 +36,7 @@
             this.sUPPLIERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUCTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOOKINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productsWithSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pRODUCTSWITHSUPPLIERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             this.sUPPLIERSToolStripMenuItem,
             this.pRODUCTSToolStripMenuItem,
             this.bOOKINGSToolStripMenuItem,
-            this.productsWithSuppliersToolStripMenuItem});
+            this.pRODUCTSWITHSUPPLIERSToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -106,12 +106,11 @@
             this.bOOKINGSToolStripMenuItem.Text = "BOOKINGS";
             this.bOOKINGSToolStripMenuItem.Click += new System.EventHandler(this.bOOKINGSToolStripMenuItem_Click);
             // 
-            // productsWithSuppliersToolStripMenuItem
+            // pRODUCTSWITHSUPPLIERSToolStripMenuItem
             // 
-            this.productsWithSuppliersToolStripMenuItem.Name = "productsWithSuppliersToolStripMenuItem";
-            this.productsWithSuppliersToolStripMenuItem.Size = new System.Drawing.Size(175, 19);
-            this.productsWithSuppliersToolStripMenuItem.Text = "Products with Suppliers";
-            this.productsWithSuppliersToolStripMenuItem.Click += new System.EventHandler(this.productsWithSuppliersToolStripMenuItem_Click);
+            this.pRODUCTSWITHSUPPLIERSToolStripMenuItem.Name = "pRODUCTSWITHSUPPLIERSToolStripMenuItem";
+            this.pRODUCTSWITHSUPPLIERSToolStripMenuItem.Size = new System.Drawing.Size(175, 19);
+            this.pRODUCTSWITHSUPPLIERSToolStripMenuItem.Text = "PRODUCTS WITH SUPPLIERS";
             // 
             // MainPage
             // 
@@ -142,7 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem sUPPLIERSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRODUCTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bOOKINGSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productsWithSuppliersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pRODUCTSWITHSUPPLIERSToolStripMenuItem;
     }
 }
 

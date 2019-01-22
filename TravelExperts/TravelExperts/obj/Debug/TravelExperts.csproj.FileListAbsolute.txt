@@ -30,7 +30,6 @@ C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\De
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesForm.resources
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.PackagesList.resources
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductForm.resources
-C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsWithSuppliers.resources
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.Properties.Resources.resources
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.SupplierForm.resources
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.TemporaryProducts.resources
@@ -41,3 +40,6 @@ C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\De
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.exe
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.pdb
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\northwnd.mdf
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\northwnd_log.ldf
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.Products_With_Suppliers.resources
