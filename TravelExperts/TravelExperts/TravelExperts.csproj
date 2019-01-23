@@ -72,6 +72,7 @@
       <DependentUpon>PackagesList.cs</DependentUpon>
     </Compile>
     <Compile Include="PackFormValidator.cs" />
+    <Compile Include="PackProdSupplierDB.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,6 +8,10 @@ namespace TravelExperts
 {
     public class PackProdSupplier
     {
+        // Class was created to work with rows in Packages Forms
+        // Date: Jan 11, 2019
+        // Author: Dima Bognen
+
         //Private variables
         private string product;
         private int productId;
@@ -34,9 +38,9 @@ namespace TravelExperts
         }
 
         // METHOD WHICH BUILDS LIST OF SUPPLIER-ID PAIRS
-        public static List<SupplierIdPairs> createSupplierIdPairsList(int prodID) {
-            List<SupplierIdPairs> list = null;
-            list = DBHandler.supplierIdPairsList(prodID);
+        public static List<Supplier> createSupplierIdPairsList(int prodID) {
+            List<Supplier> list = null;
+            list = SupplierDB.supplierIdPairsList(prodID);
             return list;
         }
 
