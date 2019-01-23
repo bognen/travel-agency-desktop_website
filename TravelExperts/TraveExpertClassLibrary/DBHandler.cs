@@ -426,6 +426,23 @@ namespace TravelExperts
             return packageList;
         }
 
+        public static DataTable getSuppliersAndProducts()
+        {
+            DataTable packageList = new DataTable();
+            string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(configString))
+            {
+                using (SqlCommand command = new SqlCommand("select ProductSupplierId, ps.ProductId, ProdName ,ps.SupplierId, SupName from Products_Suppliers ps join Products p on ps.ProductId = p.ProductId join Suppliers s on ps.SupplierId = s.SupplierId", conn))
+                {
+                    conn.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    packageList.Load(reader);
+                }
+            }
+            return packageList;
+        }
+
         //***********FOR TEMPORARY FORM*********
         public static DataTable temporaryProducts() {
             DataTable dt = new DataTable();
