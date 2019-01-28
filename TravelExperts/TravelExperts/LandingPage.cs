@@ -51,5 +51,12 @@ namespace TravelExperts
             addsupplierform.MdiParent = this;
             addsupplierform.Show();
         }
+
+        private void productsWithSuppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductsWithSuppliers supplierform  = new ProductsWithSuppliers();
+            supplierform.MdiParent = this;
+            supplierform.Show();
+        }
     }
 }
