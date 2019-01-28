@@ -19,11 +19,9 @@ namespace TravelExperts
 
         public void pACKEGESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
             PackagesList packagesList = new PackagesList();
             packagesList.MdiParent = this ;
             packagesList.Show();
-          
         }
 
         public void pRODUCTSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,13 +31,6 @@ namespace TravelExperts
             productForm.Show();
         }
 
-        public void sUPPLIERSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SupplierForm supplierForm = new SupplierForm();
-            supplierForm.MdiParent = this;
-            supplierForm.Show();
-        }
-
         public void bOOKINGSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookingForm bookingForm = new BookingForm();
@@ -47,5 +38,18 @@ namespace TravelExperts
             bookingForm.Show();
         }
 
+        private void viewSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SupplierForm supplierForm = new SupplierForm();
+            supplierForm.MdiParent = this;
+            supplierForm.Show();
+        }
+
+        private void addNewSupplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddSupplierForm addsupplierform = new AddSupplierForm();
+            addsupplierform.MdiParent = this;
+            addsupplierform.Show();
+        }
     }
 }

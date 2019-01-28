@@ -46,11 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSupplierForm.Designer.cs">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookingForm.Designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierDB.cs" />
+    <Compile Include="SupplierDetails.cs" />
+    <Compile Include="SupplierDetailsDB.cs" />
+    <Compile Include="SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHandler.cs" />
     <Compile Include="LandingPage.cs">
@@ -80,12 +95,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupplierForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SupplierForm.Designer.cs">
-      <DependentUpon>SupplierForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Supplier.cs" />
     <Compile Include="TemporaryProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +113,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TravelExpertsDB.cs" />
+    <EmbeddedResource Include="AddSupplierForm.resx">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
@@ -127,9 +144,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SupplierForm.resx">
-      <DependentUpon>SupplierForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TemporaryProducts.resx">
       <DependentUpon>TemporaryProducts.cs</DependentUpon>
     </EmbeddedResource>

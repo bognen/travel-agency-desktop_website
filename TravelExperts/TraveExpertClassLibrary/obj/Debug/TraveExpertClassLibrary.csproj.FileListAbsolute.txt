@@ -10,3 +10,9 @@ C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExper
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.dll
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.pdb
 C:\Users\803395\source\repos\PROJECT_2\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csprojAssemblyReference.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\bin\Debug\TraveExpertClassLibrary.dll
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\bin\Debug\TraveExpertClassLibrary.pdb
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csprojAssemblyReference.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.dll
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.pdb
