@@ -53,5 +53,14 @@ namespace TravelExperts
             productCurrent.Text = info.ProdName;
             supplierCurrent.Text = info.SupName;
         }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            int yay = 0;
+            yay = SuppliersFunctions.GetProductsAndSuppliersForUpdate(Convert.ToInt32(relationshipInitial.SelectedValue), Convert.ToInt32(productNew.SelectedValue), Convert.ToInt32(supplierNew.SelectedValue));
+
+            if (yay == 1) MessageBox.Show("Update Successful");         
+            else MessageBox.Show("Update Unsuccessful please try again");
+        }
     }
 }

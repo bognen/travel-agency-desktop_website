@@ -164,37 +164,35 @@ namespace TravelExperts
             return success;
         }
 
-        public static Products GetProductsAndSuppliersForUpdate(int ProductId)
+        public static int GetProductsAndSuppliersForUpdate(int RelationId, int Product, int Supplier)
         {
+
             string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
 
-            Products prod = null;
+            int success = 0;
             SqlConnection con = new SqlConnection(configString);
-            string selectStatement = "SELECT ProductID, ProdName " +
-                                     "FROM Products " +
-                                     "WHERE ProductId = @ProductId";
+            string selectStatement = "UPDATE Products_Suppliers " +
+                                     "SET ProductId = @ProductId, SupplierId = @SupplierId " +
+                                     "WHERE ProductSupplierId = @ProductSupplierId";
             SqlCommand cmd = new SqlCommand(selectStatement, con);
-            cmd.Parameters.AddWithValue("@ProductId", ProductId); // value comes from the method's argument
+            cmd.Parameters.AddWithValue("@ProductSupplierId", RelationId); // value comes from the method's argument
+            cmd.Parameters.AddWithValue("@SupplierId", Supplier);
+            cmd.Parameters.AddWithValue("@ProductId", Product);
             try
             {
                 con.Open();
-                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow);
-                if (reader.Read()) // found a customer
-                {
-                    prod = new Products();
-                    prod.ProductId = (int)reader["ProductId"];
-                    prod.ProdName = reader["ProdName"].ToString();
-                }
+                success = cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
                 throw ex;
             }
+
             finally
             {
                 con.Close();
             }
-            return prod;
+            return success;
         }
     }
 }

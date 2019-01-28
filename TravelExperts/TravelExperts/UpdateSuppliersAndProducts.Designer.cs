@@ -92,12 +92,13 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(516, 253);
+            this.update.Location = new System.Drawing.Point(516, 257);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.Size = new System.Drawing.Size(75, 27);
             this.update.TabIndex = 7;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // textBox5
             // 
