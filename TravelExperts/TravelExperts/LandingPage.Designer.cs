@@ -34,6 +34,8 @@
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pACKEGESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUPPLIERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUCTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOOKINGSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsWithSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +50,7 @@
             this.panelMenu.Controls.Add(this.menuStrip1);
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(182, 462);
+            this.panelMenu.Size = new System.Drawing.Size(140, 462);
             this.panelMenu.TabIndex = 0;
             // 
             // menuStrip1
@@ -63,7 +65,7 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(182, 244);
+            this.menuStrip1.Size = new System.Drawing.Size(140, 206);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,10 +87,26 @@
             // sUPPLIERSToolStripMenuItem
             // 
             this.sUPPLIERSToolStripMenuItem.AutoSize = false;
+            this.sUPPLIERSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewSupplierToolStripMenuItem,
+            this.addNewSupplierToolStripMenuItem});
             this.sUPPLIERSToolStripMenuItem.Name = "sUPPLIERSToolStripMenuItem";
             this.sUPPLIERSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.sUPPLIERSToolStripMenuItem.Text = "SUPPLIERS";
-            this.sUPPLIERSToolStripMenuItem.Click += new System.EventHandler(this.sUPPLIERSToolStripMenuItem_Click);
+            // 
+            // viewSupplierToolStripMenuItem
+            // 
+            this.viewSupplierToolStripMenuItem.Name = "viewSupplierToolStripMenuItem";
+            this.viewSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewSupplierToolStripMenuItem.Text = "View Supplier";
+            this.viewSupplierToolStripMenuItem.Click += new System.EventHandler(this.viewSupplierToolStripMenuItem_Click);
+            // 
+            // addNewSupplierToolStripMenuItem
+            // 
+            this.addNewSupplierToolStripMenuItem.Name = "addNewSupplierToolStripMenuItem";
+            this.addNewSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewSupplierToolStripMenuItem.Text = "Add New Supplier";
+            this.addNewSupplierToolStripMenuItem.Click += new System.EventHandler(this.addNewSupplierToolStripMenuItem_Click);
             // 
             // pRODUCTSToolStripMenuItem
             // 
@@ -137,11 +155,13 @@
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pACKEGESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sUPPLIERSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRODUCTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bOOKINGSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewSupplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewSupplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productsWithSuppliersToolStripMenuItem;
     }
 }

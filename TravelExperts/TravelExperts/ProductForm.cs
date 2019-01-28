@@ -28,7 +28,6 @@ namespace TravelExperts
             this.Validate();
             this.productsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.travelExpertsDataSet);
-
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
