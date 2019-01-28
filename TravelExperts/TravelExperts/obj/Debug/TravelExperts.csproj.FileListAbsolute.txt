@@ -58,3 +58,13 @@ C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\De
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CoreCompileInputs.cache
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.exe
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.pdb
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsAdd.resources
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsUpdate.resources
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TravelExperts.exe.config
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TravelExperts.exe
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TravelExperts.pdb
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TraveExpertClassLibrary.dll
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\bin\Debug\TraveExpertClassLibrary.pdb
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.AddProductsWithSuppliers.resources
+C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.UpdateSuppliersAndProducts.resources
