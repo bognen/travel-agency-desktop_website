@@ -65,3 +65,5 @@ C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\Tra
 C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.CopyComplete
 C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsUpdate.resources
 C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsWithSuppliers.resources
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsAdd.resources
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TravelExperts\obj\Debug\TravelExperts.ProductsUpdate.resources

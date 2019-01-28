@@ -6,8 +6,9 @@ using System.Data;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using TravelExperts;
 
-namespace TravelExperts
+namespace TraveExpertClassLibrary
 {
     public static class DBHandler
     {
