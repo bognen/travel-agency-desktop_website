@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBConnection.cs" />
     <Compile Include="DBHandler.cs" />
     <Compile Include="jamesProductsDB.cs" />
     <Compile Include="Package.cs" />
+    <Compile Include="PackageDB.cs" />
     <Compile Include="PackIdProdSupId.cs" />
     <Compile Include="PackProdSupplier.cs" />
+    <Compile Include="PackProdSupplierDB.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="ProductsSuppliers.cs" />
     <Compile Include="ProductsUpdate.cs">

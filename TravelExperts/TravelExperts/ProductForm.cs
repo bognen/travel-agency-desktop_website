@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TraveExpertClassLibrary;
 
 namespace TravelExperts
 {
@@ -28,7 +29,6 @@ namespace TravelExperts
             this.Validate();
             this.productsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.travelExpertsDataSet);
-
         }
 
         private void ProductForm_Load(object sender, EventArgs e)

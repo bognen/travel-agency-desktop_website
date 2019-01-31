@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExperts
+namespace TraveExpertClassLibrary
 {
     // CLASS IS USED TO FORM AND USE PAIRS OF PACKAGE_Id AND PRODUCT_SUPPLIER_Id
     // CLASS IS CREATED IN PACKAGE_FORM form AND USED IN DB HANDLER

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using TraveExpertClassLibrary;
 
 namespace TravelExperts
 {
@@ -95,7 +96,7 @@ namespace TravelExperts
             // Call just data source for dataGridView
             // Source has to be DATA TABLE
 
-            dgvPackageList.DataSource = DBHandler.getPackageList();
+            dgvPackageList.DataSource = PackageDB.getPackageList();
 
             //HIDE ID COLUMN
             dgvPackageList.Columns[0].Visible = false;

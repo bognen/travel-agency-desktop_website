@@ -6,11 +6,15 @@ using System.Data;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using TravelExperts;
 
-namespace TravelExperts
+namespace TraveExpertClassLibrary
 {
     public static class DBHandler
     {
+        // THIS CLASS IS SUPPOSED TO BE EMPTY
+
+
         // Variables needed for different methods within this class
         static string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
 
@@ -18,7 +22,7 @@ namespace TravelExperts
         //*** 1) METHODS FOR RETRIEVING DATA
         //*********************************************************************************//
 
-        // METHOD RETRIEVES ALL DATA ABOUT PACKAGE LIST
+        //+++ METHOD RETRIEVES ALL DATA ABOUT PACKAGE LIST
         public static DataTable getPackageList() {
             DataTable packageList = new DataTable();
             
@@ -32,7 +36,7 @@ namespace TravelExperts
             return packageList;
         }
 
-        // METHOD WHICH RETRIEVES DATA FROM DATABASE AND RETURNS LIST PACK-PROD-SUPPLIERS TO A FORM
+        //+++ METHOD WHICH RETRIEVES DATA FROM DATABASE AND RETURNS LIST PACK-PROD-SUPPLIERS TO A FORM
         public static List<PackProdSupplier> getProdSuppliersForDGV(int packIdIndex)
         {
             string queryString = @"select Products.ProdName, Products.ProductId, 
@@ -60,8 +64,8 @@ namespace TravelExperts
             return prodSuppliersList;
         }
        
-        // METHOD RETURNS LIST OF SUPPLIER-ID PAIRS TO POPULATE COMBOBOX
-        public static List<SupplierIdPairs> supplierIdPairsList(int prodID)
+        //+++ METHOD RETURNS LIST OF SUPPLIERS PAIRS TO POPULATE COMBOBOX
+        public static List<Supplier> supplierIdPairsList(int prodID)
         {
             DataTable suppliersDT = new DataTable();
             string supplierIdPairsQuery = @"select Suppliers.SupName, Suppliers.SupplierId
@@ -72,17 +76,19 @@ namespace TravelExperts
             suppliersDT = retreiveData(supplierIdPairsQuery,prodID);
 
             // Create a list to store supplier-Id pairs
-            List<SupplierIdPairs> pairs = new List<SupplierIdPairs>();
+            List<Supplier> pairs = new List<Supplier>();
 
             // Store data from data table in the list
             foreach (DataRow row in suppliersDT.Rows)
             {
-                SupplierIdPairs pair = new SupplierIdPairs(row[0].ToString(), Convert.ToInt32(row[1]));
+                Supplier pair = new Supplier(row[0].ToString(), Convert.ToInt32(row[1]));
                 pairs.Add(pair);
             }
             return pairs;
         }
 
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //++ MOVE AFTER MARKO commit his changes
         //*** METHOD RETRIVES A PRODUCT_SUPPLIER_ID BASED ON PROD_ID AND SUPPLIER_ID
         public static string getNewProdSupplierId(int prodId, int supplierId)
         {
@@ -119,7 +125,7 @@ namespace TravelExperts
             }
         }
 
-        //*** METHOD RETRIEVES MAX VALUE OF PACKAGE_ID TO INSERT IT INTO NEWLY CREATE PACAKGE
+        //++++*** METHOD RETRIEVES MAX VALUE OF PACKAGE_ID TO INSERT IT INTO NEWLY CREATE PACAKGE
         public static int getMaxPackIdValue() {
             SqlConnection conn = null;
             int maxValue;
@@ -149,7 +155,7 @@ namespace TravelExperts
             }
         }
 
-        //*** METHOD WHICH RETEIVES DATA FROM DB USING INDEX PARAMETER AND QUERY STRING AND RETURNS DATATABLE
+        //+++++*** METHOD WHICH RETEIVES DATA FROM DB USING INDEX PARAMETER AND QUERY STRING AND RETURNS DATATABLE
         private static DataTable retreiveData(string myQuery,int index) {
             DataTable dt = new DataTable();
             SqlConnection conn = null;
@@ -185,7 +191,7 @@ namespace TravelExperts
         //*** 2) METHODS FOR INSERTING DATA
         //*********************************************************************************//
 
-        // METHOD INSERTS DATA INTO PACKAGES TABLE
+        //+++ METHOD INSERTS DATA INTO PACKAGES TABLE
         public static void insertPackages(Package pack) {
 
           SqlConnection conn = null;
@@ -226,7 +232,7 @@ namespace TravelExperts
             }
         }
 
-        // METHOD INSERTS DATA INTO PACKAGES_PRODUCTS_SUPPLIERS TABLE
+        //+++ METHOD INSERTS DATA INTO PACKAGES_PRODUCTS_SUPPLIERS TABLE
         public static void insertPackages_Products_Suppliers(List <PackIdProdSupId> ppsi)
         {
             SqlConnection conn = null;
@@ -272,7 +278,7 @@ namespace TravelExperts
         //*** 3) METHODS FOR UPDATING DATA
         //*********************************************************************************//
 
-        // METHOD UPDATES DATA IN PACKAGES TABLE
+        //+++ METHOD UPDATES DATA IN PACKAGES TABLE
         public static void updatePackages(Package pack, int packId)
         {
             SqlConnection conn = null;
@@ -319,7 +325,7 @@ namespace TravelExperts
             }
         }
 
-        // METHOD UPDATES DATA IN PACKAGES_PRODUCTS_SUPPLIERS TABLE
+        //+++ METHOD UPDATES DATA IN PACKAGES_PRODUCTS_SUPPLIERS TABLE
         public static void updatePackages_Products_Suppliers(List<PackIdProdSupId> ppsi, List<int> exstIndex)
         {
             int dif = ppsi.Count() - exstIndex.Count();
@@ -402,7 +408,7 @@ namespace TravelExperts
         }
 
         //************************************************************
-
+        // Method is used for Bookings
         //***************************
         public static DataTable getPackageListBookings()
         {

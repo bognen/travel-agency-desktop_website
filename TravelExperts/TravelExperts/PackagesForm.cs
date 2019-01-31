@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TraveExpertClassLibrary;
 
 namespace TravelExperts
 {
@@ -84,7 +85,7 @@ namespace TravelExperts
 
                 // Create a list of PackProdSuppl objects to popuplate Data Grid View with
                 // existing data
-                List<PackProdSupplier> packProdSupList = DBHandler.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
+                List<PackProdSupplier> packProdSupList = PackProdSupplierDB.getProdSuppliersForDGV(Convert.ToInt32(txtId.Text));
 
                 // Loop through list generated from data table to populate DataGridView
                 string[] splitLine = new string[5];
@@ -95,7 +96,7 @@ namespace TravelExperts
                     splitLine = line.PackProdSupplierToString().Split(',');
 
                     // Create a list of possiple values to populate a combox
-                    List<SupplierIdPairs> supplierIdPairs =
+                    List<Supplier> supplierIdPairs =
                         PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(splitLine[1]));
 
                     // Find index of right element
@@ -115,7 +116,7 @@ namespace TravelExperts
                     dgvRow.Cells[1].Value = splitLine[1];
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).FlatStyle = FlatStyle.Flat;
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DataSource = supplierIdPairs;
-                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "Supplier";
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "SupplierName";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).ValueMember = "SupplierId";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).Value =
                                 supplierIdPairs[indOfRightElement].SupplierId;
@@ -130,7 +131,7 @@ namespace TravelExperts
             }
             else {
                 // if it is a new form it is needed to generate new Package ID
-                txtId.Text = Convert.ToString((DBHandler.getMaxPackIdValue() + 1));
+                txtId.Text = Convert.ToString((PackageDB.getMaxPackIdValue() + 1));
             }
 
             //**************************************************************************
@@ -163,7 +164,7 @@ namespace TravelExperts
                 dgvPackProdSuppl.Rows[e.RowIndex].Cells[2].Value = null;
 
                 // Create a list of possiple values to populate a combox
-                List<SupplierIdPairs> supplierIdPairs =
+                List<Supplier> supplierIdPairs =
                     PackProdSupplier.createSupplierIdPairsList(Convert.ToInt32(dgvPackProdSuppl.Rows[e.RowIndex].Cells[1].Value));
                 ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
                     Cells[2]).DataSource = supplierIdPairs;
@@ -295,20 +296,20 @@ namespace TravelExperts
                 if (itIsNewForm == true)
                 {
                     // Insert data into Package Table
-                    DBHandler.insertPackages(pack);
+                    PackageDB.insertPackages(pack);
 
                     // Insert data into Packages_Products_Suppliers
-                    DBHandler.insertPackages_Products_Suppliers(pps);
+                    PackProdSupplierDB.insertPackages_Products_Suppliers(pps);
 
                     FormHandler.upDatePackList(Convert.ToInt32(txtId.Text));
                     this.Close();
                 }
                 else {
                     // Update data in Package Table
-                    DBHandler.updatePackages(pack, Convert.ToInt32(txtId.Text));
+                    PackageDB.updatePackages(pack, Convert.ToInt32(txtId.Text));
 
                     // Update data in Packages_Products_Suppliers Table
-                    DBHandler.updatePackages_Products_Suppliers(pps, prodSuppliersIdForUpDate);
+                    PackProdSupplierDB.updatePackages_Products_Suppliers(pps, prodSuppliersIdForUpDate);
 
                     FormHandler.upDatePackList(Convert.ToInt32(txtId.Text));
                     this.Close();

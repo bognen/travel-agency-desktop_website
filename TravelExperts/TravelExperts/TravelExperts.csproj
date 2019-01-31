@@ -47,11 +47,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSupplierForm.Designer.cs">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookingForm.Designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="PackFormValidator.cs" />
+    <Compile Include="ProductsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAdd.designer.cs">
+      <DependentUpon>ProductsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsUpdate.Designer.cs">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHandler.cs" />
     <Compile Include="LandingPage.cs">
@@ -72,7 +98,6 @@
     <Compile Include="PackagesList.Designer.cs">
       <DependentUpon>PackagesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="PackFormValidator.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +162,15 @@
     </Compile>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAdd.resx">
+      <DependentUpon>ProductsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsUpdate.resx">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
