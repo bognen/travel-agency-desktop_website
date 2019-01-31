@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsWithSuppliers));
             this.packagesProductsSuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelExpertsDataSet = new TravelExperts.TravelExpertsDataSet();
@@ -37,23 +38,26 @@
             this.productsTableAdapter = new TravelExperts.TravelExpertsDataSetTableAdapters.ProductsTableAdapter();
             this.packagesProductsSuppliersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.SupplierProduct = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.addlStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteStripButton = new System.Windows.Forms.ToolStripButton();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.bookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookingsTableAdapter = new TravelExperts.TravelExpertsDataSetTableAdapters.BookingsTableAdapter();
+            this.SupplierProduct = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SupplierProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,117 +99,126 @@
             this.productsBindingSource1.DataMember = "Products";
             this.productsBindingSource1.DataSource = this.travelExpertsDataSetBindingSource;
             // 
-            // SupplierProduct
-            // 
-            this.SupplierProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SupplierProduct.Location = new System.Drawing.Point(43, 99);
-            this.SupplierProduct.Name = "SupplierProduct";
-            this.SupplierProduct.Size = new System.Drawing.Size(676, 350);
-            this.SupplierProduct.TabIndex = 0;
-            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 36);
+            this.textBox1.Location = new System.Drawing.Point(217, 66);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 36);
+            this.textBox2.Location = new System.Drawing.Point(111, 66);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "Product";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(387, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "Supplier";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(493, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
-            // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(183, 62);
+            this.textBox5.Location = new System.Drawing.Point(217, 92);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 6;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(77, 62);
+            this.textBox6.Location = new System.Drawing.Point(111, 92);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 5;
             this.textBox6.Text = "Supplier";
             // 
-            // textBox7
+            // toolStrip2
             // 
-            this.textBox7.Location = new System.Drawing.Point(387, 62);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 8;
-            this.textBox7.Text = "Product";
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addlStripButton,
+            this.editStripButton,
+            this.deleteStripButton});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(800, 35);
+            this.toolStrip2.TabIndex = 11;
+            this.toolStrip2.Text = "toolStrip2";
             // 
-            // textBox8
+            // addlStripButton
             // 
-            this.textBox8.Location = new System.Drawing.Point(493, 62);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 7;
+            this.addlStripButton.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.addlStripButton.AutoSize = false;
+            this.addlStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addlStripButton.Image")));
+            this.addlStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addlStripButton.Name = "addlStripButton";
+            this.addlStripButton.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.addlStripButton.Size = new System.Drawing.Size(55, 32);
+            this.addlStripButton.Text = " Add";
+            this.addlStripButton.Click += new System.EventHandler(this.addlStripButton_Click);
+            // 
+            // editStripButton
+            // 
+            this.editStripButton.AutoSize = false;
+            this.editStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editStripButton.Image")));
+            this.editStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editStripButton.Name = "editStripButton";
+            this.editStripButton.Size = new System.Drawing.Size(32, 32);
+            this.editStripButton.Text = "EDIT  F2";
+            this.editStripButton.Click += new System.EventHandler(this.editStripButton_Click);
+            // 
+            // deleteStripButton
+            // 
+            this.deleteStripButton.AutoSize = false;
+            this.deleteStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteStripButton.Image")));
+            this.deleteStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteStripButton.Name = "deleteStripButton";
+            this.deleteStripButton.Size = new System.Drawing.Size(32, 32);
+            this.deleteStripButton.Text = "DELETE";
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(129, 10);
+            this.textBox9.Location = new System.Drawing.Point(163, 40);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 9;
             this.textBox9.Text = "Search";
             // 
-            // textBox10
+            // bookingsBindingSource
             // 
-            this.textBox10.Location = new System.Drawing.Point(438, 10);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 10;
-            this.textBox10.Text = "Results";
+            this.bookingsBindingSource.DataMember = "Bookings";
+            this.bookingsBindingSource.DataSource = this.travelExpertsDataSetBindingSource;
+            // 
+            // bookingsTableAdapter
+            // 
+            this.bookingsTableAdapter.ClearBeforeFill = true;
+            // 
+            // SupplierProduct
+            // 
+            this.SupplierProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SupplierProduct.Location = new System.Drawing.Point(41, 136);
+            this.SupplierProduct.Name = "SupplierProduct";
+            this.SupplierProduct.Size = new System.Drawing.Size(732, 254);
+            this.SupplierProduct.TabIndex = 12;
             // 
             // ProductsWithSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.SupplierProduct);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.SupplierProduct);
-            this.Location = new System.Drawing.Point(200, 20);
+            this.Location = new System.Drawing.Point(200, 40);
             this.MinimizeBox = false;
             this.Name = "ProductsWithSuppliers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ProductsWithSuppliers";
             this.Load += new System.EventHandler(this.ProductsWithSuppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource)).EndInit();
@@ -214,6 +227,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SupplierProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -229,16 +245,17 @@
         private TravelExpertsDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.BindingSource packagesProductsSuppliersBindingSource1;
         private System.Windows.Forms.BindingSource productsBindingSource1;
-        private System.Windows.Forms.DataGridView SupplierProduct;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton addlStripButton;
+        private System.Windows.Forms.ToolStripButton editStripButton;
+        private System.Windows.Forms.ToolStripButton deleteStripButton;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.BindingSource bookingsBindingSource;
+        private TravelExpertsDataSetTableAdapters.BookingsTableAdapter bookingsTableAdapter;
+        private System.Windows.Forms.DataGridView SupplierProduct;
     }
 }

@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,15 +53,24 @@
     <Compile Include="PackProdSupplier.cs" />
     <Compile Include="PackProdSupplierDB.cs" />
     <Compile Include="Products.cs" />
+    <Compile Include="ProductsSuppliers.cs" />
+    <Compile Include="ProductsUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsUpdate.designer.cs">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Supplier.cs" />
-    <Compile Include="SupplierDB.cs" />
-    <Compile Include="SupplierDetails.cs" />
-    <Compile Include="SupplierDetailsDB.cs" />
-    <Compile Include="TravelExpertsDB.cs" />
+    <Compile Include="SupplierIdPairs.cs" />
+    <Compile Include="Suppliers.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProductsUpdate.resx">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
