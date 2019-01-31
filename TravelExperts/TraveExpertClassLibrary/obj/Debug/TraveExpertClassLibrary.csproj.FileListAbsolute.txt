@@ -18,3 +18,11 @@ C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\Tra
 C:\Users\632947\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\bin\Debug\TraveExpertClassLibrary.pdb
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TravelExperts.ProductsUpdate.resources
 C:\xampp\htdocs\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csproj.GenerateResource.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\bin\Debug\TraveExpertClassLibrary.dll
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\bin\Debug\TraveExpertClassLibrary.pdb
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csprojAssemblyReference.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TravelExperts.ProductsUpdate.resources
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csproj.GenerateResource.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.dll
+C:\Users\795203\Documents\GitHub\travel-agency-desktop_website\TravelExperts\TraveExpertClassLibrary\obj\Debug\TraveExpertClassLibrary.pdb
