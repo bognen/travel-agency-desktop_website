@@ -29,12 +29,12 @@ namespace TravelExperts
 
         public void button1_Click(object sender, EventArgs e)
         {
-            TemporaryProducts tp = new TemporaryProducts(true);
+            ProductForm pf = new ProductForm();
 
-            if (tp.ShowDialog() == DialogResult.Yes ) {                
+            if (pf.ShowDialog() == DialogResult.Yes ) {                
                                
                 // Get values from selected row in TemporaryTable 
-                DataGridViewRow prodRow = tp.TempDGV.CurrentRow;
+                DataGridViewRow prodRow = pf.dataGridView1.CurrentRow;
 
                 // Set new values to two cells
                 this.rowstring.Cells[0].Value = prodRow.Cells[1].Value;

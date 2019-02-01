@@ -27,11 +27,13 @@ namespace TravelExperts
 
             // Set column properties
             product.HeaderText = "Product";
+            product.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 11.75F, FontStyle.Bold);
             dgv.Columns.Add(product);
             productId.HeaderText = "Product ID";
             dgv.Columns.Add(productId);
             supplier.HeaderText = "Supplier";
             supplier.FlatStyle = FlatStyle.Flat;
+            supplier.HeaderCell.Style.Font = new Font("Microsoft Sans Serif", 11.75F, FontStyle.Bold);
             dgv.Columns.Add(supplier);
             supplierId.HeaderText = "SupplierID";
             dgv.Columns.Add(supplierId);
@@ -43,6 +45,9 @@ namespace TravelExperts
             supplierId.Visible = false;
             productSupplierId.Visible = false;
 
+            // Set sizes of colums
+            product.Width = 120;
+            supplier.Width = 350;
         }
 
         //*************************************************************//
@@ -89,18 +94,17 @@ namespace TravelExperts
             packForm.txtDesc.TextChanged += new System.EventHandler(txtDesc_TextChanged);
             packForm.tpStartDate.TextChanged += new System.EventHandler(txtDesc_TextChanged);
             packForm.tpEndDate.TextChanged += new System.EventHandler(txtDesc_TextChanged);
+            packForm.imgDescription.TextChanged += new System.EventHandler(txtDesc_TextChanged);
 
             packForm.dgvPackProdSuppl.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(txtDesc_TextChanged);
             packForm.dgvPackProdSuppl.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(txtDesc_TextChanged);
-
+            packForm.dgvPackProdSuppl.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(txtDesc_TextChanged);
 
             void txtDesc_TextChanged(object sender, EventArgs e)
             {
                 packForm.Text = "Package Form [Changed]*";
+                Globals.packageIsChanged = true;
             }
         }
-
-
-
     } // end of class
 } // end of name space

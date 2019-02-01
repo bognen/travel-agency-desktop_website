@@ -8,6 +8,9 @@ namespace TraveExpertClassLibrary
 {
     public class Package
     {
+        // Class constoructor
+        public Package() { }
+
         // Public properties
         public string PackName { get; set; } 
         public DateTime PackStartDate { get; set; }
@@ -16,17 +19,9 @@ namespace TraveExpertClassLibrary
         public decimal PackBasePrice { get; set; }
         public decimal PackAgncyCommission { get; set; }
 
+        public string PkgImage { get; set; }
 
-        // Class constoructor
-        public Package(string packname, DateTime packstartdate, DateTime packenddate, 
-            string packdesc, decimal packbaseprice, decimal packagncycommission)
-        {
-            this.PackName = packname;
-            this.PackStartDate = packstartdate;
-            this.PackEndDate = packenddate;
-            this.PackDesc = packdesc;
-            this.PackBasePrice = packbaseprice;
-            this.PackAgncyCommission = packagncycommission;
-        }
+
+
     }
 }

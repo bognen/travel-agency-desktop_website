@@ -65,5 +65,18 @@ namespace TravelExperts
 
             dataGridView1.DataSource = jamesProductsDB.GetProducts();
         }
+
+        //++ Dima Bognen
+        // Jan 31, 2019
+        // Method Added to respond when the form is called from Package Form as a Modal
+        // Returns Value of Current row to packages
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.Modal == true) {
+                this.DialogResult = DialogResult.Yes;
+            }
+        }
+        // End of Added Method
+        // -- Dima Bognen
     }
 }

@@ -153,8 +153,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 38);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(299, 365);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // ProductForm
             // 
@@ -187,8 +189,8 @@
         private System.Windows.Forms.BindingSource productsBindingSource;
         private TravelExpertsDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private TravelExpertsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolTip toolTip1;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

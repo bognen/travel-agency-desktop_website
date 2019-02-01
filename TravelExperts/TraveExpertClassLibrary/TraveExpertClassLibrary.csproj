@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBHandler.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="jamesProductsDB.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="PackageDB.cs" />
