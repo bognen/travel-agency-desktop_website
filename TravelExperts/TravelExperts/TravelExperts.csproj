@@ -59,25 +59,44 @@
     <Compile Include="LandingPage.Designer.cs">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="PackagesForm.cs">
+    <Compile Include="Package\PackagesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PackagesForm.Designer.cs">
+    <Compile Include="Package\PackagesForm.Designer.cs">
       <DependentUpon>PackagesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PackagesList.cs">
+    <Compile Include="Package\PackagesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PackagesList.Designer.cs">
+    <Compile Include="Package\PackagesList.Designer.cs">
       <DependentUpon>PackagesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="PackFormValidator.cs" />
+    <Compile Include="Package\PackFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Package\PackFilter.Designer.cs">
+      <DependentUpon>PackFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Package\PackFilterValidator.cs" />
+    <Compile Include="Package\PackFormValidator.cs" />
     <Compile Include="PackProdSupplierDB.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAdd.designer.cs">
+      <DependentUpon>ProductsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsUpdate.Designer.cs">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsWithSuppliers.cs">
       <SubType>Form</SubType>
@@ -92,12 +111,6 @@
     </Compile>
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TemporaryProducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TemporaryProducts.Designer.cs">
-      <DependentUpon>TemporaryProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="TextAndButtonControlPackForm.cs">
       <SubType>UserControl</SubType>
@@ -116,14 +129,24 @@
     <EmbeddedResource Include="LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PackagesForm.resx">
+    <EmbeddedResource Include="Package\PackagesForm.resx">
       <DependentUpon>PackagesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PackagesList.resx">
+    <EmbeddedResource Include="Package\PackagesList.resx">
       <DependentUpon>PackagesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Package\PackFilter.resx">
+      <DependentUpon>PackFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAdd.resx">
+      <DependentUpon>ProductsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsUpdate.resx">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsWithSuppliers.resx">
       <DependentUpon>ProductsWithSuppliers.cs</DependentUpon>
@@ -139,9 +162,6 @@
     </Compile>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TemporaryProducts.resx">
-      <DependentUpon>TemporaryProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextAndButtonControlPackForm.resx">
       <DependentUpon>TextAndButtonControlPackForm.cs</DependentUpon>
@@ -181,5 +201,6 @@
       <Name>TraveExpertClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

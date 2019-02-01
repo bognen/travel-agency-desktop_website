@@ -11,12 +11,39 @@ namespace TravelExperts
     public static class PackageDB
     {
         // METHOD RETRIEVES ALL DATA ABOUT PACKAGE LIST
-        public static DataTable getPackageList()
+        public static DataTable getPackageList(string packName, DateTime? startDateBegin, DateTime? startDateFinish,
+            DateTime? endDateBegin, DateTime? endDateFinish)
         {
             DataTable packageList = new DataTable();
 
+            // Prepare all filters for the query
+            // 
+            packName = String.Concat("'%", packName, "%'");
+            if (startDateBegin == null)
+            {
+                startDateBegin = new DateTime(1753, 1, 1);
+            }
+
+            if (startDateFinish == null)
+            {
+                startDateFinish = new DateTime(9997, 1, 1);
+            }
+
+            if (endDateBegin == null)
+            {
+                endDateBegin = new DateTime(1753, 1, 1);
+            }
+
+            if (endDateFinish == null)
+            {
+                endDateFinish = new DateTime(9997, 1, 1);
+            }
+
             SqlConnection conn = DBConnection.getConnection();
-                using (SqlCommand command = new SqlCommand("select * from Packages", conn))
+                using (SqlCommand command = new SqlCommand("select * from Packages "+
+                                    "WHERE PkgName Like " + packName + 
+                                    " AND PkgStartDate BETWEEN '"+ startDateBegin+"' AND '"+ startDateFinish+"'"+
+                                    " AND PkgEndDate BETWEEN '" + endDateBegin + "' AND '" + endDateFinish+ "'", conn))
                 {
                     conn.Open();
                     SqlDataReader reader = command.ExecuteReader();
@@ -62,8 +89,8 @@ namespace TravelExperts
             SqlConnection conn = null;
 
             // Create a query
-            string query = @"INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission)
-          VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
+            string query = @"INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage)
+          VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission, @PkgImage)";
 
             // Insert data into DataBase
             try
@@ -80,6 +107,7 @@ namespace TravelExperts
                         command.Parameters.AddWithValue("@PkgDesc", pack.PackDesc);
                         command.Parameters.AddWithValue("@PkgBasePrice", pack.PackBasePrice);
                         command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PackAgncyCommission);
+                        command.Parameters.AddWithValue("@Image", pack.PkgImage);
 
                         // Execute Sql Command
                         command.ExecuteNonQuery();
@@ -107,7 +135,7 @@ namespace TravelExperts
             string query = @"UPDATE Packages
                              SET PkgName=@PkgName, PkgStartDate=@PkgStartDate, PkgEndDate=@PkgEndDate, 
                                  PkgDesc=@PkgDesc, PkgBasePrice=@PkgBasePrice, 
-                                 PkgAgencyCommission=@PkgAgencyCommission
+                                 PkgAgencyCommission=@PkgAgencyCommission, PkgImage=@PkgImage
                              WHERE PackageId=" + Convert.ToString(packId);
 
             // Insert data into DataBase
@@ -125,6 +153,7 @@ namespace TravelExperts
                       command.Parameters.AddWithValue("@PkgDesc", pack.PackDesc);
                       command.Parameters.AddWithValue("@PkgBasePrice", pack.PackBasePrice);
                       command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PackAgncyCommission);
+                      command.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
                       // Execute Sql Command
                       command.ExecuteNonQuery();
                   }
