@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TraveExpertClassLibrary
+namespace TravelExperts
 {
     public class PackProdSupplier
     {
@@ -38,9 +38,10 @@ namespace TraveExpertClassLibrary
         }
 
         // METHOD WHICH BUILDS LIST OF SUPPLIER-ID PAIRS
-        public static List<Supplier> createSupplierIdPairsList(int prodID) {
+        public static List<Supplier> createSupplierIdPairsList(int prodID)
+        {
             List<Supplier> list = null;
-            //list = SupplierDB.supplierIdPairsList(prodID);
+            list = SupplierDB.supplierIdPairsList(prodID);
             return list;
         }
 

@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TraveExpertClassLibrary;
 
 namespace TravelExperts
 {
@@ -15,12 +14,12 @@ namespace TravelExperts
         //Marko Jovanovic
         //Get suppliers
 
-        public static List<Suppliers> GetSuppliers()
+        public static List<Supplier> GetSuppliers()
         {
             string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
 
-            List<Suppliers> Suppliers = new List<Suppliers>();
-            Suppliers Sup;
+            List<Supplier> Suppliers = new List<Supplier>();
+            Supplier Sup;
             SqlConnection con = new SqlConnection(configString);
             string selectQuery = "SELECT SupplierId , SupName FROM Suppliers ORDER BY SupplierId asc";
 
@@ -31,7 +30,7 @@ namespace TravelExperts
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Sup = new Suppliers();
+                    Sup = new Supplier();
                     Sup.SupplierId = Convert.ToInt32(reader["SupplierId"]);
                     Sup.SupName = (string)reader["SupName"];
                     Suppliers.Add(Sup);
@@ -138,11 +137,21 @@ namespace TravelExperts
         public static int AddSuppliers(int product, int supplier)
         {
             string configString = ConfigurationManager.ConnectionStrings["TravelExperts"].ConnectionString;
-
             int success = 0;
+
             SqlConnection con = new SqlConnection(configString);
-            string insertProducts = "INSERT INTO Products_Suppliers (SupplierId, ProductId) " +
-                "VALUES(@SupplierId, @ProductId)";
+
+            //++ Dima Bognen
+            // Jan 31, 2019 
+            // Changed SQL query so it doesn't insert duplicate values 
+            //string insertProducts = "INSERT INTO Products_Suppliers (SupplierId, ProductId) " +
+            //                        "VALUES(@SupplierId, @ProductId)";
+
+            string insertProducts = "INSERT INTO Products_Suppliers(ProductId, SupplierId) " +
+                                    "SELECT @ProductId, @SupplierId " +
+                                    "WHERE NOT EXISTS(SELECT * FROM Products_Suppliers " +
+                                    "WHERE  ProductId = @ProductId  AND SupplierId = @SupplierId)";
+            // -- Dima Bognen, End of change
 
             SqlCommand cmd = new SqlCommand(insertProducts, con);
             cmd.Parameters.AddWithValue("@ProductId", product);
@@ -171,9 +180,21 @@ namespace TravelExperts
 
             int success = 0;
             SqlConnection con = new SqlConnection(configString);
+
+            //++ Dima Bognen
+            // Jan 31, 2019 
+            // Changed SQL query so it doesn't update duplicate values 
+            //string selectStatement = "UPDATE Products_Suppliers " +
+            //                         "SET ProductId = @ProductId, SupplierId = @SupplierId " +
+            //                         "WHERE ProductSupplierId = @ProductSupplierId";
+
             string selectStatement = "UPDATE Products_Suppliers " +
-                                     "SET ProductId = @ProductId, SupplierId = @SupplierId " +
-                                     "WHERE ProductSupplierId = @ProductSupplierId";
+                               "SET ProductId = @ProductId, SupplierId = @SupplierId " +
+                               "WHERE NOT EXISTS(SELECT * FROM Products_Suppliers " +
+                               "WHERE  ProductId = ProductId  AND SupplierId = @SupplierId) " +
+                               "AND ProductSupplierId = @ProductSupplierId";
+            //-- Dima Bognen - End Of Change
+
             SqlCommand cmd = new SqlCommand(selectStatement, con);
             cmd.Parameters.AddWithValue("@ProductSupplierId", RelationId); // value comes from the method's argument
             cmd.Parameters.AddWithValue("@SupplierId", Supplier);

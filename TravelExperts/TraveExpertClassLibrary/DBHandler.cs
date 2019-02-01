@@ -8,7 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using TravelExperts;
 
-namespace TraveExpertClassLibrary
+namespace TravelExperts
 {
     public static class DBHandler
     {
@@ -64,28 +64,7 @@ namespace TraveExpertClassLibrary
             return prodSuppliersList;
         }
        
-        //+++ METHOD RETURNS LIST OF SUPPLIERS PAIRS TO POPULATE COMBOBOX
-        public static List<Supplier> supplierIdPairsList(int prodID)
-        {
-            DataTable suppliersDT = new DataTable();
-            string supplierIdPairsQuery = @"select Suppliers.SupName, Suppliers.SupplierId
-                            from Products_Suppliers
-                            inner join Suppliers on Suppliers.SupplierId=Products_Suppliers.SupplierId
-                            where Products_Suppliers.ProductId=";
-            
-            suppliersDT = retreiveData(supplierIdPairsQuery,prodID);
-
-            // Create a list to store supplier-Id pairs
-            List<Supplier> pairs = new List<Supplier>();
-
-            // Store data from data table in the list
-            foreach (DataRow row in suppliersDT.Rows)
-            {
-                Supplier pair = new Supplier(row[0].ToString(), Convert.ToInt32(row[1]));
-                pairs.Add(pair);
-            }
-            return pairs;
-        }
+     
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //++ MOVE AFTER MARKO commit his changes
@@ -459,19 +438,5 @@ namespace TraveExpertClassLibrary
             return packageList;
         }
 
-        //***********FOR TEMPORARY FORM*********
-        public static DataTable temporaryProducts() {
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(configString))
-            {
-                using (SqlCommand command = new SqlCommand("select * from Products", conn))
-                {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    dt.Load(reader);
-                }
-            }
-            return dt;
-        }
     } // end of class
 } // end of namespace
