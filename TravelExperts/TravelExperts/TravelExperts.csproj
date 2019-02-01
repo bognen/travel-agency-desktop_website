@@ -60,6 +60,13 @@
       <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="PackFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackFilter.Designer.cs">
+      <DependentUpon>PackFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackFilterValidator.cs" />
     <Compile Include="PackFormValidator.cs" />
     <Compile Include="ProductsAdd.cs">
       <SubType>Form</SubType>
@@ -104,18 +111,6 @@
     <Compile Include="ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductsAdd.designer.cs">
-      <DependentUpon>ProductsAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductsUpdate.Designer.cs">
-      <DependentUpon>ProductsUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProductsWithSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,19 +125,7 @@
     <Compile Include="AddProductsWithSuppliers.Designer.cs">
       <DependentUpon>AddProductsWithSuppliers.cs</DependentUpon>
     </Compile>
-    <Compile Include="SupplierForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SupplierForm.Designer.cs">
-      <DependentUpon>SupplierForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SuppliersFunctions.cs" />
-    <Compile Include="TemporaryProducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TemporaryProducts.Designer.cs">
-      <DependentUpon>TemporaryProducts.cs</DependentUpon>
-    </Compile>
     <Compile Include="TextAndButtonControlPackForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,8 +143,14 @@
     <Compile Include="UpdateSuppliersAndProducts.Designer.cs">
       <DependentUpon>UpdateSuppliersAndProducts.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddSupplierFOrm.resx">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackFilter.resx">
+      <DependentUpon>PackFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAdd.resx">
       <DependentUpon>ProductsAdd.cs</DependentUpon>
@@ -184,12 +173,6 @@
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductsAdd.resx">
-      <DependentUpon>ProductsAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductsUpdate.resx">
-      <DependentUpon>ProductsUpdate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ProductsWithSuppliers.resx">
       <DependentUpon>ProductsWithSuppliers.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,12 +187,6 @@
     </Compile>
     <EmbeddedResource Include="AddProductsWithSuppliers.resx">
       <DependentUpon>AddProductsWithSuppliers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SupplierForm.resx">
-      <DependentUpon>SupplierForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TemporaryProducts.resx">
-      <DependentUpon>TemporaryProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextAndButtonControlPackForm.resx">
       <DependentUpon>TextAndButtonControlPackForm.cs</DependentUpon>

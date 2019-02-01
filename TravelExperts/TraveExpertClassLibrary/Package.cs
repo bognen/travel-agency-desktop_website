@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TraveExpertClassLibrary
+namespace TravelExperts
 {
     public class Package
     {

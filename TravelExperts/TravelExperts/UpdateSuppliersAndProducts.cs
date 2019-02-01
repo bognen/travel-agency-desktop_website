@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TraveExpertClassLibrary;
 
 namespace TravelExperts
 {
@@ -60,7 +59,7 @@ namespace TravelExperts
             yay = SuppliersFunctions.GetProductsAndSuppliersForUpdate(Convert.ToInt32(relationshipInitial.SelectedValue), Convert.ToInt32(productNew.SelectedValue), Convert.ToInt32(supplierNew.SelectedValue));
 
             if (yay == 1) MessageBox.Show("Update Successful");         
-            else MessageBox.Show("Update Unsuccessful please try again");
+            else MessageBox.Show("Update Unsuccessful. Product suppliers pair already exists");
         }
     }
 }

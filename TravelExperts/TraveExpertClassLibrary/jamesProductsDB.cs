@@ -6,9 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TraveExpertClassLibrary;
 
-namespace TraveExpertClassLibrary
+namespace TravelExperts
 {
     public static class jamesProductsDB
     {

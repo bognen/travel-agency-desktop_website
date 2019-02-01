@@ -70,7 +70,7 @@ namespace TravelExperts
                 form.Show();
                 this.Close();
             }
-            else MessageBox.Show("Data was not inserted");
+            else MessageBox.Show("Data was not inserted. It already exists");
 
             this.Close();
         }

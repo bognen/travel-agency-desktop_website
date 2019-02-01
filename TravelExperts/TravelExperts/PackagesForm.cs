@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TraveExpertClassLibrary;
 
 namespace TravelExperts
 {
@@ -15,6 +14,12 @@ namespace TravelExperts
     {
         // GLOBALVARIABLE WHICH CHECKS IF IT IS A NEW FORM
         bool itIsNewForm = true;
+        bool useCancelButton = false;
+        bool useSaveButton = false;
+        bool packageHasImage = false;
+        // Valiables to work with image
+        string newFileName = null;
+
         // List of ProdSuppliers Ids needed for updating form
         List<int> prodSuppliersIdForUpDate = new List<int>();
 
@@ -32,6 +37,34 @@ namespace TravelExperts
                 txtDesc.Text = string.Format("{0}", rowstring.Cells[4].Value);
                 txtBasePrice.Text = string.Format("{0:n}", rowstring.Cells[5].Value);
                 txtAgComm.Text = string.Format("{0:n}", rowstring.Cells[6].Value);
+
+                if (rowstring.Cells[7].Value != "" && rowstring.Cells[7].Value != System.DBNull.Value)
+                {
+                    newFileName = string.Format("{0}", rowstring.Cells[7].Value);
+                    imgDescription.Text = newFileName;
+                    imgDescription.BackColor = Color.White;
+                    imgDescription.ForeColor = Color.Gray;
+                    imgDescription.BorderStyle = BorderStyle.None;
+                    // Button
+                    btnManipulImage.Text = "X";
+                    // Image
+                    imgPackage.Image = Image.FromFile(Constants.IMAGESPATH + newFileName);
+
+                    // Variable
+                    packageHasImage = true;
+                }
+                else {
+                    imgDescription.Text = "";
+                    imgDescription.BackColor = Color.White;
+                    imgDescription.BorderStyle = BorderStyle.FixedSingle;
+                    // Image
+                    imgPackage.Image = null;
+                    // button
+                    btnManipulImage.Text = "...";
+
+                    packageHasImage = false;
+                }
+
                 itIsNewForm = false;
             }
         }
@@ -76,6 +109,7 @@ namespace TravelExperts
 
         private void PackagesForm_Load(object sender, EventArgs e)
         {
+            Globals.packageIsChanged = false;
             if (itIsNewForm == false)
             {
                 // if form is opened in EDIT mode fill all exusting informartion
@@ -116,7 +150,7 @@ namespace TravelExperts
                     dgvRow.Cells[1].Value = splitLine[1];
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).FlatStyle = FlatStyle.Flat;
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DataSource = supplierIdPairs;
-                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "SupplierName";
+                    ((DataGridViewComboBoxCell)dgvRow.Cells[2]).DisplayMember = "SupName";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).ValueMember = "SupplierId";
                     ((DataGridViewComboBoxCell)dgvRow.Cells[2]).Value =
                                 supplierIdPairs[indOfRightElement].SupplierId;
@@ -152,6 +186,8 @@ namespace TravelExperts
             //**************************************************************************
 
             FormHandler.captureChanges(this);
+
+            rtxtHint.SelectionAlignment = HorizontalAlignment.Center;
         }
 
         // METHOD HANDLES CELL CHANGES IN DATAGRIDVIEW
@@ -169,7 +205,7 @@ namespace TravelExperts
                 ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
                     Cells[2]).DataSource = supplierIdPairs;
                 ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
-                    Cells[2]).DisplayMember = "Supplier";
+                    Cells[2]).DisplayMember = "SupName";
                 ((DataGridViewComboBoxCell)dgvPackProdSuppl.Rows[e.RowIndex].
                     Cells[2]).ValueMember = "SupplierId";
             }
@@ -278,10 +314,19 @@ namespace TravelExperts
                 PackFormValidator.dgvIsNotEmpty(dgvPackProdSuppl) &&
                 PackFormValidator.dgvIsFilled(dgvPackProdSuppl)) {
 
+
+                // Set this bool variable to true so app won't try to save data twice
+                useSaveButton = true;
+
                 // Create an instance of Package class from the form
-                Package pack = new Package(txtName.Text, Convert.ToDateTime(tpStartDate.Text),
-                    Convert.ToDateTime(tpEndDate.Text), txtDesc.Text, Convert.ToDecimal(txtBasePrice.Text),
-                    Convert.ToDecimal(txtAgComm.Text));
+                Package pack = new Package();
+                pack.PackName = txtName.Text;
+                pack.PackStartDate = Convert.ToDateTime(tpStartDate.Text);
+                pack.PackEndDate = Convert.ToDateTime(tpEndDate.Text);
+                pack.PackDesc = txtDesc.Text;
+                pack.PackBasePrice = Convert.ToDecimal(txtBasePrice.Text);
+                pack.PackAgncyCommission = Convert.ToDecimal(txtAgComm.Text);
+                pack.PkgImage = imgDescription.Text;
 
                 // Create a list of innstances of PackIdProdSupId
                 List<PackIdProdSupId> pps = new List<PackIdProdSupId>();
@@ -317,8 +362,112 @@ namespace TravelExperts
             }
         }
 
+        // CANCEL BUTTON CLICK 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (Globals.packageIsChanged == true)
+            {
+                // Ask user if he/she wants to save data
+                DialogResult dr = MessageBox.Show("Package info has been changed. Do you want sate changes before you close it",
+                      "Closing Form", MessageBoxButtons.YesNoCancel);
+                useCancelButton = true;
+
+                // Processing user's answer
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        this.btnSave_Click(null, null);
+                        Close();
+                        break;
+                    case DialogResult.No:
+                        Close();
+                        break;
+                    case DialogResult.Cancel:
+                        useCancelButton = false;
+                        break;
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+        // UPPER-RIGHT CORNER X BUTTON
+        private void PackagesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Globals.packageIsChanged == true && useCancelButton == false && useSaveButton == false)
+            {
+                // Ask user if he/she wants to save data
+                DialogResult dr = MessageBox.Show("Package info has been changed. Do you want sate changes before you close it",
+                      "Closing Form", MessageBoxButtons.YesNoCancel);
+
+                // Processing user's answer
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        this.btnSave_Click(null, null);
+                        Close();
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+        }
+
+        // Method handles form behavior on IMAGE LOAD BUTTON CLICK
+        private void btnManipulImage_Click(object sender, EventArgs e)
+        {
+
+
+            if (packageHasImage == false)
+            {
+                // Inititialize Dialog
+                OpenFileDialog open = new OpenFileDialog();
+                open.InitialDirectory = @"C:\Users\803395\Pictures";
+                open.Filter = "Image Files (*.jpg)|*.jpg|All files(*.*)|*.*";
+                open.FilterIndex = 1;
+
+                // Open dialog 
+                if (open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (open.CheckFileExists)
+                    {
+                        //string newFileName = System.IO.Path.GetFileName(open.FileName);
+                        // Create the name of the file
+                        newFileName = txtName.Text + txtId.Text + ".jpg";
+                        // Save file to a new folder
+                        System.IO.File.Copy(open.FileName, Constants.IMAGESPATH + newFileName, true);
+
+                        // Change the label, image and button
+                        imgDescription.Text = newFileName;
+                        imgDescription.BackColor = Color.White;
+                        imgDescription.ForeColor = Color.Gray;
+                        imgDescription.BorderStyle = BorderStyle.None;
+                        // Button
+                        btnManipulImage.Text = "X";
+                        // Image
+                        imgPackage.Image = Image.FromFile(Constants.IMAGESPATH + newFileName);
+
+                        // Variable
+                        packageHasImage = true;
+                    }
+                }        
+            }
+            else {
+                // label
+                imgDescription.Text = "";
+                imgDescription.BackColor = Color.White;
+                imgDescription.BorderStyle = BorderStyle.FixedSingle;
+                // Image
+                imgPackage.Image = null;
+                // button
+                btnManipulImage.Text = "...";
+
+                packageHasImage = false;
+            }
 
         }
     } // end of class
