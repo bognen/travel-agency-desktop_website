@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +47,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSupplierForm.Designer.cs">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookingForm.Designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="PackFormValidator.cs" />
+    <Compile Include="ProductsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAdd.designer.cs">
+      <DependentUpon>ProductsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsUpdate.Designer.cs">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHandler.cs" />
     <Compile Include="LandingPage.cs">
@@ -59,27 +86,18 @@
     <Compile Include="LandingPage.Designer.cs">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Package\PackagesForm.cs">
+    <Compile Include="PackagesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Package\PackagesForm.Designer.cs">
+    <Compile Include="PackagesForm.Designer.cs">
       <DependentUpon>PackagesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Package\PackagesList.cs">
+    <Compile Include="PackagesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Package\PackagesList.Designer.cs">
+    <Compile Include="PackagesList.Designer.cs">
       <DependentUpon>PackagesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Package\PackFilter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Package\PackFilter.Designer.cs">
-      <DependentUpon>PackFilter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Package\PackFilterValidator.cs" />
-    <Compile Include="Package\PackFormValidator.cs" />
-    <Compile Include="PackProdSupplierDB.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,11 +124,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AddProductsWithSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProductsWithSuppliers.Designer.cs">
+      <DependentUpon>AddProductsWithSuppliers.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuppliersFunctions.cs" />
+    <Compile Include="TemporaryProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemporaryProducts.Designer.cs">
+      <DependentUpon>TemporaryProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="TextAndButtonControlPackForm.cs">
       <SubType>UserControl</SubType>
@@ -123,21 +154,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UpdateSuppliersAndProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateSuppliersAndProducts.Designer.cs">
+      <DependentUpon>UpdateSuppliersAndProducts.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAdd.resx">
+      <DependentUpon>ProductsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsUpdate.resx">
+      <DependentUpon>ProductsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Package\PackagesForm.resx">
+    <EmbeddedResource Include="PackagesForm.resx">
       <DependentUpon>PackagesForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Package\PackagesList.resx">
+    <EmbeddedResource Include="PackagesList.resx">
       <DependentUpon>PackagesList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Package\PackFilter.resx">
-      <DependentUpon>PackFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
@@ -160,14 +202,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddProductsWithSuppliers.resx">
+      <DependentUpon>AddProductsWithSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemporaryProducts.resx">
+      <DependentUpon>TemporaryProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextAndButtonControlPackForm.resx">
       <DependentUpon>TextAndButtonControlPackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextAndButtonControlPackList.resx">
       <DependentUpon>TextAndButtonControlPackList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateSuppliersAndProducts.resx">
+      <DependentUpon>UpdateSuppliersAndProducts.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,6 +252,5 @@
       <Name>TraveExpertClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

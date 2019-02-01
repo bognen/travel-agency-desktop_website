@@ -4,19 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExperts
+namespace TraveExpertClassLibrary
 {
     public class Supplier
     {
+        public Supplier() { }
 
-        // Public properties
-        public string SupplierName { get; set; } // It is display member
-        public int SupplierId { get; set; }  // It is value member
+        public Supplier(string v) { }
+
+        public int SupplierId { get; set; }
+
+        public string SupName { get; set; }
 
         // Class constoructor
         public Supplier(string supplierName, int supplierId)
         {
-            this.SupplierName = supplierName;
+            this.SupName = supplierName;
             this.SupplierId = supplierId;
         }
     }

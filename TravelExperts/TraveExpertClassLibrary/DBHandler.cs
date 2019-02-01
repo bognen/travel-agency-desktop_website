@@ -6,8 +6,9 @@ using System.Data;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using TravelExperts;
 
-namespace TravelExperts
+namespace TraveExpertClassLibrary
 {
     public static class DBHandler
     {
@@ -418,9 +419,17 @@ namespace TravelExperts
             {
                 using (SqlCommand command = new SqlCommand("select * from BookingDetails", conn))
                 {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    packageList.Load(reader);
+                    try
+                    {
+                        conn.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        packageList.Load(reader);
+                    }
+                    catch (Exception e)
+                    { throw e; }
+                    finally
+                    { conn.Close(); }
+                    
                 }
             }
             return packageList;
@@ -435,9 +444,16 @@ namespace TravelExperts
             {
                 using (SqlCommand command = new SqlCommand("select ProductSupplierId, ps.ProductId, ProdName ,ps.SupplierId, SupName from Products_Suppliers ps join Products p on ps.ProductId = p.ProductId join Suppliers s on ps.SupplierId = s.SupplierId", conn))
                 {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    packageList.Load(reader);
+                    try {
+                        conn.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        packageList.Load(reader);
+                    }
+                    catch (Exception e)
+                    { throw e; }
+                    finally
+                    { conn.Close(); }
+
                 }
             }
             return packageList;

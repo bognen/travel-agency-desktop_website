@@ -45,7 +45,7 @@ namespace TravelExperts
 
         }
 
-        public string Text
+        public override string  Text
         {
             get { return this.textbox1.Text; }
             set { this.textbox1.Text = value; }
