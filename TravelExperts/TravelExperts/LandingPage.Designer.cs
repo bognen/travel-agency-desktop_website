@@ -48,9 +48,11 @@
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.Controls.Add(this.menuStrip1);
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelMenu.Location = new System.Drawing.Point(0, -1);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(140, 462);
+            this.panelMenu.Size = new System.Drawing.Size(153, 854);
             this.panelMenu.TabIndex = 0;
             // 
             // menuStrip1
@@ -65,13 +67,15 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(140, 206);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(153, 250);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // hOMEToolStripMenuItem
             // 
             this.hOMEToolStripMenuItem.AutoSize = false;
+            this.hOMEToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
             this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.hOMEToolStripMenuItem.Text = "HOME";
@@ -79,6 +83,7 @@
             // pACKEGESToolStripMenuItem
             // 
             this.pACKEGESToolStripMenuItem.AutoSize = false;
+            this.pACKEGESToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.pACKEGESToolStripMenuItem.Name = "pACKEGESToolStripMenuItem";
             this.pACKEGESToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.pACKEGESToolStripMenuItem.Text = "PACKAGES";
@@ -90,6 +95,7 @@
             this.sUPPLIERSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewSupplierToolStripMenuItem,
             this.addNewSupplierToolStripMenuItem});
+            this.sUPPLIERSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.sUPPLIERSToolStripMenuItem.Name = "sUPPLIERSToolStripMenuItem";
             this.sUPPLIERSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.sUPPLIERSToolStripMenuItem.Text = "SUPPLIERS";
@@ -97,20 +103,21 @@
             // viewSupplierToolStripMenuItem
             // 
             this.viewSupplierToolStripMenuItem.Name = "viewSupplierToolStripMenuItem";
-            this.viewSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewSupplierToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.viewSupplierToolStripMenuItem.Text = "View Supplier";
             this.viewSupplierToolStripMenuItem.Click += new System.EventHandler(this.viewSupplierToolStripMenuItem_Click);
             // 
             // addNewSupplierToolStripMenuItem
             // 
             this.addNewSupplierToolStripMenuItem.Name = "addNewSupplierToolStripMenuItem";
-            this.addNewSupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewSupplierToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.addNewSupplierToolStripMenuItem.Text = "Add New Supplier";
             this.addNewSupplierToolStripMenuItem.Click += new System.EventHandler(this.addNewSupplierToolStripMenuItem_Click);
             // 
             // pRODUCTSToolStripMenuItem
             // 
             this.pRODUCTSToolStripMenuItem.AutoSize = false;
+            this.pRODUCTSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.pRODUCTSToolStripMenuItem.Name = "pRODUCTSToolStripMenuItem";
             this.pRODUCTSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.pRODUCTSToolStripMenuItem.Text = "PRODUCTS";
@@ -119,6 +126,7 @@
             // bOOKINGSToolStripMenuItem
             // 
             this.bOOKINGSToolStripMenuItem.AutoSize = false;
+            this.bOOKINGSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.bOOKINGSToolStripMenuItem.Name = "bOOKINGSToolStripMenuItem";
             this.bOOKINGSToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
             this.bOOKINGSToolStripMenuItem.Text = "BOOKINGS";
@@ -126,20 +134,24 @@
             // 
             // productsWithSuppliersToolStripMenuItem
             // 
+            this.productsWithSuppliersToolStripMenuItem.AutoSize = false;
+            this.productsWithSuppliersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.productsWithSuppliersToolStripMenuItem.Name = "productsWithSuppliersToolStripMenuItem";
-            this.productsWithSuppliersToolStripMenuItem.Size = new System.Drawing.Size(175, 19);
-            this.productsWithSuppliersToolStripMenuItem.Text = "Products with Suppliers";
+            this.productsWithSuppliersToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
+            this.productsWithSuppliersToolStripMenuItem.Text = "PRODUCTS - SUPPLIERS";
             this.productsWithSuppliersToolStripMenuItem.Click += new System.EventHandler(this.productsWithSuppliersToolStripMenuItem_Click);
             // 
             // MainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 465);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panelMenu);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MainPage";
             this.Text = "Travel Experts";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

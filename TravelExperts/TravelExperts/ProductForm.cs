@@ -30,7 +30,7 @@ namespace TravelExperts
             this.tableAdapterManager.UpdateAll(this.travelExpertsDataSet);
         }
 
-        private void ProductForm_Load(object sender, EventArgs e)
+        public void ProductForm_Load(object sender, EventArgs e)
         {
            // add data from ProductList into the datagrid view on form load
             dataGridView1.DataSource = ProductList;
