@@ -26,6 +26,7 @@ namespace TravelExperts
         private void ProductsUpdate_Load(object sender, EventArgs e)
         {
             this.ClearControls();
+            txtProdName.Visible = false;
         }
 
         private Products products;
@@ -85,6 +86,7 @@ namespace TravelExperts
                 btnUpdate.Visible = true;
                 btnGetProducts.Visible = false;
                 txtProdId.ReadOnly = true;
+                txtProdName.Visible = true;
                 txtProdName.Text = products.ProdName;
             }
         }
@@ -110,6 +112,11 @@ namespace TravelExperts
                 else
                 {
                     products = newProducts;
+                    // ++ Dima Bognen
+                    // Added to update Product Form after new product was added
+                    FormHandler.upDateProductForm();
+                    // -- Dima Bognen -- End of change
+
                     //this.DialogResult = DialogResult.OK;
                     MessageBox.Show("Update Successful");
                     this.Close();

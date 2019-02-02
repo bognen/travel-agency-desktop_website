@@ -109,7 +109,7 @@ namespace TravelExperts
 
         private void PackagesForm_Load(object sender, EventArgs e)
         {
-            Globals.packageIsChanged = false;
+            Constants.packageIsChanged = false;
             if (itIsNewForm == false)
             {
                 // if form is opened in EDIT mode fill all exusting informartion
@@ -365,7 +365,7 @@ namespace TravelExperts
         // CANCEL BUTTON CLICK 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Globals.packageIsChanged == true)
+            if (Constants.packageIsChanged == true)
             {
                 // Ask user if he/she wants to save data
                 DialogResult dr = MessageBox.Show("Package info has been changed. Do you want sate changes before you close it",
@@ -395,7 +395,7 @@ namespace TravelExperts
         // UPPER-RIGHT CORNER X BUTTON
         private void PackagesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Globals.packageIsChanged == true && useCancelButton == false && useSaveButton == false)
+            if (Constants.packageIsChanged == true && useCancelButton == false && useSaveButton == false)
             {
                 // Ask user if he/she wants to save data
                 DialogResult dr = MessageBox.Show("Package info has been changed. Do you want sate changes before you close it",

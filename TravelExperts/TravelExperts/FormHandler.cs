@@ -103,7 +103,41 @@ namespace TravelExperts
             void txtDesc_TextChanged(object sender, EventArgs e)
             {
                 packForm.Text = "Package Form [Changed]*";
-                Globals.packageIsChanged = true;
+                Constants.packageIsChanged = true;
+            }
+        }
+
+        public static void upDateProductForm()
+        {
+
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "ProductForm")
+                {
+                    // declare int for row ID
+                    //int rowId = 0;
+                    // if the name of the form is packageList
+                    // parse form class object to PackageList object
+
+                    ProductForm pf = new ProductForm();
+                    pf = (ProductForm)f;
+
+                    //for (int i = 0; i < pl.dgvPackageList.Rows.Count; i++)
+                    //{
+                    //    int checkedId = Convert.ToInt32(pl.dgvPackageList.Rows[i].Cells[0].Value);
+                    //    if (checkedId == packId)
+                    //    {
+                    //        rowId = i;
+                    //    }
+                    //}
+                    //pl.activeRow = rowId;
+                    pf.dataGridView1.DataSource = jamesProductsDB.GetProducts(); 
+                }
             }
         }
     } // end of class

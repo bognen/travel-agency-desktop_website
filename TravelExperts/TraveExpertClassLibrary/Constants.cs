@@ -8,6 +8,8 @@ namespace TravelExperts
 {
     public class Constants
     {
+        public static bool packageIsChanged = false;
+
         public static DateTime MAXDATE = new DateTime(9998, 12, 31);
         public static DateTime MINDATE = new DateTime(1753, 1, 1);
 

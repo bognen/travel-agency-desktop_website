@@ -36,6 +36,10 @@ namespace TravelExperts
 
             if (success == 1)
             {
+                // ++ Dima Bognen
+                // Added to update Product Form after new product was added
+                FormHandler.upDateProductForm();
+                // -- Dima Bognen -- End of change
                 MessageBox.Show("Data inserted Correctly");
                 this.Close();
             }
