@@ -101,33 +101,39 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(217, 66);
+            this.textBox1.Location = new System.Drawing.Point(326, 102);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(148, 26);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(111, 66);
+            this.textBox2.Location = new System.Drawing.Point(166, 102);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(148, 26);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "Product";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(217, 92);
+            this.textBox5.Location = new System.Drawing.Point(326, 142);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(148, 26);
             this.textBox5.TabIndex = 6;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(111, 92);
+            this.textBox6.Location = new System.Drawing.Point(166, 142);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(148, 26);
             this.textBox6.TabIndex = 5;
             this.textBox6.Text = "Supplier";
             // 
@@ -140,7 +146,8 @@
             this.deleteStripButton});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(800, 35);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip2.Size = new System.Drawing.Size(790, 54);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -179,10 +186,11 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(163, 40);
+            this.textBox9.Location = new System.Drawing.Point(244, 62);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.Size = new System.Drawing.Size(148, 26);
             this.textBox9.TabIndex = 9;
             this.textBox9.Text = "Search";
             // 
@@ -198,16 +206,17 @@
             // SupplierProduct
             // 
             this.SupplierProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SupplierProduct.Location = new System.Drawing.Point(41, 136);
+            this.SupplierProduct.Location = new System.Drawing.Point(22, 188);
+            this.SupplierProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SupplierProduct.Name = "SupplierProduct";
-            this.SupplierProduct.Size = new System.Drawing.Size(732, 254);
+            this.SupplierProduct.Size = new System.Drawing.Size(755, 228);
             this.SupplierProduct.TabIndex = 12;
             // 
             // ProductsWithSuppliers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(790, 430);
             this.Controls.Add(this.SupplierProduct);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.textBox9);
@@ -215,7 +224,9 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Location = new System.Drawing.Point(200, 40);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location = new System.Drawing.Point(200, 90);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeBox = false;
             this.Name = "ProductsWithSuppliers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
