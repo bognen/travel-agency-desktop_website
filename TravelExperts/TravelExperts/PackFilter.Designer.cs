@@ -44,59 +44,59 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 24);
+            this.label1.Location = new System.Drawing.Point(44, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 16);
+            this.label1.Size = new System.Drawing.Size(116, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name contains: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 58);
+            this.label2.Location = new System.Drawing.Point(16, 62);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
+            this.label2.Size = new System.Drawing.Size(137, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Start Date between:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(283, 59);
+            this.label3.Location = new System.Drawing.Point(283, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 16);
+            this.label3.Size = new System.Drawing.Size(37, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "And:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 95);
+            this.label4.Location = new System.Drawing.Point(19, 101);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 16);
+            this.label4.Size = new System.Drawing.Size(132, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "End Date between:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(283, 96);
+            this.label5.Location = new System.Drawing.Point(283, 102);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 16);
+            this.label5.Size = new System.Drawing.Size(37, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "And:";
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(365, 130);
+            this.btnApply.Location = new System.Drawing.Point(365, 138);
             this.btnApply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(89, 26);
+            this.btnApply.Size = new System.Drawing.Size(89, 28);
             this.btnApply.TabIndex = 5;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
@@ -104,20 +104,20 @@
             // 
             // txtNameCont
             // 
-            this.txtNameCont.Location = new System.Drawing.Point(155, 22);
+            this.txtNameCont.Location = new System.Drawing.Point(155, 23);
             this.txtNameCont.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNameCont.Name = "txtNameCont";
-            this.txtNameCont.Size = new System.Drawing.Size(300, 22);
+            this.txtNameCont.Size = new System.Drawing.Size(300, 24);
             this.txtNameCont.TabIndex = 6;
             // 
             // dtpStartDateBegin
             // 
             this.dtpStartDateBegin.CustomFormat = "dd MMM yyyy";
             this.dtpStartDateBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDateBegin.Location = new System.Drawing.Point(155, 56);
+            this.dtpStartDateBegin.Location = new System.Drawing.Point(155, 60);
             this.dtpStartDateBegin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpStartDateBegin.Name = "dtpStartDateBegin";
-            this.dtpStartDateBegin.Size = new System.Drawing.Size(120, 22);
+            this.dtpStartDateBegin.Size = new System.Drawing.Size(120, 24);
             this.dtpStartDateBegin.TabIndex = 7;
             this.dtpStartDateBegin.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.dtpStartDateBegin.Enter += new System.EventHandler(this.dtpStartDateBegin_Enter);
@@ -127,10 +127,10 @@
             // 
             this.dtpStartDateFinish.CustomFormat = "dd MMM yyyy";
             this.dtpStartDateFinish.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDateFinish.Location = new System.Drawing.Point(326, 57);
+            this.dtpStartDateFinish.Location = new System.Drawing.Point(326, 61);
             this.dtpStartDateFinish.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpStartDateFinish.Name = "dtpStartDateFinish";
-            this.dtpStartDateFinish.Size = new System.Drawing.Size(128, 22);
+            this.dtpStartDateFinish.Size = new System.Drawing.Size(128, 24);
             this.dtpStartDateFinish.TabIndex = 8;
             this.dtpStartDateFinish.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.dtpStartDateFinish.Enter += new System.EventHandler(this.dtpStartDateFinish_Enter);
@@ -140,10 +140,10 @@
             // 
             this.dtpEndDateFinish.CustomFormat = "dd MMM yyyy";
             this.dtpEndDateFinish.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDateFinish.Location = new System.Drawing.Point(326, 93);
+            this.dtpEndDateFinish.Location = new System.Drawing.Point(326, 99);
             this.dtpEndDateFinish.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEndDateFinish.Name = "dtpEndDateFinish";
-            this.dtpEndDateFinish.Size = new System.Drawing.Size(128, 22);
+            this.dtpEndDateFinish.Size = new System.Drawing.Size(128, 24);
             this.dtpEndDateFinish.TabIndex = 10;
             this.dtpEndDateFinish.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.dtpEndDateFinish.Enter += new System.EventHandler(this.dtpEndDateFinish_Enter);
@@ -153,10 +153,10 @@
             // 
             this.dtpEndDateBegin.CustomFormat = "dd MMM yyyy";
             this.dtpEndDateBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDateBegin.Location = new System.Drawing.Point(155, 92);
+            this.dtpEndDateBegin.Location = new System.Drawing.Point(155, 98);
             this.dtpEndDateBegin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpEndDateBegin.Name = "dtpEndDateBegin";
-            this.dtpEndDateBegin.Size = new System.Drawing.Size(120, 22);
+            this.dtpEndDateBegin.Size = new System.Drawing.Size(120, 24);
             this.dtpEndDateBegin.TabIndex = 9;
             this.dtpEndDateBegin.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.dtpEndDateBegin.Enter += new System.EventHandler(this.dtpEndDateBegin_Enter);
@@ -164,9 +164,9 @@
             // 
             // PackFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 170);
+            this.ClientSize = new System.Drawing.Size(470, 181);
             this.Controls.Add(this.dtpEndDateFinish);
             this.Controls.Add(this.dtpEndDateBegin);
             this.Controls.Add(this.dtpStartDateFinish);
@@ -178,8 +178,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Location = new System.Drawing.Point(370, 110);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location = new System.Drawing.Point(370, 180);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PackFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

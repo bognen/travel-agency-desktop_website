@@ -107,7 +107,7 @@ namespace TravelExperts
                         command.Parameters.AddWithValue("@PkgDesc", pack.PackDesc);
                         command.Parameters.AddWithValue("@PkgBasePrice", pack.PackBasePrice);
                         command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PackAgncyCommission);
-                        command.Parameters.AddWithValue("@Image", pack.PkgImage);
+                        command.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
 
                         // Execute Sql Command
                         command.ExecuteNonQuery();

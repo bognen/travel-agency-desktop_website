@@ -143,7 +143,7 @@
             this.dgvPackageList.MultiSelect = false;
             this.dgvPackageList.Name = "dgvPackageList";
             this.dgvPackageList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPackageList.Size = new System.Drawing.Size(1082, 569);
+            this.dgvPackageList.Size = new System.Drawing.Size(1082, 409);
             this.dgvPackageList.TabIndex = 2;
             this.dgvPackageList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackageList_CellDoubleClick);
             this.dgvPackageList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPackageList_KeyDown);
@@ -153,11 +153,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 621);
+            this.ClientSize = new System.Drawing.Size(1114, 461);
             this.Controls.Add(this.dgvPackageList);
             this.Controls.Add(this.toolStrip2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Location = new System.Drawing.Point(200, 20);
+            this.Location = new System.Drawing.Point(200, 90);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PackagesList";
             this.ShowIcon = false;

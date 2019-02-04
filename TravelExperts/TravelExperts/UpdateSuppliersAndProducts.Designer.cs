@@ -52,9 +52,10 @@
             // 
             // view
             // 
-            this.view.Location = new System.Drawing.Point(198, 61);
+            this.view.Location = new System.Drawing.Point(129, 151);
+            this.view.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.view.Name = "view";
-            this.view.Size = new System.Drawing.Size(75, 23);
+            this.view.Size = new System.Drawing.Size(112, 35);
             this.view.TabIndex = 1;
             this.view.Text = "View";
             this.view.UseVisualStyleBackColor = true;
@@ -62,39 +63,48 @@
             // 
             // productCurrent
             // 
-            this.productCurrent.Location = new System.Drawing.Point(333, 63);
+            this.productCurrent.Enabled = false;
+            this.productCurrent.Location = new System.Drawing.Point(281, 99);
+            this.productCurrent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.productCurrent.Name = "productCurrent";
-            this.productCurrent.Size = new System.Drawing.Size(100, 20);
+            this.productCurrent.Size = new System.Drawing.Size(180, 26);
             this.productCurrent.TabIndex = 2;
             // 
             // supplierCurrent
             // 
-            this.supplierCurrent.Location = new System.Drawing.Point(537, 63);
+            this.supplierCurrent.Enabled = false;
+            this.supplierCurrent.Location = new System.Drawing.Point(491, 99);
+            this.supplierCurrent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.supplierCurrent.Name = "supplierCurrent";
-            this.supplierCurrent.Size = new System.Drawing.Size(100, 20);
+            this.supplierCurrent.Size = new System.Drawing.Size(180, 26);
             this.supplierCurrent.TabIndex = 3;
             // 
             // productNew
             // 
+            this.productNew.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productNew.FormattingEnabled = true;
-            this.productNew.Location = new System.Drawing.Point(312, 189);
+            this.productNew.Location = new System.Drawing.Point(281, 214);
+            this.productNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.productNew.Name = "productNew";
-            this.productNew.Size = new System.Drawing.Size(121, 21);
+            this.productNew.Size = new System.Drawing.Size(180, 28);
             this.productNew.TabIndex = 5;
             // 
             // supplierNew
             // 
+            this.supplierNew.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.supplierNew.FormattingEnabled = true;
-            this.supplierNew.Location = new System.Drawing.Point(516, 189);
+            this.supplierNew.Location = new System.Drawing.Point(491, 214);
+            this.supplierNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.supplierNew.Name = "supplierNew";
-            this.supplierNew.Size = new System.Drawing.Size(121, 21);
+            this.supplierNew.Size = new System.Drawing.Size(180, 28);
             this.supplierNew.TabIndex = 6;
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(516, 257);
+            this.update.Location = new System.Drawing.Point(559, 276);
+            this.update.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(75, 27);
+            this.update.Size = new System.Drawing.Size(112, 42);
             this.update.TabIndex = 7;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
@@ -102,41 +112,51 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(50, 27);
+            this.textBox5.Location = new System.Drawing.Point(75, 42);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(112, 20);
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(166, 26);
             this.textBox5.TabIndex = 8;
             this.textBox5.Text = "Enter Relationship ID:";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(333, 26);
+            this.textBox6.Location = new System.Drawing.Point(281, 42);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(180, 26);
             this.textBox6.TabIndex = 9;
             this.textBox6.Text = "Current Product:";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(537, 26);
+            this.textBox7.Location = new System.Drawing.Point(491, 42);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(180, 26);
             this.textBox7.TabIndex = 10;
             this.textBox7.Text = "Current Supplier:";
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(312, 154);
+            this.textBox9.Location = new System.Drawing.Point(281, 160);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(121, 20);
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(180, 26);
             this.textBox9.TabIndex = 12;
             this.textBox9.Text = "New Desired Product:";
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(516, 154);
+            this.textBox10.Location = new System.Drawing.Point(491, 160);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(121, 20);
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(180, 26);
             this.textBox10.TabIndex = 13;
             this.textBox10.Text = "New Desired Supplier:";
             // 
@@ -144,10 +164,12 @@
             // 
             this.relationshipInitial.DataSource = this.productsSuppliersBindingSource;
             this.relationshipInitial.DisplayMember = "ProductSupplierId";
+            this.relationshipInitial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.relationshipInitial.FormattingEnabled = true;
-            this.relationshipInitial.Location = new System.Drawing.Point(50, 62);
+            this.relationshipInitial.Location = new System.Drawing.Point(75, 95);
+            this.relationshipInitial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.relationshipInitial.Name = "relationshipInitial";
-            this.relationshipInitial.Size = new System.Drawing.Size(121, 21);
+            this.relationshipInitial.Size = new System.Drawing.Size(166, 28);
             this.relationshipInitial.TabIndex = 14;
             this.relationshipInitial.ValueMember = "ProductSupplierId";
             // 
@@ -172,9 +194,9 @@
             // 
             // UpdateSuppliersAndProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(745, 407);
             this.Controls.Add(this.relationshipInitial);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
@@ -187,7 +209,11 @@
             this.Controls.Add(this.supplierCurrent);
             this.Controls.Add(this.productCurrent);
             this.Controls.Add(this.view);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location = new System.Drawing.Point(160, 90);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UpdateSuppliersAndProducts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "UpdateSuppliersAndProducts";
             this.Load += new System.EventHandler(this.UpdateSuppliersAndProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsSuppliersBindingSource)).EndInit();

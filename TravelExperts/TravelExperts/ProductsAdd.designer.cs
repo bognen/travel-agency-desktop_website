@@ -39,8 +39,8 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(31, 62);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(46, 95);
+            this.lblName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 24);
             this.lblName.TabIndex = 2;
@@ -49,7 +49,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 75);
+            this.label2.Location = new System.Drawing.Point(46, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 24);
             this.label2.TabIndex = 4;
@@ -59,23 +60,26 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 108);
+            this.label3.Location = new System.Drawing.Point(44, 166);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 24);
             this.label3.TabIndex = 5;
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(267, 75);
+            this.txtProductName.Location = new System.Drawing.Point(255, 38);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(184, 20);
+            this.txtProductName.Size = new System.Drawing.Size(274, 26);
             this.txtProductName.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(34, 165);
+            this.button1.Location = new System.Drawing.Point(36, 103);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 38);
+            this.button1.Size = new System.Drawing.Size(156, 58);
             this.button1.TabIndex = 9;
             this.button1.Text = "Add New Product";
             this.button1.UseVisualStyleBackColor = true;
@@ -83,14 +87,17 @@
             // 
             // ProductsAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 262);
+            this.ClientSize = new System.Drawing.Size(586, 235);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblName);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location = new System.Drawing.Point(165, 90);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProductsAdd";
             this.Text = "Add New Products to Database";
             this.ResumeLayout(false);
